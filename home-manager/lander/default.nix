@@ -12,5 +12,6 @@
     ./dconf.nix
     ./rgb.nix
     ./session-variables.nix
+    ./text-editor.nix
   ];
 }
