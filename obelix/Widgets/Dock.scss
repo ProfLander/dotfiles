@@ -1,0 +1,17 @@
+@use "../Styles/Colors";
+
+.Cpu {
+    color: Colors.$green;
+}
+
+.Ram {
+    color: Colors.$yellow;
+}
+
+.Gpu {
+    color: Colors.$orange;
+}
+
+.Vram {
+    color: Colors.$red;
+}

@@ -1,0 +1,11 @@
+{ inputs, ... }:
+
+{
+  imports = [
+    ./lander/default.nix
+  ];
+
+  programs.home-manager.enable = true;
+
+  home.stateVersion = "25.05";
+}

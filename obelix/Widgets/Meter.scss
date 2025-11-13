@@ -1,0 +1,14 @@
+$radius: 41px;
+
+.Meter .icon {
+    font-size: 22px;
+}
+
+.Meter .progress {
+    min-width: $radius;
+    min-height: $radius;
+}
+
+.Meter .label {
+    color: white;
+}
