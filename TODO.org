@@ -1,0 +1,326 @@
+#+TITLE: Artemis TODO
+
+- [X] Investigate microcode patches
+- [X] Update BIOS
+  - Need to run BIOSRenamer.exe from windows before flashing
+- [X] Restore windows boot capability
+  - EFI setup lost during migration
+  - Easier to just reinstall Tiny10 on /dev/sda
+    - Set it up with its own EFI partition
+    - Use guix grub chainloader functionality to expose a menu option
+- [X] Strip out login manager
+- [X] Fix ineffective cursor settings
+  - Turned out to be missing `adwaita-icon-theme` following de-xorgification
+- [X] Autostart hyprland
+- [X] Setup gamemode
+  - No need, already provided by flatpak
+
+- [X] Setup mangohud
+
+- [X] Fix PulseAudio in flatpak
+  - Unable to connect to pulse, connection refused
+  - Possibly down to pulse running as a system service, and pipewire in userland
+  - Fixed by integrating pulseaudio home service
+
+- [X] Launch file manager from Bottles
+  - Caused by `xdg-desktop-portal-gtk` needing to run after hyprland comes up
+
+- [X] Working Bottles
+  
+- [X] Update password-store password
+
+- [X] Setup remaining home services
+  - [X] SSH
+  - [X] gnupg
+
+- [X] Determine whether nonguix or flatpak Steam is preferable
+  - Flatpak fine for running Steam-distributed games
+    - Use Bottles for everything else
+
+  - [X] Package oh-my-posh
+    - [X] Write  initial package definition
+    - [X] Package binary distribution instead of source
+      - Manually packaging every go dependency is madness
+      - Binary is less work, easier to maintain
+
+- [X] Setup trivial transmission-daemon home service
+
+- [X] Setup early KMS start
+  - Need monitor EDID files
+
+- [X] Launch browser from Discord
+  - dbus-monitor reveals `OpenURI` being sent and reaching the portal, which then fails to find a handler for the HTTP / HTTPS mime type
+    - Both are registered to icecat in ~/.config/mimeapps.list
+    - Both function correctly when used with xdg-open
+    - Conclusion: `xdg-desktop-portal` lacks the right environment?
+      - Correct, needed to run `dbus-update-activation-environment` before starting portals
+
+- [X] Fix IceCat desktop entry
+  - Doesn't accept a URL parameter, so can't open links
+  - Fixed by replacing IceCat with Zen
+
+- [X] Replace Zen
+  - Autofocusing address bar on new windows (issue #1742) makes it unusable with vim bindings, marked wontfix
+  - New tab interface doesn't play well with 
+  - Reinstate IceCat
+
+- [X] Solve for system dark theme
+  - Shouldn't need to override in every application
+  - `dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"`
+    - Worked to set Zen theme
+      - Need to see if this persists across reboots
+    - Didn't change any desktop-portal-gtk popups
+  - Conclusion:
+    - Persists across reboots
+    - Works for desktop-portal-gtk with appropriate dbus env propagation
+
+- [X] Setup floating window overrides for popups
+  - File selector
+
+- [X] Bindings for layout switching in hyprland
+  - [X] Cycle
+  - [X] Roll
+
+- [X] Bindings for floating windows in hyprland
+  - [X] Drag move
+  - [X] Resize
+  - [X] Toggle floating
+
+- [X] Implement dconf service
+  - Set values from an associative list
+  - Use to make gnome color preference reproducible
+  - Already supplied by NixOS
+
+- [X] Trim unneeded packages from system config
+  - NixOS is already minimal
+
+- [X] Patch `Emacs (Client)` desktop file to open new windows
+  - Is this still necessary following the switch to Nix?
+    - No, just setting file associations
+
+  - [X] Setup packaging workflow for zsh plugins
+    - [X] zsh-autosuggestions
+    - [X] zsh-syntax-highlighting
+    - Installed plugins from guix repos
+
+  - [X] Look into terminfo setup for kitty
+    - No need, switched to Alacritty
+
+  - [X] Reimplement corner and minibuffer widgets using AGS
+    - More featureful than EWW
+    - Allows arbitrary keypress events
+
+  - [X] Fine-tune hyprland blur settings
+
+- [X] Convert stateful configs to Home Manager
+  - Probably a good fit for services
+  - [X] dconf
+  - [X] MIME types
+
+- [X] Organize configs into module structure
+
+- [X] Publish configs to github
+
+- [-] System stability
+  - RAM set to rated timing via DOCP
+  - CPU at +5 voltage curve offset
+  - CPU at -50mhz clock offset
+  - Further investigation:
+    - Kernel parameters (C-states, etc.)
+      - https://www.klingt.net/articles/amd-ryzen-random-reboots-under-linux-when-in-idle.html
+    - SysRq key for testing against lockups
+      - https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
+  - Stable for a full day after disabling DRAM Power Down Mode
+  - Testing with stock clock and 0 curve offset...
+  - System hang under 0 curve offset, increased to 4
+    - Stable for a day or so thus far
+    - Started freezing a day or two later
+    - Need to bind REISUB and attempt to diagnose via logs etc
+  - Increased curve offset to 5
+    - Stable for a couple of days thus far
+    - Still locks up, but much more rarely
+  - Reduced CPU clock by 50mhz
+
+- [X] Shell completion pass
+  - https://github.com/zsh-users/zsh-completions/tree/master/src
+    - Appears to have a guix package
+  - Flatpak
+  - Guix
+    - httes://github.com/edmundmiller/guix-zsh-completions/tree/master
+  - Provided by NixOS
+
+- [ ] Fix incorrect AM / PM display in oh-my-posh prompt
+
+- [ ] Reinstate transmission home service
+
+- [-] Investigate fancy themes
+  - Ideally, everything should look like the emacs / terminal style
+    - Transparency + blur etc
+  - [X] Find a widget theme
+    - MacTahoe-dark is good for general widgets
+  - [X] Setup overrides to enable transparency
+  - [X] Integrate with Flatpak
+  - [ ] Integrate with Qt
+    - OpenRGB currently displaying with a white theme
+  - [ ] Find a cursor theme
+  - [ ] Find an icon theme
+  - [X] Refine GTK theme
+    - [X] Improve titlebar contrast
+    - [X] Theme dropdowns
+    - [X] Improve separator appearance
+      - Need to check against light theme
+    - [X] Consider dialing back black-tinting for a more uniform glass look
+    - [X] Replicate GTK3 overrides in GTK4
+      - Fix Bottles add / install text separators
+      - Transparent background for bottles 'add new' overlay
+  - [ ] Refine Discord theme
+    - [ ] Dark titlebar
+    - [ ] Fira Code Nerd Font
+    - [ ] Revert changes to discord / add server / compass icons
+  - [X] Theme IceCat
+  - [X] Reconsider Zen Browser
+    - Transparent Zen plugin may allow for website opacity
+    - May be able to hack the default URL bar focus out somehow
+  - [X] Reconsider background color
+    - Dracula BG too grey for glass effect, washes out image
+  - [X] Theme fuzzel
+    - Not blurring
+    - Outline is too thin
+    - Try to fix rignt-edge graphical issues
+      - Could also consider other dmenu-standard wayland launchers
+    - Abandoned in favor of layer shell
+  - [X] Implement rounded monitor corners a-la webOS
+  - [-] Implement minibuffer widget
+    - [X] Basic command running
+    - [X] Implement persistent black background underlay to hide fade artifacts
+    - [X] Close on esc, ctrl+g, focus loss
+    - [X] Dmenu-style filtering
+    - [X] Desktop file launching
+    - [X] Fix shell command behaviour
+      - Arguably a redundant mode if a 'summon terminal' bind is available
+    - [ ] Hyprland shortcut visualization a-la emacs' which-key
+      - Can parse `hyprctl -j binds`, populate descriptions
+      - Filter by active submap
+      - Likely better to focus the visualization window via prefix bind,
+        and have it be authoritative over hotkey discharge
+
+  - [-] Implement utility widgets
+    - [-] Monitors
+      - [X] CPU
+      - [X] RAM
+      - [X] GPU
+      - [X] VRAM
+      - [ ] Fans
+      - [ ] Disks
+      - [ ] Network
+    - [ ] Audio control
+    - [ ] GNU Pass
+      - Custom pinentry
+      - Dismissible username / password popup
+    - [ ] Project
+      - File browser with build shortcuts / status reporting / automation
+      - Detect projects via git / cargo / etc
+    - [ ] Window-swallowing launcher
+    - [ ] Launcher categories
+      - Applications / Games / Media / Tools / etc
+
+        - Can use desktop file categories as a top-level URI segment
+      - Power
+
+  - [ ] Theme bootloader
+
+  - [ ] Implement notification handling
+
+  - [ ] Implement tray handling
+
+- [X] Integrate GTK file manager
+  - [X] Select a file manager
+    - Nautilus integrates the best
+  - [X] Setup MIME associations
+    - Is this still necessary following the move to NixOS?
+
+- [ ] Consider reinstating X11 emacs to fix PGTK performance issues
+  - Will need to adjust font sizes to account for 1x scaling
+  - Smooth scrolling doesn't seem to work, event frequency maybe too high?
+
+- [ ] Consider trying neovide again
+  - Emacs excellent for flexibility
+  - ...But of limited benefit to an established workflow
+
+- [-] Setup convenient screen capture, recording, key shortcuts
+  - [X] Install OBS
+  - [X] Integrate with Bottles
+  - [X] Replace  with guix distribution
+  - [X] Fix `Screen Capture (Pipewire)` source
+    - Renaming `portals-hyprland.conf` to `portals.conf` made it visible to OBS
+      - Ergo, wasn't taking effect before, but no change re. discord links
+    - However, capture doesn't work
+      - Shows display selector
+  - [ ] Setup key shortcuts for hyprland
+    - [ ] Start / Stop recording
+    - [ ] Save last N seconds as video
+    - [ ] Save last N seconds as gif
+
+- [-] Finish porting zsh setup
+  - [X] Fix tab completion
+    - Stopped working after changes to .zshrc
+
+  - [X] Theme oh-my-posh
+  
+  - [X] Setup return code reporting
+  
+  - [X] Fix initial prompt width
+    - Switched to Alacritty, which handles it properly
+      - No need for ligatures, since emacs handles them
+  
+  - [X] Setup command wrapping
+    - By default, all stdout should be prefixed by a colored vertical bar
+    - This won't work for TUI programs like `man` or `pulsemixer`
+      - Need a blacklist
+    - Gave up, as the complexity needed for robust function is too high
+
+  - [ ] Look into niri again
+    - Should be easier to build the blur branch for Nix
+
+  - [-] Setup directory-specific segments
+    - [X] Git
+    - [ ] Plain
+    - [ ] Rust
+    - [ ] Scheme
+    - [ ] CMake
+
+  - [ ] Fix fuzzel command runner displaying incorrect error code
+    - `ls` yields 1 instead of 0 on a successful run
+
+- [-] Setup OpenRGB
+  - [X] User install
+  - [X] Setup udev rules
+  - [X] Upgrade to system-level configuration
+  - [ ] Configure
+    - Ideally with reproducible dotfiles
+  - [ ] Reintegrate rust capellix driver
+
+- [ ] Investigate smart working directory for launchers
+  - Fetch PID / other context from active window via hyprctl
+  - Derive working directory to launch program in
+  - Ideally should allow launching a program in the directory of the active kitty / emacs window
+
+- [ ] Keyboard binding fixup
+  - [ ] Bind `SysRq` key so REISUB can be used to recover cleanly
+  - [ ] Swap alt / super on secondary keyboard
+
+- [-] Organize filesystems
+  - [X] Named mounts in `/mnt`
+  - [ ] Denest `/mnt/media`
+  - [ ] Clean out hanging `business` dir
+
+- [ ] Package GTK theme
+
+- [-] Convert in-place configs to Home Manager
+  - [X] Alacritty
+  - [X] Btop
+  - [X] Git
+  - [X] Hyprland
+  - [ ] OpenRGB
+  - [ ] Transmission
+  - [X] Vesktop
