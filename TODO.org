@@ -211,6 +211,7 @@
       - [X] GPU
       - [X] VRAM
       - [ ] Fans
+        - Need to reinstigate custom fan control
       - [ ] Disks
       - [ ] Network
     - [ ] Audio control
@@ -247,6 +248,45 @@
   - Emacs excellent for flexibility
   - ...But of limited benefit to an established workflow
 
+- [ ] Collate list of emacs functionality to reproduce via layer shell
+  - [ ] pass
+    - Quick access to credentials
+  - [ ] magit
+    - Git operations with vim bindings
+  - [ ] dired
+    - File browsing with vim bindings
+  - [ ] Find file
+    - Partially accounted for via project pane
+    - Means to start from current dir / home dir
+  - [ ] Switch to buffer
+    - Switch to window / monitor / workspace?
+    - Window-specific switch action?
+      - ex.
+        - Switch buffers in text editor
+        - Switch tabs in web browser
+        - Switch directories in file manager
+  - [ ] Jump navigation
+    - Jump to window / monitor / workspace
+  - [ ] EMMS
+    - Automated media library
+    - Persistent + transient playlists
+  - [ ] elfeed
+    - RSS for media sources
+      - Potential use-case for notifications
+    - Scripted playlist population
+
+- [ ] Consider switching back to bash
+  - Faster startup times
+  - May be able to recover some equivalent zsh functionality
+  - Investigate fish
+    - May end up cutting a better balance between performance and features
+
+  - [ ] Look into niri again
+    - Try building blur branch for nix via flake
+      - May be tractable, though git discourse suggests various issues
+    - Regardless, put together a config
+      - Should be easier once more functionality is moved into the layer shell
+
 - [-] Setup convenient screen capture, recording, key shortcuts
   - [X] Install OBS
   - [X] Integrate with Bottles
@@ -279,9 +319,6 @@
       - Need a blacklist
     - Gave up, as the complexity needed for robust function is too high
 
-  - [ ] Look into niri again
-    - Should be easier to build the blur branch for Nix
-
   - [-] Setup directory-specific segments
     - [X] Git
     - [ ] Plain
@@ -313,14 +350,21 @@
   - [X] Named mounts in `/mnt`
   - [ ] Denest `/mnt/media`
   - [ ] Clean out hanging `business` dir
+  - [ ] Automount USB drive to `/mnt/usb`
 
 - [ ] Package GTK theme
 
 - [-] Convert in-place configs to Home Manager
-  - [X] Alacritty
-  - [X] Btop
-  - [X] Git
-  - [X] Hyprland
-  - [ ] OpenRGB
-  - [ ] Transmission
-  - [X] Vesktop
+  - [-] .configs
+    - [X] Alacritty
+    - [X] Btop
+    - [X] Git
+    - [X] Hyprland
+    - [ ] OpenRGB
+    - [ ] Transmission
+    - [X] Vesktop
+  - [ ] ~
+    - [ ] .gitconfig
+    - [ ] .profile
+    - [ ] .Xauthority
+    - [ ] .xinitrc
