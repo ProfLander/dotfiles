@@ -1,5 +1,5 @@
 {
-  boot.initrd.availableKernelModules = [
+  boot.initrd.kernelModules = [
     "amdgpu"
   ];
 
