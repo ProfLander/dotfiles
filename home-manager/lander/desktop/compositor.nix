@@ -3,6 +3,37 @@
 let
   niri = inputs.niri;
 in {
+  home.sessionVariables = {
+      # Session info
+      XDG_SESSION_TYPE = "wayland";
+  
+      # Default programs
+      TERM = "alacritty";
+      VISUAL = "emacsclient -c";
+      BROWSER = "firefox --new-window";
+  
+      # GTK
+      GDK_SCALE = 2;
+      GTK_THEME = "MacTahoe-Dark";
+      GTK2_RC_FILES = "~/.themes/MacTahoe-Dark/gtk-2.0/gtkrc";
+  
+      # Qt
+  
+      ## Enable high-DPI
+      QT_AUTO_SCREEN_SCALE_FACTOR = 1;
+      QT_ENABLE_HIGHDPI_SCALING = 1;
+  
+      ## Prevent font aliasing in high-DPI Qt6 programs
+      QT_SCALE_FACTOR_ROUNDING_POLICY = "RoundPreferFloor";
+  
+      ## Force wayland as the first choice of backend
+      QT_QPA_PLATFORM = "wayland:xcb";
+  
+      ## Don't draw window decorations
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      QT_QPA_PLATFORMTHEME = "gtk3";
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
@@ -28,38 +59,7 @@ in {
       env = [
         # Session info
         "XDG_CURRENT_DESKTOP, Hyprland"
-        "XDG_SESSION_TYPE, wayland"
         "XDG_SESSION_DESKTOP, Hyprland"
-
-        # Default programs
-        "TERM, $terminal"
-        "VISUAL, $textEditor"
-        "BROWSER, $browser"
-
-        # XCursor
-        "XCURSOR_THEME, Adwaita"
-        "XCURSOR_SIZE, 24"
-
-        # GTK
-        "GDK_SCALE, 2"
-        "GTK_THEME, MacTahoe-Dark"
-        "GTK2_RC_FILES, ~/.themes/MacTahoe-Dark/gtk-2.0/gtkrc"
-
-        # Qt
-
-        ## Enable high-DPI
-        "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
-        "QT_ENABLE_HIGHDPI_SCALING, 1"
-
-        ## Prevent font aliasing in high-DPI Qt6 programs
-        "QT_SCALE_FACTOR_ROUNDING_POLICY, RoundPreferFloor"
-
-        ## Force wayland as the first choice of backend
-        "QT_QPA_PLATFORM, wayland:xcb"
-
-        ## Don't draw window decorations
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
-        "QT_QPA_PLATFORMTHEME, gtk3"
       ];
 
       monitor = [
@@ -412,13 +412,13 @@ $subMod, BACKSPACE, exec, hyprctl keyword general:layout "$(hyprctl getoption ge
     };
 
     input = {
+      mod-key = "Alt";
+      focus-follows-mouse.enable = true;
+      warp-mouse-to-focus.enable = true;
+
       keyboard = {
         repeat-rate = 30;
         repeat-delay = 200;
-      };
-      
-      mouse = {
-        enable = false;
       };
       
       trackball = {
@@ -429,14 +429,14 @@ $subMod, BACKSPACE, exec, hyprctl keyword general:layout "$(hyprctl getoption ge
         scroll-method = "on-button-down";
         scroll-button = 277;
       };
-
-      focus-follows-mouse.enable = true;
-      warp-mouse-to-focus.enable = true;
     };
 
     prefer-no-csd = true;
 
     layout = {
+      gaps = 10;
+      always-center-single-column = true;
+
       border = {
         enable = true;
         width = 2;
@@ -447,14 +447,15 @@ $subMod, BACKSPACE, exec, hyprctl keyword general:layout "$(hyprctl getoption ge
           color = "#6272A4";
         };
       };
+
       focus-ring = {
-        enable = false;
+        enable = true;
         width = 2;
         active = {
-          color = "#BD93F9";
+          color = "#FF79C6";
         };
         inactive = {
-          color = "#6272A4";
+          color = "#BD93F9";
         };
       };
     };
@@ -483,29 +484,56 @@ $subMod, BACKSPACE, exec, hyprctl keyword general:layout "$(hyprctl getoption ge
     };
 
     binds = with config.lib.niri.actions; {
-      "Alt+h".action = focus-column-or-monitor-left;
-      "Alt+j".action = focus-window-or-monitor-down;
-      "Alt+k".action = focus-window-or-monitor-up;
-      "Alt+l".action = focus-column-or-monitor-right;
+      "Mod+h".action = focus-column-left;
+      "Mod+j".action = focus-window-down;
+      "Mod+k".action = focus-window-up;
+      "Mod+l".action = focus-column-right;
        
-      "Alt+Ctrl+h".action = move-column-left-or-to-monitor-left;
-      "Alt+Ctrl+j".action = move-window-down-or-to-workspace-down;
-      "Alt+Ctrl+k".action = move-window-down-or-to-workspace-down;
-      "Alt+Ctrl+l".action = move-column-right-or-to-monitor-right;
+      "Mod+Ctrl+h".action = consume-or-expel-window-left;
+      "Mod+Ctrl+j".action = move-window-down;
+      "Mod+Ctrl+k".action = move-window-up;
+      "Mod+Ctrl+l".action = consume-or-expel-window-right;
 
-      "Mod+h".action = set-column-width "-10%";
-      "Mod+j".action = set-window-height "+10%";
-      "Mod+k".action = set-window-height "-10%";
-      "Mod+l".action = set-column-width "+10%";
+      "Mod+Shift+h".action = set-column-width "-10%";
+      "Mod+Shift+j".action = set-window-height "+10%";
+      "Mod+Shift+k".action = set-window-height "-10%";
+      "Mod+Shift+l".action = set-column-width "+10%";
+
+      "Mod+Ctrl+Shift+h".action = move-column-left;
+      #"Mod+Ctrl+Shift+j".action = ???;
+      #"Mod+Ctrl+Shift+k".action = ???;
+      "Mod+Ctrl+Shift+l".action = move-column-right;
+
+      "Super+h".action = focus-monitor-left;
+      "Super+j".action = focus-workspace-down;
+      "Super+k".action = focus-workspace-up;
+      "Super+l".action = focus-monitor-right;
+
+      "Super+Shift+h".action = move-window-to-monitor-left;
+      "Super+Shift+j".action = move-window-to-workspace-down;
+      "Super+Shift+k".action = move-window-to-workspace-up;
+      "Super+Shift+l".action = move-window-to-monitor-right;
+
+      "Super+Ctrl+Shift+h".action = move-column-to-monitor-left;
+      "Super+Ctrl+Shift+j".action = move-column-to-workspace-down;
+      "Super+Ctrl+Shift+k".action = move-column-to-workspace-up;
+      "Super+Ctrl+Shift+l".action = move-column-to-monitor-right;
+
+      "Super+Space".action = toggle-overview;
+      "Super+Backspace".action = toggle-column-tabbed-display;
        
-      "Alt+Space".action = spawn ["emacsclient" "-c"];
-      "Alt+Ctrl+Space".action = spawn "alacritty";
+      "Mod+Space".action = spawn ["emacsclient" "-c"];
+      "Mod+Ctrl+Space".action = spawn "alacritty";
 
-      "Alt+Backspace".action = close-window;
+      "Mod+Backspace".action = close-window;
 
-      "Alt+F".action = fullscreen-window;
+      "Mod+f".action = toggle-windowed-fullscreen;
+      "Mod+Ctrl+f".action = maximize-column;
+      "Mod+Ctrl+Shift+f".action = fullscreen-window;
 
-      "Alt+Mod+Q".action = quit;
+      "Mod+Super+q".action = quit;
+
+      "Mod+Slash".action = show-hotkey-overlay;
     };
 
     gestures.hot-corners.enable = false;
