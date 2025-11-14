@@ -330,7 +330,7 @@
             "enabled" = false;
           };
           "NoBlockedMessages" = {
-            "enabled" = false;
+            "enabled" = true;
           };
           "NoDevtoolsWarning" = {
             "enabled" = false;
