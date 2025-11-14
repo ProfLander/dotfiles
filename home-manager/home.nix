@@ -1,5 +1,3 @@
-{ inputs, ... }:
-
 {
   imports = [
     ./lander/default.nix
