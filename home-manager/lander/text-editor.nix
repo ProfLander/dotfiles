@@ -8,6 +8,47 @@
 
   programs.neovim = {
     enable = true;
+    #defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+
+    extraConfig = ''
+      " Enable line numbers
+      set number
+
+      " Always show sign column to prevent jarring resizes
+      set signcolumn=yes
+
+      " Scroll one line at a time
+      set mousescroll=ver:1,hor:1
+
+      " Neovide background opacity
+      let g:neovide_normal_opacity=0.6
+
+      " More responsive neovide animations
+      let g:neovide_scroll_animation_length=0.05
+    '';
+
+    plugins = with pkgs.vimPlugins; [
+      {
+        plugin = nvim-lspconfig;
+        config = ''
+          lua vim.lsp.enable('nixd')
+        '';
+      }
+
+      (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+        p.bash
+        p.css
+        p.nix
+      ]))
+
+      {
+        plugin = dracula-nvim;
+        config = "colorscheme dracula";
+      }
+    ];
   };
 
   programs.neovide = {
