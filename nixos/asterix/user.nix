@@ -13,6 +13,6 @@
     shell = pkgs.zsh;
   };
 
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "lander";
+  # Automatic TTY login
+  services.mingetty.autologinUser = "lander";
 }

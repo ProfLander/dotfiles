@@ -10,6 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri.url = "github:sodiboo/niri-flake";
+
     astal.url = "github:aylur/astal";
 
     ags.url = "github:aylur/ags"; 
@@ -18,7 +20,7 @@
   };
 
   outputs =
-    inputs@{ nixpkgs, home-manager, obelix, ... }:
+    inputs@{ nixpkgs, home-manager, niri, obelix, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};

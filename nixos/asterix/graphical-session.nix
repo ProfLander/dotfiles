@@ -1,34 +1,39 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
-{
-  # Use greetd as our login manager
-  services.greetd = {
+let
+  niri = inputs.niri;
+in {
+  # Use uswm to wrap wayland compositors into systemd units
+  programs.uwsm = {
     enable = true;
-    settings = rec {
-      initial_session = {
-        command = "${pkgs.hyprland}/bin/hyprland";
-        user = "lander";
+    waylandCompositors = {
+      hyprland = {
+        prettyName = "Hyprland";
+        comment = "Hyprland compositor managed by UWSM";
+        binPath = "${pkgs.hyprland}/bin/Hyprland";
       };
-      default_session = initial_session;
+
+      niri = {
+        prettyName = "Niri";
+        comment = "Niri compositor managed by UWSM";
+        binPath = "${pkgs.niri}/bin/niri-session";
+      };
     };
   };
 
-  # Configure graphical services
-  services.xserver = {
-    enable = true;
+  environment.loginShellInit = ''
+    if uwsm check may-start && uwsm select; then
+      exec uwsm start default
+    fi
+  '';
 
-    # Keymap
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
-
-    # Disable default GDM displaymanager
-    displayManager.gdm.enable = false;
-  };
-
-  # Use hyprland as our compositor
+  # Use hyprland as the main compositor
   programs.hyprland.enable = true;
+
+  # Try out niri
+  imports = [ niri.nixosModules.niri ];
+  nixpkgs.overlays = [ niri.overlays.niri ];
+  programs.niri.enable = true;
 
   # Enable Ozone Wayland support in Chrome and Electron
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

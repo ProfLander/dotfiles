@@ -1,4 +1,8 @@
-{
+{ config, pkgs, inputs, ... }:
+
+let
+  niri = inputs.niri;
+in {
   wayland.windowManager.hyprland = {
     enable = true;
     package = null;
@@ -346,6 +350,164 @@ $subMod, BACKSPACE, exec, hyprctl keyword general:layout "$(hyprctl getoption ge
         };
       };
     };
+  };
 
+  # Try out niri
+  imports = [ niri.homeModules.config ];
+  programs.niri.settings = {
+    outputs = {
+      DP-1 = {
+        enable = true;
+        mode = {
+          width = 3840;
+          height = 2160;
+          refresh = 143.999;
+        };
+        variable-refresh-rate = true;
+        scale = 1.5;
+        focus-at-startup = true;
+        position = {
+          x = 0;
+          y = 0;
+        };
+      };
+      DP-2 = {
+        enable = true;
+        mode = {
+          width = 2560;
+          height = 1440;
+          refresh = 143.998;
+        };
+        variable-refresh-rate = true;
+        position = {
+          x = -2560;
+          y = builtins.floor(((2160 / 1.5) - 1440) / 2);
+        };
+      };
+      DP-3 = {
+        enable = true;
+        name = "DP-3";
+        mode = {
+          width = 1920;
+          height = 1200;
+          refresh = 59.95;
+        };
+        position = {
+          x = builtins.ceil(3840 / 1.5);
+          y = builtins.floor(((2160 / 1.5) - 1200) / 2);
+        };
+      };
+      HDMI-A-1 = {
+        enable = true;
+        mode = {
+          width = 1920;
+          height = 1080;
+          refresh = 60.0;
+        };
+        position = {
+          x = 0 - 2560 - 1920;
+          y = builtins.floor(((2160 / 1.5) - 1080) / 2);
+        };
+      };
+    };
+
+    input = {
+      keyboard = {
+        repeat-rate = 30;
+        repeat-delay = 200;
+      };
+      
+      mouse = {
+        enable = false;
+      };
+      
+      trackball = {
+        enable = true;
+
+        accel-speed = -0.75;
+        accel-profile = "flat";
+        scroll-method = "on-button-down";
+        scroll-button = 277;
+      };
+
+      focus-follows-mouse.enable = true;
+      warp-mouse-to-focus.enable = true;
+    };
+
+    prefer-no-csd = true;
+
+    layout = {
+      border = {
+        enable = true;
+        width = 2;
+        active = {
+          color = "#BD93F9";
+        };
+        inactive = {
+          color = "#6272A4";
+        };
+      };
+      focus-ring = {
+        enable = false;
+        width = 2;
+        active = {
+          color = "#BD93F9";
+        };
+        inactive = {
+          color = "#6272A4";
+        };
+      };
+    };
+
+    window-rules = [
+      {
+        clip-to-geometry = true;
+        draw-border-with-background = false;
+        geometry-corner-radius = {
+          top-left = 28.0;
+          top-right = 28.0;
+          bottom-left = 28.0;
+          bottom-right = 28.0;
+        };
+      }
+    ];
+
+    spawn-at-startup = [
+      { sh = "swaybg -i ~/Pictures/wallpaper-mountain.png -m fill"; }
+      { argv = ["obelix"]; }
+      { argv = ["emacs" "--exec" "'(server-start)'"]; }
+    ];
+
+    cursor = {
+      hide-when-typing = true;
+    };
+
+    binds = with config.lib.niri.actions; {
+      "Alt+h".action = focus-column-or-monitor-left;
+      "Alt+j".action = focus-window-or-monitor-down;
+      "Alt+k".action = focus-window-or-monitor-up;
+      "Alt+l".action = focus-column-or-monitor-right;
+       
+      "Alt+Ctrl+h".action = move-column-left-or-to-monitor-left;
+      "Alt+Ctrl+j".action = move-window-down-or-to-workspace-down;
+      "Alt+Ctrl+k".action = move-window-down-or-to-workspace-down;
+      "Alt+Ctrl+l".action = move-column-right-or-to-monitor-right;
+
+      "Mod+h".action = set-column-width "-10%";
+      "Mod+j".action = set-window-height "+10%";
+      "Mod+k".action = set-window-height "-10%";
+      "Mod+l".action = set-column-width "+10%";
+       
+      "Alt+Space".action = spawn ["emacsclient" "-c"];
+      "Alt+Ctrl+Space".action = spawn "alacritty";
+
+      "Alt+Backspace".action = close-window;
+
+      "Alt+F".action = fullscreen-window;
+
+      "Alt+Mod+Q".action = quit;
+    };
+
+    gestures.hot-corners.enable = false;
   };
 }
