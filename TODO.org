@@ -224,15 +224,19 @@
     - [ ] Window-swallowing launcher
     - [ ] Launcher categories
       - Applications / Games / Media / Tools / etc
-
         - Can use desktop file categories as a top-level URI segment
-      - Power
+    - [ ] Power
+      - Shutdown / Reboot
 
   - [ ] Theme bootloader
 
-  - [ ] Implement notification handling
+  - [-] Implement notification handling
+    - [X] Basic proof-of-concept
+    - [ ] GUI
 
-  - [ ] Implement tray handling
+  - [-] Implement tray handling
+    - [X] Basic proof-of-concept
+    - [ ] GUI
 
 - [X] Integrate GTK file manager
   - [X] Select a file manager
@@ -258,6 +262,7 @@
   - [ ] Find file
     - Partially accounted for via project pane
     - Means to start from current dir / home dir
+    - History heuristic for considering oft-used files outside active directory
   - [ ] Switch to buffer
     - Switch to window / monitor / workspace?
     - Window-specific switch action?
