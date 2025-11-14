@@ -6,7 +6,7 @@ export default function Bubble(params) {
     let [showLabel, setShowLabel] = createState(false);
 
     let widget = (
-        <box>
+        <box vexpand={false}>
             <box hexpand/>
             <box class={"Bubble " + params.class}>
                 {params.children}

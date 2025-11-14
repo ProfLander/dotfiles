@@ -12,7 +12,7 @@ export enum Side {
 const { TOP, BOTTOM, LEFT, RIGHT } = Astal.WindowAnchor
 
 export function Edge(args) {
-    let classes: [String] = ["Edge"]
+    let classes: [String] = args.cssClasses ? args.cssClasses.concat(["Edge"]) : ["Edge"]
     let namespace: String
     switch(args.side) {
         case Side.Top: {

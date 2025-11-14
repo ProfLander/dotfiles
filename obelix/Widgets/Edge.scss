@@ -2,21 +2,26 @@
 @use "Corners";
 
 .Edge {
-    margin: 10px;
+  margin: 10px;
+}
+
+.Edge.docked {
+  background-color: #282A36;
+  border-radius: Layout.$radius;
 }
 
 .Edge.top {
-    margin-top: 10px;
-    margin-bottom: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .Edge.top.docked {
-    margin: 0;
-    padding-top: Layout.$padding;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0 0 Corners.$corner-radius Corners.$corner-radius;
+  margin: 0;
+  border-bottom: 2px solid rgba(#BD93F9, 0.8);
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0 0 Corners.$corner-radius Corners.$corner-radius;
 }
 
 .Edge.bottom {
@@ -25,38 +30,38 @@
 }
 
 .Edge.bottom.docked {
-    margin: 0;
-    padding-bottom: Layout.$padding;
-    border-bottom: 0;
-    border-left: 0;
-    border-right: 0;
-    border-radius: Corners.$corner-radius Corners.$corner-radius 0 0;
+  margin: 0;
+  border-top: 2px solid rgba(#BD93F9, 0.8);
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: Corners.$corner-radius Corners.$corner-radius 0 0;
 }
 
 .Edge.left {
-    margin-left: 10px;
-    margin-right: 0;
+  margin-left: 10px;
+  margin-right: 0;
 }
 
 .Edge.left.docked {
-    margin: 0;
-    padding-left: Layout.$padding;
-    border-left: 0;
-    border-top: 0;
-    border-bottom: 0;
-    border-radius: 0 Corners.$corner-radius Corners.$corner-radius 0;
+  margin: 0;
+  border-right: 2px solid rgba(#BD93F9, 0.8);
+  border-left: 0;
+  border-top: 0;
+  border-bottom: 0;
+  border-radius: 0 Corners.$corner-radius Corners.$corner-radius 0;
 }
 
 .Edge.right {
-    margin-left: 0;
-    margin-right: 10px;
+  margin-left: 0;
+  margin-right: 10px;
 }
 
 .Edge.right.docked {
-    margin: 0;
-    padding-right: Layout.$padding;
-    border-right: 0;
-    border-top: 0;
-    border-bottom: 0;
-    border-radius: Corners.$corner-radius 0 0 Corners.$corner-radius;
+  margin: 0;
+  border-left: 2px solid rgba(#BD93F9, 0.8);
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+  border-radius: Corners.$corner-radius 0 0 Corners.$corner-radius;
 }

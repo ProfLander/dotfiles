@@ -49,7 +49,7 @@ export function Dock({monitor, visible}) {
     }, [])
 
     let widget = (
-        <Edge side={Side.Right}
+        <Edge cssClasses={["Dock", "docked"]} side={Side.Right}
         exclusivity={Astal.Exclusivity.EXCLUSIVE}
         visible={visible}
         gdkmonitor={monitor}>
@@ -69,7 +69,7 @@ export function Dock({monitor, visible}) {
 
                 {gpus}
 
-            <box vexpand/>
+		<box vexpand/>
             </box>
         </Edge>
     )
@@ -85,7 +85,6 @@ export function Dock({monitor, visible}) {
     }
 
     widget.toggle = () => widget.setOpen(!widget.open)
-    widget.set_resizable(false)
 
     return widget
 }

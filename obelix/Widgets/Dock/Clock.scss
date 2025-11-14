@@ -1,10 +1,9 @@
 @use "Styles/Layout";
 @use "Styles/Colors";
 
-$radius: 38px;
-$padding: 5px;
+$radius: 34px;
 
-$size: $radius - $padding;
+$size: $radius;
 $half-size: $size * 0.5;
 
 $margin-hour: $half_size * 0.25;
