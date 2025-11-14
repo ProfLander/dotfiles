@@ -90,7 +90,7 @@ in {
       
         allow_tearing = false;
       
-        layout = "master";
+        layout = "dwindle";
       };
 
       xwayland = {
@@ -202,7 +202,7 @@ in {
         "$mainMod, BACKSPACE, killactive,"
         
         # Exit hyprland
-        "$mainMod $subMod, Q, exit,"
+        "$mainMod $subMod, Q, exit"
         
         # Reload hyprland
         "$mainMod $subMod, R, exec, hyprctl reload,"
