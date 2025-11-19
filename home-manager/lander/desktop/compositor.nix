@@ -442,6 +442,10 @@ $subMod, BACKSPACE, exec, hyprctl keyword general:layout "$(hyprctl getoption ge
       gaps = 10;
       always-center-single-column = true;
 
+      default-column-width = {
+        proportion = 0.5;
+      };
+
       border = {
         enable = true;
         width = 2;
