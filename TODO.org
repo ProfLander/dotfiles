@@ -162,6 +162,7 @@
   - [X] Integrate with Flatpak
   - [ ] Integrate with Qt
     - OpenRGB currently displaying with a white theme
+    - Should be able to configure via nix module
   - [ ] Find a cursor theme
   - [ ] Find an icon theme
   - [X] Refine GTK theme
@@ -189,6 +190,11 @@
     - Try to fix rignt-edge graphical issues
       - Could also consider other dmenu-standard wayland launchers
     - Abandoned in favor of layer shell
+
+- [-] Implement layer shell
+  - [ ] Split widgets into separate processes
+    - Should be able to use AGS' multi-instance feature with conditional main
+    - Ideally should probably be separate projects, as the windows don't share data
   - [X] Implement rounded monitor corners a-la webOS
   - [-] Implement minibuffer widget
     - [X] Basic command running
@@ -198,12 +204,11 @@
     - [X] Desktop file launching
     - [X] Fix shell command behaviour
       - Arguably a redundant mode if a 'summon terminal' bind is available
-    - [ ] Hyprland shortcut visualization a-la emacs' which-key
+    - [ ] Global shortcut visualization a-la emacs' which-key
       - Can parse `hyprctl -j binds`, populate descriptions
       - Filter by active submap
       - Likely better to focus the visualization window via prefix bind,
         and have it be authoritative over hotkey discharge
-
   - [-] Implement utility widgets
     - [-] Monitors
       - [X] CPU
@@ -286,11 +291,31 @@
   - Investigate fish
     - May end up cutting a better balance between performance and features
 
-  - [ ] Look into niri again
-    - Try building blur branch for nix via flake
-      - May be tractable, though git discourse suggests various issues
-    - Regardless, put together a config
-      - Should be easier once more functionality is moved into the layer shell
+- [-] Look into niri again
+  - [-] Regardless, put together a config
+    - Should be easier once more functionality is moved into the layer shell
+  - [ ] Window rules for moving 'service windows' to dedicated workspaces
+    - [ ] Emacs
+    - [ ] OBS
+      - Can use key shortcuts + tray icon / persistent notification as primary interface
+      - Implement a minibuffer setup for switching scenes
+      - How to manage the desktop portal screen capture popup?
+        - Ideally should be configured once to capture DP-1
+  - [ ] Experiment with niri's built-in screen capture machinery
+    - May be a tractable alternative to grimblast
+  - [ ] Try building blur branch for nix via flake
+    - May be tractable, though git discourse suggests various issues
+
+- [ ] Setup Stylix
+  - [ ] Automatic wallpaper blur
+  - [ ] Start by theming smaller applications
+    - [ ] Alacritty
+    - [ ] Neovim
+    - [ ] Firefox
+    - [ ] Vencord
+  - Then move on to bigger ones
+    - [ ] GTK theme
+    - [ ] Qt
 
 - [-] Setup convenient screen capture, recording, key shortcuts
   - [X] Install OBS
@@ -301,8 +326,9 @@
       - Ergo, wasn't taking effect before, but no change re. discord links
     - However, capture doesn't work
       - Shows display selector
-  - [ ] Setup key shortcuts for hyprland
+  - [ ] Setup key shortcuts for compositor
     - [ ] Start / Stop recording
+      - Can use notifications to monitor progress
     - [ ] Save last N seconds as video
     - [ ] Save last N seconds as gif
 
