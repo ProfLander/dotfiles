@@ -318,6 +318,10 @@ $subMod, BACKSPACE, exec, hyprctl keyword general:layout "$(hyprctl getoption ge
         # Start obelix layer shell
         "obelix"
       ];
+
+      debug = {
+        full_cm_proto = true;
+      };
     };
 
     submaps = {
