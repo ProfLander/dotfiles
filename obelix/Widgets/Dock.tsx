@@ -18,7 +18,7 @@ import Vram from "Widgets/Dock/Vram";
 
 const POLL_RATE = 300
 
-export function Dock({monitor, visible}) {
+export function Dock({gdkmonitor, visible}) {
     let amd_smi = jsx(AmdSmi, {
         interval: POLL_RATE
     })
@@ -52,7 +52,7 @@ export function Dock({monitor, visible}) {
         <Edge cssClasses={["Dock", "docked"]} side={Side.Right}
         exclusivity={Astal.Exclusivity.EXCLUSIVE}
         visible={visible}
-        gdkmonitor={monitor}>
+        gdkmonitor={gdkmonitor}>
             <box orientation={Gtk.Orientation.VERTICAL}
             spacing={10}>
                 <Clock $={(ref) => (clock = ref)}/>

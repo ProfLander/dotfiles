@@ -19,8 +19,7 @@ function item_button(item) {
     )
 }
 
-export function Minibuffer({monitor, model}) {
-    let [gdkmonitor, setMonitor] = createState(monitor);
+export function Minibuffer({gdkmonitor, model}) {
     let [prompt, setPrompt] = createState("");
 
     let window: Astal.Window
@@ -123,7 +122,7 @@ export function Minibuffer({monitor, model}) {
     })
 
     window.setPrompt = setPrompt
-    window.setMonitor = setMonitor
+    window.setMonitor = (monitor) => {window.gdkmonitor = monitor}
 
     return window
 }
