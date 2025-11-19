@@ -457,6 +457,9 @@ $subMod, BACKSPACE, exec, hyprctl keyword general:layout "$(hyprctl getoption ge
           color = "#BD93F9";
         };
       };
+
+      struts.left = 16;
+      struts.right = 16;
     };
 
     window-rules = [
