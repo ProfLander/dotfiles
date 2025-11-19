@@ -22,6 +22,9 @@
     vencord = {
       themes = { 
         "TranslucencePlus.theme" = ./TranslucencePlus.theme.css;
+        "RemoveButtons.patch" = ./RemoveButtons.patch.css;
+        "RemoveTitlebar.patch" = ./RemoveTitlebar.patch.css;
+        "HighlightColor.patch" = ./HighlightColor.patch.css;
       };
 
       settings = {
@@ -32,6 +35,9 @@
         "eagerPatches" = false;
         "enabledThemes" = [
           "TranslucencePlus.theme.css"
+          "RemoveButtons.patch.css"
+          "RemoveTitlebar.patch.css"
+          "HighlightColor.patch.css"
         ];
         "enableReactDevtools" = false;
         "frameless" = true;

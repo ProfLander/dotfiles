@@ -1,0 +1,11 @@
+:root {
+  --accent-hue: 326;
+  --accent-saturation: 100%;
+  --accent-lightness: 74%;
+  --accent-opacity: 0.9;
+
+  --reply-hue: 326;
+  --reply-saturation: 100%;
+  --reply-lightness: 74%;
+  --reply-opacity: 0.6;
+}

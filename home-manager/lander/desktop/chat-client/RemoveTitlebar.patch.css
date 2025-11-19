@@ -1,0 +1,15 @@
+/* Remove dedicated title bar */
+@import url(https://raw.githubusercontent.com/sdhEmily/visual-refresh-compact-title-bar/refs/heads/main/browser.css);
+
+.visual-refresh {
+    /* controls the vertical position of the window buttons */
+    --vr-header-snippet-top: 0px !important;
+    /* controls the space above the server list */
+    --vr-header-snippet-server-padding: 0px !important;
+    /* controls the space the window buttons get on the channel header, experiment around with this if you get gaps or the buttons overlap! */
+    --vr-header-snippet-space: 180px !important;
+    /* controls the space to the right of the window buttons, good if you are using themes like midnight which add padding to the bar */
+    --vr-header-snippet-button-padding: 8px !important;
+    /* !DESKTOP SNIPPET ONLY! If set to none instead of flex, hides the window control buttons */
+    --vr-header-snippet-winbuttons: none !important;
+}

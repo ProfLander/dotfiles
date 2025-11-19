@@ -1,0 +1,24 @@
+/* Remove gift button */
+div[aria-label="Send a gift"] {
+	display:none !important;
+}
+/* Hide launch apps button */
+div[aria-label="Apps"]{
+	display:none !important;
+}
+/* Remove help button in title */
+a[href*="support"] {
+	display: none;
+}
+/* Remove nitro button in DMs */
+a[href="/store"]{
+	display:none;
+}
+/* Remove shop button in DMs */
+a[href="/shop"]{
+	display:none;
+}
+/* Remove quest button in DMs */
+a[href="/quest-home"]{
+	display:none;
+}
