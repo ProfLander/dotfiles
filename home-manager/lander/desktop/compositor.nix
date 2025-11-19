@@ -31,7 +31,6 @@ in {
   
       ## Don't draw window decorations
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      QT_QPA_PLATFORMTHEME = "gtk3";
   };
 
   wayland.windowManager.hyprland = {

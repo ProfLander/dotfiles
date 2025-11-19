@@ -1,7 +1,10 @@
+{ lib, ... }:
+
 {
   # Enable Qt and set the GTK3 theme
   qt = {
     enable = true;
-    platformTheme.name = "gtk3";
+    style.name = lib.mkForce "gtk3";
+    platformTheme.name = lib.mkForce "gtk3";
   };
 }
