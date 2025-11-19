@@ -291,6 +291,8 @@ $subMod, BACKSPACE, exec, hyprctl keyword general:layout "$(hyprctl getoption ge
         # Float and center file picker dialogs
         "float, class:^(xdg-desktop-portal-gtk)$, title:^(Open Files)$"
         "center, class:^(xdg-desktop-portal-gtk)$, title:^(Open Files)$"
+
+        "tile, class:^(explorer.exe)$"
       ];
       
       layerrule = [
