@@ -475,7 +475,7 @@ $subMod, BACKSPACE, exec, hyprctl keyword general:layout "$(hyprctl getoption ge
     spawn-at-startup = [
       { sh = "swaybg -i ~/Pictures/wallpaper-mountain.png -m fill"; }
       { argv = ["obelix"]; }
-      { argv = ["emacs" "--exec" "'(server-start)'"]; }
+      { argv = ["emacs" "--exec" "(server-start)"]; }
     ];
 
     cursor = {
