@@ -309,7 +309,7 @@ $subMod, BACKSPACE, exec, hyprctl keyword general:layout "$(hyprctl getoption ge
 
       exec-once = [
         # Apply wallpaper
-        "swaybg -i ~/Pictures/wallpaper-mountain.png -m fill"
+        "swaybg -i ${./wallpaper/wallpaper-mountain.png} -m fill"
 
         # Autostart an emacs frame in server mode
         # and hide it in the special workspace
@@ -486,7 +486,7 @@ $subMod, BACKSPACE, exec, hyprctl keyword general:layout "$(hyprctl getoption ge
     ];
 
     spawn-at-startup = [
-      { sh = "swaybg -i ~/Pictures/wallpaper-mountain.png -m fill"; }
+      { sh = "swaybg -i ${./wallpaper/wallpaper-colorful-abstract.jpg} -m fill"; }
       { argv = ["obelix"]; }
       { argv = ["emacs" "--exec" "(server-start)"]; }
     ];

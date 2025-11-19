@@ -2,7 +2,7 @@
   imports = [
     ./audio-mixer.nix
     ./chat-client/default.nix
-    ./compositor.nix
+    ./compositor/default.nix
     ./cursor.nix
     ./default-applications.nix
     ./file-manager.nix
