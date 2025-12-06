@@ -6,5 +6,6 @@
     ./cpp.nix
     ./nix.nix
     ./rust.nix
+    ./fennel.nix
   ];
 }
