@@ -1,0 +1,5 @@
+(set vim.opt.number true)
+(set vim.opt.undofile true)
+(set vim.opt.signcolumn :yes)
+(set vim.opt.clipboard :unnamedplus)
+(set vim.opt.mousescroll "ver:1,hor:1")

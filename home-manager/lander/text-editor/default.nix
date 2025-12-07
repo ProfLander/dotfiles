@@ -6,48 +6,55 @@
     package = pkgs.emacs-pgtk;
   };
 
-  programs.neovim = {
+  programs.neovim = let
+    lander-nvim = pkgs.vimUtils.buildVimPlugin {
+      name = "lander-nvim";
+      src = ./lander-nvim;
+    };
+  in {
     enable = true;
     #defaultEditor = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
 
-    extraConfig = ''
-      " Enable line numbers
-      set number
-
-      " Always show sign column to prevent jarring resizes
-      set signcolumn=yes
-
-      " Scroll one line at a time
-      set mousescroll=ver:1,hor:1
-
-      " Neovide background opacity
-      let g:neovide_normal_opacity=0.6
-
-      " More responsive neovide animations
-      let g:neovide_scroll_animation_length=0.05
-    '';
-
     plugins = with pkgs.vimPlugins; [
       {
-        plugin = nvim-lspconfig;
-        config = ''
-          lua vim.lsp.enable('nixd')
-        '';
+        plugin = lander-nvim.overrideAttrs (old: {
+          dependencies = [
+            undotree
+            hotpot-nvim
+            rainbow-delimiters-nvim
+            telescope-nvim
+            dracula-nvim
+            conform-nvim
+            nvim-treesitter
+            nvim-paredit
+            nvim-lspconfig
+          ];
+        });
       }
 
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
         p.bash
-        p.css
-        p.nix
-      ]))
 
-      {
-        plugin = dracula-nvim;
-        config = "colorscheme dracula";
-      }
+        p.nix
+
+        p.lua
+        p.fennel
+
+        p.markdown
+
+        p.json
+        p.toml
+        p.yaml
+        p.xml
+
+        p.rust
+
+        p.html
+        p.css
+      ]))
     ];
   };
 

@@ -1,0 +1,7 @@
+require("lander.nvim.theme")
+require("lander.nvim.options")
+require("lander.nvim.neovide")
+require("lander.nvim.paredit")
+require("lander.nvim.formatters")
+require("lander.nvim.tree-sitter")
+return require("lander.nvim.language-server")

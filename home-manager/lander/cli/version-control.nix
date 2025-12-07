@@ -13,4 +13,8 @@
       };
     };
   };
+
+  home.packages = [
+    pkgs.gitu
+  ];
 }
