@@ -1,0 +1,16 @@
+path = "/dev/input/by-id/usb-Guangzhou_Chicken_Run_Network_Technology_Co.__Ltd._GameSir-G7_Pro_000047781527F92C-event-joystick"
+
+name = "Ninja Gaiden"
+
+[combinations.ninpo]
+name = "Ninpo"
+style = { foreground = "Red" }
+symbols = [["󰯰", "󰰵"]]
+ordered = false
+
+[combinations.wind-run]
+name = "Wind Run"
+style = { foreground = "Green" }
+symbols = [["󰯭", "󰰲"]]
+ordered = false
+

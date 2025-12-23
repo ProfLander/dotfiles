@@ -1,0 +1,36 @@
+path = "/dev/input/by-id/usb-Guangzhou_Chicken_Run_Network_Technology_Co.__Ltd._GameSir-G7_Pro_000047781527F92C-event-joystick"
+
+name = "SoRR: Adam Hunter"
+
+[sequences.1-star-blitz]
+name = "Flying Roundhouse"
+style = { foreground = "Magenta" }
+symbols = [
+  ["󰰵", "󱖘", "󱖘"],
+  ["󰰵", "󱖚", "󱖚"],
+]
+
+[sequences.2-star-blitz]
+name = "Rush Straight"
+style = { foreground = "Magenta" }
+symbols = [
+  ["󰰵", "󱖚", "󱖘"],
+  ["󰰵", "󱖘", "󱖚"],
+]
+
+[sequences.3-star-blitz]
+name = "Rush Upper"
+style = { foreground = "Magenta" }
+symbols = [
+  ["󰰵", "󱖙", "󱖖", "󱖚", "󱖘"],
+  ["󰰵", "󱖙", "󱖕", "󱖘", "󱖚"],
+]
+
+[sequences.riot-stopper]
+name = "Riot Stopper"
+style = { foreground = "Magenta" }
+symbols = [
+  ["󱖘", "󱖘", "󰰠"],
+  ["󱖚", "󱖚", "󰰠"],
+]
+

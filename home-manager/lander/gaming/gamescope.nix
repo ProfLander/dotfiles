@@ -1,7 +1,5 @@
 { pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.gamescope
-  ];
+  home.packages = [ pkgs.gamescope ];
 }

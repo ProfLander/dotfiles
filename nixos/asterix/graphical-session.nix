@@ -1,18 +1,13 @@
 { pkgs, inputs, ... }:
 
 let
-  niri = inputs.niri;
+  niri-flake = inputs.niri-flake;
+  niri = inputs.niri.packages.${pkgs.system}.default;
 in {
   # Use uswm to wrap wayland compositors into systemd units
   programs.uwsm = {
     enable = true;
     waylandCompositors = {
-      hyprland = {
-        prettyName = "Hyprland";
-        comment = "Hyprland compositor managed by UWSM";
-        binPath = "${pkgs.hyprland}/bin/Hyprland";
-      };
-
       niri = {
         prettyName = "Niri";
         comment = "Niri compositor managed by UWSM";
@@ -27,13 +22,11 @@ in {
     fi
   '';
 
-  # Use hyprland as the main compositor
-  programs.hyprland.enable = true;
-
-  # Try out niri
-  imports = [ niri.nixosModules.niri ];
-  nixpkgs.overlays = [ niri.overlays.niri ];
+  # Use niri as our compositor
+  imports = [ niri-flake.nixosModules.niri ];
+  nixpkgs.overlays = [ niri-flake.overlays.niri ];
   programs.niri.enable = true;
+  programs.niri.package = niri;
 
   # Enable Ozone Wayland support in Chrome and Electron
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

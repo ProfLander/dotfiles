@@ -1,0 +1,8 @@
+[style]
+default = { foregroud = "Cyan" }
+
+[layout]
+align = {vertical = "Bottom", horizontal = "Right"}
+width = {Fixed = 31}
+height = "Auto"
+direction = "BottomTop"

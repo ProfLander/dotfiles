@@ -1,0 +1,14 @@
+name = "Ploopy Adept"
+icon = {string = "󰬯"}
+style = { foreground = "Magenta" }
+path = "/dev/input/by-id/usb-Ploopy_Corporation_Ploopy_Adept_Trackball-if01-event-mouse"
+command_buffer_len = 19
+
+[keycodes]
+BTN_LEFT = {string = "󰎤"}
+BTN_RIGHT = {string = "󰎧"}
+BTN_MIDDLE = {string = "󰎪"}
+BTN_SIDE = {string = "󰎭"}
+BTN_EXTRA = {string = "󰎱"}
+BTN_FORWARD = {string = "󰎳"}
+BTN_BACK = {string = "󰎶"}

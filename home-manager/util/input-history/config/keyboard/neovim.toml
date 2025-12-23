@@ -1,0 +1,123 @@
+path = "/dev/input/by-id/usb-ZSA_Moonlander_Mark_I-event-kbd"
+
+name = "Neovim"
+
+[combinations.move-left]
+name = "Left"
+style = { foreground = "Cyan" }
+symbols = [["h"]]
+
+[combinations.move-down]
+name = "Down"
+style = { foreground = "Cyan" }
+symbols = [["j"]]
+
+[combinations.move-up]
+name = "Up"
+style = { foreground = "Cyan" }
+symbols = [["k"]]
+
+[combinations.move-right]
+name = "Right"
+style = { foreground = "Cyan" }
+symbols = [["l"]]
+
+[combinations.undo]
+name = "Undo"
+style = { foreground = "Cyan" }
+symbols = [["u"]]
+
+[combinations.paste]
+name = "Paste"
+style = { foreground = "Cyan" }
+symbols = [["p"]]
+
+[sequences.delete-line]
+name = "Delete Line"
+style = { foreground = "Cyan" }
+symbols = [["d", "d"]]
+
+[sequences.yank-line]
+name = "Yank Line"
+style = { foreground = "Cyan" }
+symbols = [["y", "y"]]
+
+[sequences.center-viewport]
+name = "Center View"
+style = { foreground = "Cyan" }
+symbols = [["z", "z"]]
+
+[combinations.page_up]
+name = "Page Up"
+style = { foreground = "Magenta" }
+symbols = [["󰘴", "u"]]
+
+[combinations.page_down]
+name = "Page Down"
+style = { foreground = "Magenta" }
+symbols = [["󰘴", "d"]]
+
+[combinations.page_forward]
+name = "Page Forward"
+style = { foreground = "Magenta" }
+symbols = [["󰘴", "f"]]
+
+[combinations.page_back]
+name = "Page Back"
+style = { foreground = "Magenta" }
+symbols = [["󰘴", "b"]]
+
+[combinations.back]
+name = "Back"
+style = { foreground = "Magenta" }
+symbols = [["󰘴", "o"]]
+
+[combinations.forward]
+name = "Forward"
+style = { foreground = "Magenta" }
+symbols = [["󰘴", "i"]]
+
+[combinations.redo]
+name = "Redo"
+style = { foreground = "Magenta" }
+symbols = [["󰘴", "r"]]
+
+[combinations.node-left]
+name = "Node Left"
+style = { foreground = "Magenta" }
+symbols = [["󰘴", "h"]]
+
+[combinations.node-in]
+name = "Node Down"
+style = { foreground = "Magenta" }
+symbols = [["󰘴", "j"]]
+
+[combinations.node-up]
+name = "Node Up"
+style = { foreground = "Magenta" }
+symbols = [["󰘴", "k"]]
+
+[combinations.node-right]
+name = "Node Right"
+style = { foreground = "Magenta" }
+symbols = [["󰘴", "l"]]
+
+[combinations.focus-left]
+name = "Focus Left"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "h"]]
+
+[combinations.focus-down]
+name = "Focus Down"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "j"]]
+
+[combinations.focus-up]
+name = "Focus Up"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "k"]]
+
+[combinations.focus-right]
+name = "Focus Right"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "l"]]

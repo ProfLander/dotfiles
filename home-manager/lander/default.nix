@@ -7,7 +7,6 @@
     ./desktop/default.nix
     ./gaming/default.nix
     ./media/default.nix
-    ./text-editor/default.nix
     ./toolchains/default.nix
 
     ./dconf.nix

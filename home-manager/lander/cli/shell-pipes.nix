@@ -1,9 +1,5 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.jc
-    pkgs.jq
-    pkgs.fzf
-  ];
+  home.packages = [ pkgs.jc ];
 }

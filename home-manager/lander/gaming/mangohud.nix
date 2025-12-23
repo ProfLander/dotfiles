@@ -1,7 +1,5 @@
 { pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.mangohud
-  ];
+  home.packages = [ pkgs.mangohud ];
 }

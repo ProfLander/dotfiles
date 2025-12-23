@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of lander";
+  description = "Lander's Home";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
@@ -10,32 +10,67 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri.url = "github:sodiboo/niri-flake";
+    niri-flake.url = "git+file:///home/lander/src/niri-flake";
+    niri.url = "git+file:///home/lander/src/niri";
 
     astal.url = "github:aylur/astal";
 
     ags.url = "github:aylur/ags"; 
 
-    obelix.url = ../obelix;
+    util-getafix.url = ./util/getafix;
+    util-project.url = ./util/project;
+    util-input-history.url = ./util/input-history;
+    util-niri.url = ./util/niri;
+    util-obs.url = ./util/obs;
+    util-nvim.url = ./util/nvim;
+    util-desktop.url = ./util/desktop;
   };
 
   outputs =
-    inputs@{ nixpkgs, home-manager, niri, obelix, ... }:
+    inputs@{
+      nixpkgs,
+      home-manager,
+      util-getafix,
+      util-project,
+      util-input-history,
+      niri,
+      util-niri,
+      util-obs,
+      util-nvim,
+      util-desktop,
+      ...
+    }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
       homeConfigurations."lander" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [
+            (final: prev: {
+              getafix = util-getafix.packages.${system}.default;
+            })
+            (final: prev: {
+              project = util-project.packages.${system}.default;
+            })
+            (final: prev: {
+              input-history = util-input-history.packages.${system}.default;
+            })
+            (final: prev: {
+              niri = niri.packages.${system}.default;
+            })
+            (final: prev: util-niri.packages.${system})
+            (final: prev: util-obs.packages.${system})
+            (final: prev: util-nvim.packages.${system})
+            (final: prev: util-desktop.packages.${system})
+          ];
+        };
         extraSpecialArgs = { inherit inputs; };
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [ ./home.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
       };
     };
 }

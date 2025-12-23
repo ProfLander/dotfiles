@@ -1,7 +1,5 @@
 { pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.openrgb
-  ];
+  home.packages = [ pkgs.openrgb ];
 }

@@ -1,0 +1,52 @@
+path = "/dev/input/by-id/usb-ZSA_Moonlander_Mark_I-event-kbd"
+
+name = "ZSA Moonlander"
+icon = {string = "󰌌"}
+style = { foreground = "Yellow" }
+modifiers = [ "󰘶", "󰘴", "󰘳", "󰘵" ]
+command_buffer_len = 19
+
+[keysyms]
+Shift_L = {string = "󰘶", style = { foreground = "Blue" }}
+Shift_R = {string = "󰘶", style = { foreground = "Blue" }}
+Control_L = {string = "󰘴", style = { foreground = "Blue" }}
+Control_R = {string = "󰘴", style = { foreground = "Blue" }}
+Alt_L = {string = "󰘳", style = { foreground = "Blue" }}
+Alt_R = {string = "󰘳", style = { foreground = "Blue" }}
+Super_L = {string = "󰘵", style = { foreground = "Blue" }}
+Super_R = {string = "󰘵", style = { foreground = "Blue" }}
+Return = {string = "󰌑", style = { foreground = "Magenta" }}
+Escape = {string = "󱊷", style = { foreground = "Magenta" }}
+Tab = {string = "󰌒", style = { foreground = "Magenta" }}
+Home = {string = "󰋜", style = { foreground = "Magenta" }}
+End = {string = "", style = { foreground = "Magenta" }}
+Insert = {string = "", style = { foreground = "Magenta" }}
+Delete = {string = "󰇾", style = { foreground = "Magenta" }}
+space = {string = "󱁐", style = { foreground = "Magenta" }}
+Num_Lock = {string = "", style = { foreground = "Magenta" }}
+Next = {string = "󰄼", style = { foreground = "Magenta" }}
+Prior = {string = "󰄿", style = { foreground = "Magenta" }}
+BackSpace = {string = "󰁮", style = { foreground = "Magenta" }}
+Left = {string = "󰜱", style = { foreground = "Magenta" }}
+Down = {string = "󰜮", style = { foreground = "Magenta" }}
+Up = {string = "󰜷", style = { foreground = "Magenta" }}
+Right = {string = "󰜴", style = { foreground = "Magenta" }}
+F1 = {string = "󱊫", style = { foreground = "Magenta" }}
+F2 = {string = "󱊬", style = { foreground = "Magenta" }}
+F3 = {string = "󱊭", style = { foreground = "Magenta" }}
+F4 = {string = "󱊮", style = { foreground = "Magenta" }}
+F5 = {string = "󱊯", style = { foreground = "Magenta" }}
+F6 = {string = "󱊰", style = { foreground = "Magenta" }}
+F7 = {string = "󱊱", style = { foreground = "Magenta" }}
+F8 = {string = "󱊲", style = { foreground = "Magenta" }}
+F9 = {string = "󱊳", style = { foreground = "Magenta" }}
+F10 = {string = "󱊴", style = { foreground = "Magenta" }}
+F11 = {string = "󱊵", style = { foreground = "Magenta" }}
+F12 = {string = "󱊶", style = { foreground = "Magenta" }}
+
+[combinations.quit]
+name = "Quit"
+action = "Quit"
+style = { foreground = "Magenta" }
+symbols = [["󰘴", "󰘶", "C"]]
+

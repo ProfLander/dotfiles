@@ -1,9 +1,0 @@
-@use "../Styles/Colors";
-
-$radius: 34px;
-$color-bg: Colors.$background;
-
-.Bubble {
-    border-radius: $radius;
-    background-color: rgba($color-bg, 0.5);
-}

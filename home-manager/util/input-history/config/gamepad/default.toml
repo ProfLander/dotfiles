@@ -1,0 +1,91 @@
+path = "/dev/input/by-id/usb-Guangzhou_Chicken_Run_Network_Technology_Co.__Ltd._GameSir-G7_Pro_000047781527F92C-event-joystick"
+
+name = "GameSir G7 Pro"
+icon = {string = "󰊗"}
+style = { foreground = "Yellow" }
+command_buffer_len = 19
+
+[keycodes]
+BTN_WEST = {string = "󰰵", style = { foreground = "Yellow" } }
+BTN_NORTH = {string = "󰰲", style = { foreground = "Cyan" }}
+BTN_SOUTH = {string = "󰯭", style = { foreground = "Green" } }
+BTN_EAST = {string = "󰯰", style = { foreground = "Red" } }
+BTN_TL = {string = "󰰎", style = { foreground = "Blue" } }
+BTN_TR = {string = "󰰠", style = { foreground = "Blue" } }
+BTN_THUMBL = {string = "󰰍"}
+BTN_THUMBR = {string = "󰰟"}
+BTN_START = {string = "󰼛", style = { foreground = "Magenta" } }
+BTN_SELECT = {string = "󰏤", style = { foreground = "Magenta" } }
+BTN_MODE = {string = "󱄅", style = { foreground = "Magenta" } }
+
+[absolute-axes.1d.left-trigger]
+name = "Left Trigger"
+axis = "ABS_Z"
+style = { foreground = "Blue" }
+symbols = [
+  {distance = 80, string = "󰰌"},
+  {distance = 960, string = "󰬓"},
+]
+
+[absolute-axes.1d.right-trigger]
+name = "Right Trigger"
+axis = "ABS_RZ"
+style = { foreground = "Blue" }
+symbols = [
+  {distance = 80, string = "󰰞"},
+  {distance = 960, string = "󰬙"},
+]
+
+[absolute-axes.2d.d-pad]
+name = "D-Pad"
+axis-x = "ABS_HAT0X"
+axis-y = "ABS_HAT0Y"
+style = { foreground = "LightGray" }
+symbols = [
+  {distance = 1, arc = [337.5, 22.5], string = "󱖘"},
+  {distance = 1, arc = [22.5, 67.5], string = "󱖕"},
+  {distance = 1, arc = [67.5, 112.5], string = "󱖙"},
+  {distance = 1, arc = [112.5, 157.5], string = "󱖖"},
+  {distance = 1, arc = [157.5, 202.5], string = "󱖚"},
+  {distance = 1, arc = [202.5, 247.5], string = "󱖓"},
+  {distance = 1, arc = [247.5, 292.5], string = "󱖗"},
+  {distance = 1, arc = [292.5, 337.5], string = "󱖔"},
+]
+
+[absolute-axes.2d.left-stick]
+name = "Left Stick"
+axis-x = "ABS_X"
+axis-y = "ABS_Y"
+style = { foreground = "LightGray" }
+symbols = [
+  {distance = 12800, arc = [337.5, 22.5], string = "󱖘"},
+  {distance = 12800, arc = [22.5, 67.5], string = "󱖕"},
+  {distance = 12800, arc = [67.5, 112.5], string = "󱖙"},
+  {distance = 12800, arc = [112.5, 157.5], string = "󱖖"},
+  {distance = 12800, arc = [157.5, 202.5], string = "󱖚"},
+  {distance = 12800, arc = [202.5, 247.5], string = "󱖓"},
+  {distance = 12800, arc = [247.5, 292.5], string = "󱖗"},
+  {distance = 12800, arc = [292.5, 337.5], string = "󱖔"},
+]
+
+[absolute-axes.2d.right-stick]
+name = "Right Stick"
+axis-x = "ABS_RX"
+axis-y = "ABS_RY"
+style = { foreground = "LightGray" }
+symbols = [
+  {distance = 12800, arc = [337.5, 22.5], string = "󱖘"},
+  {distance = 12800, arc = [22.5, 67.5], string = "󱖕"},
+  {distance = 12800, arc = [67.5, 112.5], string = "󱖙"},
+  {distance = 12800, arc = [112.5, 157.5], string = "󱖖"},
+  {distance = 12800, arc = [157.5, 202.5], string = "󱖚"},
+  {distance = 12800, arc = [202.5, 247.5], string = "󱖓"},
+  {distance = 12800, arc = [247.5, 292.5], string = "󱖗"},
+  {distance = 12800, arc = [292.5, 337.5], string = "󱖔"},
+]
+
+[combinations.quit]
+name = "Quit"
+action = "Quit"
+style = { foreground = "Magenta" }
+symbols = [["󱄅", "󰏤"]]

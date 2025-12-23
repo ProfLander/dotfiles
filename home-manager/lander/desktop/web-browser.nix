@@ -1,32 +1,40 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 let
   firefox-wavefox-theme = builtins.fetchGit {
     url = "https://github.com/QNetITQ/WaveFox.git";
     rev = "57fa6edfe6112dddf21633e63b9b80847428b7a5";
   };
+
   lock-false = {
     Value = false;
     Status = "locked";
   };
+
   lock-true = {
     Value = true;
     Status = "locked";
   };
+
+  firefox-run =
+    { name, profile }:
+    ''
+      ${pkgs.firefox}/bin/firefox --name ${name} --no-remote -P ${profile}
+    '';
+
+  graphical-program = pkgs.graphical-program;
 in
 {
-  home.packages = [
-    pkgs.ungoogled-chromium
-  ];
-
-  home.file.".mozilla/firefox/default/chrome/wavefox".source = firefox-wavefox-theme;
   programs.firefox = {
     enable = true;
 
     profiles = {
       default = {
+        name = "Default";
+        isDefault = true;
+        id = 0;
         userChrome = ''
-          @import "wavefox/chrome/userChrome.css";
+          @import "../../wavefox/chrome/userChrome.css";
 
           #urlbar-background,#urlbar {
               border-radius: 32px !important;
@@ -34,7 +42,55 @@ in
         '';
 
         userContent = ''
-          @import "wavefox/chrome/userContent.css";
+          @import "../../wavefox/chrome/userContent.css";
+        '';
+      };
+
+      work = {
+        name = "Work";
+        id = 1;
+        userChrome = ''
+          @import "../../wavefox/chrome/userChrome.css";
+
+          #urlbar-background,#urlbar {
+              border-radius: 32px !important;
+          }
+        '';
+
+        userContent = ''
+          @import "../../wavefox/chrome/userContent.css";
+        '';
+      };
+
+      media = {
+        name = "Media";
+        id = 2;
+        userChrome = ''
+          @import "../../wavefox/chrome/userChrome.css";
+
+          #urlbar-background,#urlbar {
+              border-radius: 32px !important;
+          }
+        '';
+
+        userContent = ''
+          @import "../../wavefox/chrome/userContent.css";
+        '';
+      };
+
+      chat = {
+        name = "Chat";
+        id = 3;
+        userChrome = ''
+          @import "../../wavefox/chrome/userChrome.css";
+
+          #urlbar-background,#urlbar {
+              border-radius: 32px !important;
+          }
+        '';
+
+        userContent = ''
+          @import "../../wavefox/chrome/userContent.css";
         '';
       };
     };
@@ -139,5 +195,39 @@ in
         };
       };
     };
+  };
+
+  home.file.".mozilla/firefox/wavefox".source = firefox-wavefox-theme;
+
+  home.sessionVariables = {
+    BROWSER = "firefox --new-window";
+  };
+
+  systemd.user.services.chat-browser = graphical-program {
+    desc = "Chat browser";
+    exec-start = firefox-run {
+      name = "chat-browser";
+      profile = "Chat";
+    };
+  };
+
+  systemd.user.services.media-web-browser = graphical-program {
+    desc = "Media web browser";
+    exec-start = firefox-run {name = "media-web-browser"; profile = "Media";};
+  };
+
+  systemd.user.services.work-browser = graphical-program {
+    desc = "Work browser";
+    exec-start = (
+      firefox-run {
+        name = "work-browser";
+        profile = "Work";
+      }
+    );
+  };
+
+  systemd.user.services.main-browser = graphical-program {
+    desc = "Main browser";
+    exec-start = firefox-run { name = "main-browser"; profile = "Default";};
   };
 }

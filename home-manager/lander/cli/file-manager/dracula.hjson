@@ -1,0 +1,115 @@
+###############################################################
+# A skin for a terminal with a dark background
+#
+# To create your own skin, copy this file, change the entries
+# and import your skin file from the main conf file (look
+# for "imports")
+#
+# Doc at https://dystroy.org/broot/skins/
+###############################################################
+
+###############################################################
+# Skin
+# If you want to change the colors of broot,
+# uncomment the following block and start messing
+# with the various values.
+# A skin entry value is made of two parts separated with a '/':
+# The first one is the skin for the active panel.
+# The second one, optional, is the skin for non active panels.
+# You may find explanations and other skins on
+#  https://dystroy.org/broot/skins
+###############################################################
+skin: {
+    default: rgb(248, 248, 242) none
+    tree: rgb(98, 114, 164) none
+    parent: rgb(248, 248, 242) none
+    file: rgb(248, 248, 242) none
+    directory: rgb(189, 147, 249) none bold
+    exe: rgb(80, 250, 123) none 
+    link: rgb(255, 121, 198) none 
+    pruning: rgb(98, 114, 164) none italic
+    perm__: rgb(40, 42, 54) none 
+    perm_r: rgb(255, 184, 108) none 
+    perm_w: rgb(255, 121, 198) none 
+    perm_x: rgb(80, 250, 123) none 
+    owner: rgb(255, 121, 198) none 
+    group: rgb(255, 121, 198) none 
+    count: rgb(255, 121, 198) rgb(40, 42, 54) 
+    dates: rgb(189, 147, 249) none 
+    sparse: rgb(255, 184, 108) none 
+    content_extract: rgb(80, 250, 123) none 
+    content_match: rgb(80, 250, 123) none 
+    device_id_major: rgb(255, 121, 198) none 
+    device_id_sep: rgb(189, 147, 249) none 
+    device_id_minor: rgb(255, 121, 198) none 
+    git_branch: rgb(255, 184, 108) none 
+    git_insertions: rgb(80, 250, 123) none 
+    git_deletions: rgb(255, 85, 85) none 
+    git_status_current: rgb(40, 42, 54) none 
+    git_status_modified: rgb(80, 250, 123) none 
+    git_status_new: rgb(255, 184, 108) none bold
+    git_status_ignored: rgb(248, 248, 242) none 
+    git_status_conflicted: rgb(255, 85, 85) none 
+    git_status_other: rgb(255, 85, 85) none 
+    selected_line: rgb(248, 248, 242) rgb(98, 114, 164)
+    char_match: white none 
+    file_error: rgb(255, 85, 85) none 
+    flag_label: rgb(248, 248, 242) rgb(40, 42, 54) 
+    flag_value: rgb(255, 184, 108) rgb(40, 42, 54) bold
+    input: rgb(248, 248, 242) rgb(40, 42, 54)
+    status_error: rgb(255, 85, 85) none
+    status_job: rgb(255, 184, 108) none
+    status_normal: rgb(255, 121, 198) none / rgb(189, 147, 249) none
+    status_italic: rgb(255, 184, 108) none
+    status_bold: rgb(255, 184, 108) none bold
+    status_code: rgb(241, 250, 140) none
+    status_ellipsis: rgb(248, 248, 242) none
+    purpose_normal: rgb(248, 248, 242) rgb(40, 42, 54) 
+    purpose_italic: rgb(255, 184, 108) rgb(40, 42, 54) 
+    purpose_bold: rgb(255, 184, 108) rgb(40, 42, 54) bold
+    purpose_ellipsis: rgb(248, 248, 242) rgb(40, 42, 54) 
+    scrollbar_track: rgb(68, 71, 90) none
+    scrollbar_thumb: rgb(248, 248, 242) none
+    help_paragraph: rgb(248, 248, 242) none 
+    help_bold: rgb(255, 184, 108) none bold
+    help_italic: rgb(241, 250, 140) none 
+    help_code: rgb(248, 248, 242) rgb(40, 42, 54) 
+    help_headers: rgb(255, 184, 108) none 
+    help_table_border: rgb(98, 114, 164) none 
+    preview: rgb(248, 248, 242) rgb(40, 42, 54)
+    preview_title: rgb(248, 248, 242) rgb(40, 42, 54)
+    preview_line_number: rgb(98, 114, 164) rgb(40, 42, 54) 
+    preview_separator: rgb(40, 42, 54) none
+    preview_match: none rgb(80, 250, 123) 
+    hex_null: rgb(40, 42, 54) none 
+    hex_ascii_graphic: rgb(248, 248, 242) none 
+    hex_ascii_whitespace: rgb(255, 184, 108) none 
+    hex_ascii_other: rgb(255, 184, 108) none 
+    hex_non_ascii: rgb(255, 121, 198) none 
+    staging_area_title: rgb(248, 248, 242) rgb(40, 42, 54)
+    mode_command_mark: rgb(40, 42, 54) rgb(255, 121, 198) bold
+    good_to_bad_0: rgb(80, 250, 123)
+    good_to_bad_1: rgb(80, 250, 123)
+    good_to_bad_2: rgb(80, 250, 123)
+    good_to_bad_3: rgb(80, 250, 123)
+    good_to_bad_4: rgb(241, 250, 140)
+    good_to_bad_5: rgb(241, 250, 140)
+    good_to_bad_6: rgb(255, 184, 108)
+    good_to_bad_7: rgb(255, 184, 108)
+    good_to_bad_8: rgb(255, 85, 85)
+    good_to_bad_9: rgb(255, 85, 85)
+}
+
+###############################################################
+# Syntax Theme
+# 
+# If you want to choose the theme used for preview, uncomment
+# one of the following lines:
+# 
+# syntax_theme: GitHub
+# syntax_theme: SolarizedDark
+# syntax_theme: SolarizedLight
+syntax_theme: MochaDark
+# syntax_theme: OceanDark
+# syntax_theme: OceanLight
+

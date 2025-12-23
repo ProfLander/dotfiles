@@ -1,0 +1,129 @@
+path = "/dev/input/by-id/usb-ZSA_Moonlander_Mark_I-event-kbd"
+
+name = "Niri"
+
+[combinations.maximize]
+name = "Maximize"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "f"]]
+
+[combinations.borderless]
+name = "Borderless"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "󰘴", "f"]]
+
+[combinations.fullscreen]
+name = "Fullscreen"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "󰘴", "󰘶", "f"]]
+
+[combinations.main-left]
+name = "Main Left"
+style = { foreground = "Magenta" }
+symbols = [["󰘵", "h"]]
+
+[combinations.main-editor]
+name = "Main Editor"
+style = { foreground = "Magenta" }
+symbols = [["󰘵", "j"]]
+
+[combinations.main-browser]
+name = "Main Browser"
+style = { foreground = "Magenta" }
+symbols = [["󰘵", "k"]]
+
+[combinations.main-right]
+name = "Main Right"
+style = { foreground = "Magenta" }
+symbols = [["󰘵", "l"]]
+
+[combinations.main-work]
+name = "Main Work"
+style = { foreground = "Magenta" }
+symbols = [["󰘵", "p"]]
+
+[combinations.main-desktop]
+name = "Main Desktop"
+style = { foreground = "Magenta" }
+symbols = [["󰘵", ";"]]
+
+[combinations.chat-monitor]
+name = "Chat Monitor"
+style = { foreground = "Magenta" }
+symbols = [["󰘵", "y"]]
+
+[combinations.chat-client]
+name = "Chat Client"
+style = { foreground = "Magenta" }
+symbols = [["󰘵", "u"]]
+
+[combinations.chat-browser]
+name = "Chat Browser"
+style = { foreground = "Magenta" }
+symbols = [["󰘵", "i"]]
+
+[combinations.media-obs]
+name = "OBS"
+style = { foreground = "Magenta" }
+symbols = [["󰘵", "n"]]
+
+[combinations.media-browser]
+name = "Media Browser"
+style = { foreground = "Magenta" }
+symbols = [["󰘵", "m"]]
+
+[combinations.media-player]
+name = "Media Player"
+style = { foreground = "Magenta" }
+symbols = [["󰘵", ","]]
+
+[combinations.media-panel]
+name = "Media Panel"
+style = { foreground = "Magenta" }
+symbols = [["󰘵", "."]]
+
+[combinations.cast-monitor]
+name = "Cast Monitor"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "t"]]
+
+[combinations.cast-window]
+name = "Cast Window"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "g"]]
+
+[combinations.screenshot-monitor]
+name = "Screenshot Monitor"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "q"]]
+
+[combinations.screenshot-window]
+name = "Screenshot Window"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "w"]]
+
+[combinations.save-replay-buffer]
+name = "Save Replay Buffer"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "e"]]
+
+[combinations.toggle-recording]
+name = "Toggle Recording"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "r"]]
+
+[combinations.switch-scene]
+name = "Switch Scene"
+style = { foreground = "Magenta" }
+symbols = [
+  ["󰘳", "󱊫"],
+  ["󰘳", "󱊬"],
+  ["󰘳", "󱊭"],
+  ["󰘳", "󱊮"],
+  ["󰘳", "󱊯"],
+]
+
+[combinations.screenshot]
+name = "Screenshot"
+style = { foreground = "Magenta" }
+symbols = [["󰘳", "a"]]

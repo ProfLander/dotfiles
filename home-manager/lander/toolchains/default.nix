@@ -1,11 +1,18 @@
-
-{ pkgs, ... }:
-
 {
   imports = [
+    ./bash.nix
     ./cpp.nix
-    ./nix.nix
-    ./rust.nix
     ./fennel.nix
+    ./json.nix
+    ./libraries.nix
+    ./love.nix
+    ./lua.nix
+    ./nix.nix
+    ./python.nix
+    ./rust.nix
+    ./text.nix
+    ./toml.nix
+    ./xorg.nix
+    ./yaml.nix
   ];
 }

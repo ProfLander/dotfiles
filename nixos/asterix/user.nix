@@ -8,11 +8,22 @@
       "wheel"
       "gamemode"
       "render"
+      "input"
       "video"
     ];
     shell = pkgs.zsh;
   };
 
   # Automatic TTY login
-  services.mingetty.autologinUser = "lander";
+  services.getty.autologinUser = "lander";
+
+  security.sudo.extraRules = [
+    {
+      groups = [ "wheel" ];
+      commands = [
+        "/run/current-system/sw/bin/shutdown"
+        "/run/current-system/sw/bin/reboot"
+      ];
+    }
+  ]; 
 }

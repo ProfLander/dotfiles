@@ -1,13 +1,17 @@
 {
   imports = [
+    ./file-manager/default.nix
+    ./text-editor/default.nix
     ./appimage.nix
     ./compression.nix
-    ./file-management.nix
+    ./network.nix
     ./password-management.nix
+    ./project-management.nix
     ./shell.nix
     ./shell-prompt.nix
     ./shell-pipes.nix
     ./system-monitoring.nix
+    ./search.nix
     ./version-control.nix
   ];
 }

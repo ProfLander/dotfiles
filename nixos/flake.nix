@@ -2,7 +2,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nix-gaming.url = "github:fufexan/nix-gaming";
-    niri.url = "github:sodiboo/niri-flake";
+    niri-flake.url = "git+file:///home/lander/src/niri-flake";
+    niri.url = "git+file:///home/lander/src/niri";
+    #niri.url = "github:YaLTeR/niri";
   };
   outputs = inputs@{ self, nixpkgs, ... }: {
     nixosConfigurations.artemis = nixpkgs.lib.nixosSystem {

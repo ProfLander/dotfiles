@@ -1,7 +1,5 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.p7zip
-  ];
+  home.packages = [ pkgs.p7zip ];
 }

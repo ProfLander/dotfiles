@@ -1,7 +1,5 @@
 { pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.shotcut
-  ];
+  home.packages = [ pkgs.shotcut ];
 }

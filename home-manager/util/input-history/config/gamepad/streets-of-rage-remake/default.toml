@@ -1,0 +1,78 @@
+path = "/dev/input/by-id/usb-Guangzhou_Chicken_Run_Network_Technology_Co.__Ltd._GameSir-G7_Pro_000047781527F92C-event-joystick"
+
+name = "Streets of Rage: Remake"
+
+[combinations.jump]
+name = "Jump"
+style = { foreground = "Green" }
+symbols = [["󰯭"]]
+
+[combinations.attack]
+name = "Attack"
+style = { foreground = "Cyan" }
+symbols = [["󰰲"]]
+
+[combinations.special-combo]
+name = "Special Combo"
+style = { foreground = "Yellow" }
+symbols = [["󰰵"]]
+
+[combinations.series]
+name = "Series"
+style = { foreground = "Red" }
+symbols = [["󰯰"]]
+
+[combinations.back-attack]
+name = "Back Attack"
+style = { foreground = "Blue" }
+symbols = [
+  ["󰰎"],
+  ["󰯭", "󰰲"],
+]
+
+[combinations.special]
+name = "Special"
+style = { foreground = "Blue" }
+symbols = [["󰰠"]]
+
+[combinations.pause]
+name = "Pause"
+style = { foreground = "Magenta" }
+symbols = [["󰼛"]]
+
+[combinations.police]
+name = "Police"
+style = { foreground = "Magenta" }
+symbols = [["󰏤"]]
+
+[sequences.run]
+name = "Run"
+symbols = [
+  ["󱖚", "󱖚"],
+  ["󱖘", "󱖘"],
+]
+consume = false
+
+[sequences.roll]
+name = "Roll"
+symbols = [
+  ["󱖗", "󱖗"],
+  ["󱖙", "󱖙"],
+]
+consume = false
+
+[sequences.blitz]
+name = "Blitz"
+style = { foreground = "Magenta" }
+symbols = [
+  ["󱖚", "󱖚", "󰰲"],
+  ["󱖘", "󱖘", "󰰲"],
+]
+
+[sequences.special-blitz]
+name = "Special Blitz"
+style = { foreground = "Magenta" }
+symbols = [
+  ["󱖚", "󱖚", "󰰵"],
+  ["󱖘", "󱖘", "󰰵"],
+]

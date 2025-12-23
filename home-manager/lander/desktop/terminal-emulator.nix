@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   programs.alacritty = {
     enable = true;
@@ -36,5 +34,9 @@
         };
       };
     };
+  };
+
+  home.sessionVariables = {
+    TERM = "alacritty";
   };
 }

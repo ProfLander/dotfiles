@@ -1,0 +1,152 @@
+TODO:
+- [x] Configure clipboard
+- [x] Configure undo history
+- [x] Configure space indentation
+- [x] Configure core options
+- [x] Configure telescope
+- [x] Configure rainbow-delimiters
+  - Root color is white for some reason, need to check color settings
+- [x] Format buffer binding
+- [n] Configure paredit + bindings
+  - Dropped in favor of custom implementation
+- [x] Configure treesitter
+  - [x] Setup highlighting of current node
+    - Is there an existing highlight class for this?
+      - Can check via telescope
+  - [x] Update highlight on buffer change
+    - Currently fails to show new structure on paste
+- [x] Setup current-line highlight
+  - [x] Experiment with current-column highlight
+- [x] Improve gap positioning
+  - Need to prioritize non-empty gap cells
+    - Positions fennel comments at start instead of end
+    - Will highlight lua / nix assignments better
+- [x] Account for between-child-node cases
+  - [x] Move to nearest in direction
+  - [x] Don't apply to intangible (no non-whitespace content) containers
+  - [n] Prevent goto-child when in a between-child-node position
+- [x] Fix navigation of overlapping parent / child nodes
+  - Need to revisit `skipping-intangible` with :InspectTree
+- [x] Configure undotree + bindings
+  - Toggle with <Leader>u
+- [x] Integrate which-key
+- [x] Integrate completion system
+- [x] Integrate auto parentheses
+- [x] Integrate multi-cursor plugin
+- [x] Address soft wrapping
+      - Doesn't seem doable by default, but overflow highlighting is possible
+- [x] Address local leader
+  - Feels like a case of forgetting it if the binds are separate
+    - i.e. Probably best to just use space
+- [x] niri integration
+  - [x] Bind movement keys to wrapper script dispatch
+  - [x] Bind action keys (close, open) to wrapper script dispatch
+- [x] Use niri border color for neovide window dividers
+- [x] Pre-launch broot + neovide + broot-hosted terminal on startup
+  - [x] Double-check broot terminal binding; might be using alacritty instead of zsh
+- [x] F* Hotkeys for jumping to workspaces / windows
+  - Can set the side panels to be excluded from regular directional navigation / column-moves
+  - Broot
+  - Neovide
+  - Broot Terminal
+  - Firefox
+  - Vesktop
+  - TV
+    - Can restore MPV daemon setup, use that as an anchor
+- [x] Set dynamic cast target to DP-1 by default
+- [x] Fix neovim window move action
+  - Currently moving all the way to the end position
+- [x] Configure broot
+  - [x] Switch to Mod+HJKL navigation
+  - [x] Switch back to default Ctrl+HJKL bindings
+  - [x] Colored extensions
+  - [x] Disable selection arrow
+  - [n] Don't change path format when searching
+    - Doesn't appear to have an option for path formatting
+  - [x] Proper dracula theme
+  - [x] Disable Ctrl+W
+  - [x] Ctrl+D to quit
+- [x] Remove maximize.nvim
+- [x] Remove conditional behaviour from nvim navigation
+  - Shouldn't jump out of window
+  - Allows greater consistency with broot bindings
+- [x] broot integration
+  - [x] Set a wayland window class w/static server name
+  - [x] Send commands from vim to refocus broot on buffer switch
+  - [x] Send commands from broot to update vim's working dir on change
+- [x] Fix overflow indicators to be truly global
+- [x] Broot verbs for shutdown and reboot
+- [-] Setup shutdown and reboot to not require sudo
+  - [x] Add sudo rules
+  - [x] Test
+- [x] Integrate nvim session persistence plugin
+- [x] Broot verbs for launching media files on specific players
+- [x] Setup project workflow
+  - [x] Project detection via directory contents
+  - [x] Dispatch to corresponding tools
+  - [x] nvim bindings
+  - [x] Setup justfile workflow for Love2D
+  - [x] broot verbs
+    - [x] Basic treatment
+    - [x] Arbitrary target directory
+  - [x] AppID -> Niri ID for nvim
+    - Can expose as a shell application
+  - [x] Search upward from working directory
+- [x] Order buffer telescope by recency, preselect most-recent-but-one
+- [x] TUI desktop file launcher for broot
+  - Is this even necessary? Can just add specific verbs
+  - May be able to generate verbs automatically using nix
+- [x] Factor out obelix, replace with getafix
+  - Can just be rounded corners for now
+    - Room to integrate notifications / tray / etc later
+  - Double down on rounded corners + out-of-viewport widgets
+- [x] Implement catch-all workspace for spawning non-fixed windows
+  - Avoids breaking existing layouts, accounts for other use cases
+- [n] Configure maximize-to-edge during layout setup
+- [x] Recording hotkeys for OBS
+  - [x] Start / stop recording
+  - [x] Save replay buffer
+    - [x] Figure out how to autostart replay buffer
+- [-] Figure out input history display for OBS recordings
+  - [x] Find wayland-compatible input history plugin
+  - [ ] Setup non-sudo access to event devices
+  - [ ] Package input monitor, setup systemd service
+  - [ ] Configure better key combo treatment if possible
+- [ ] Dedicated neovide line editor for recording workspace overlay
+  - Setup layered nvim config to allow for special-cased theming etc
+
+- [ ] Figure out the default 'accept initial suggestion' binding
+- [ ] Smart desktop files for dispatching to the closest firefox / mpv
+- [ ] Improve current line / current column / current node highlighting
+  - Needs to use transparency more effectively
+  - Should have several highlight groups with successively lower opacity
+    - Should be able to achieve a btop-like fade effect for siblings and children
+      - Use separate colors for u and v axes to better-delinieate structure
+        - Foreground instead of background color?
+- [ ] Systemd unit for auto-encoding recordings into discord animations / gifs
+  - Can use a file watcher over an input directory, couple with keybinds to move things into it
+  - Good motivating case for notifications
+- [ ] Replace C-Space with something more useful
+      - Tab mode toggle?
+      - Context-aware window spawning?
+        - Allow auto-stacking several of the same type of window
+          - i.e. Spawn another broot instance in the same tab group
+- [-] Formalize motions / structural edits as Lua functions
+  - All need to execute without any visible cursor movement, be composable
+  - [ ] Fix missing / unnecessary spaces when slurping / barfing
+- [ ] Shared settings for firefox profiles
+- [ ] Fix error when trying to move to root in a top-level nix comment
+- [ ] Fallback to regular directional bindings
+      if no parser / language root is present
+  - Similarly, only use current line / column highlight
+    when not editing structurally
+- [ ] Formalize jumplist integration
+  - Need to avoid introducing undesired jumps
+- [ ] Investigate fennel-language-server
+  - May be a better alternative
+  - Likely faster / more lightweight
+  - Main concern is configurability
+- [ ] Code minification sweep
+  - Use macros to reduce duplication
+- [ ] broot multi-panel workflow
+

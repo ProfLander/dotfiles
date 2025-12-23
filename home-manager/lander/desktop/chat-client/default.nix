@@ -1,5 +1,4 @@
-{ pkgs, inputs, ... }:
-
+{ pkgs, ... }:
 {
   programs.vesktop = {
     enable = true;
@@ -631,6 +630,25 @@
           "settingsSyncVersion" = 1762342108885;
         };
       };
+    };
+  };
+
+  systemd.user.services.vesktop = {
+    Unit = {
+      Description = "Discord client";
+      PartOf = "graphical-session.target";
+      After = "graphical-session.target";
+      Requisite = "graphical-session.target";
+    };
+
+    Service = {
+      ExecStart = "${pkgs.vesktop}/bin/vesktop";
+      KillSignal = "SIGKILL";
+      Restart = "always";
+    };
+
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
     };
   };
 }
