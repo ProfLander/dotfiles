@@ -314,28 +314,28 @@ verbs: [
     {
         invocation: "clean {path}"
         shortcut: cln
-        execution: "$SHELL -c \"project clean {path}; echo \"\nPress return to exit...\"; read\""
+        execution: "$SHELL -c \"project clean {path}\""
         leave_broot: false
     }
 
     {
         invocation: "build {path}"
         shortcut: bld
-        execution: "$SHELL -c \"project build {path}; echo \"\nPress return to exit...\"; read\""
+        execution: "$SHELL -c \"project build {path}\""
         leave_broot: false
     }
 
     {
         invocation: "run {path}"
         shortcut: rn
-        execution: "$SHELL -c \"project run {path}; echo \"\nPress return to exit...\"; read\""
+        execution: "$SHELL -c \"project run {path}\""
         leave_broot: false
     }
 
     {
         invocation: "test {path}"
         shortcut: tst
-        execution: "$SHELL -c \"project test {path}; echo \"\nPress return to exit...\"; read\""
+        execution: "$SHELL -c \"project test {path}\""
         leave_broot: false
     }
 

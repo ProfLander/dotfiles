@@ -46,30 +46,46 @@
         '';
       };
 
+      dispatch = pkgs.writeShellScript "dispatch.sh" ''
+          #!/bin/sh
+
+          ACTIVE_WIN=$(niri msg --json focused-window | jq -r '.id')
+          PROJECT_TARGET=$(${project-detect}/bin/project-detect "$1")
+          OK=0
+
+          echo
+
+          if [[ "$PROJECT_TARGET" == "unknown" ]]
+          then
+            >&2 echo "Unrecognized project at $1"
+          else
+            PROJECT=$(echo "$PROJECT_TARGET" | awk "NR==1")
+            TARGET=$(echo "$PROJECT_TARGET" | awk "NR==2")
+
+            echo "$PROJECT: $2 $TARGET..."
+            echo
+
+            [[ $PROJECT == "cargo" ]] && cd "$TARGET" && ${pkgs.cargo}/bin/cargo $2 && OK=1
+            [[ $PROJECT == "go" ]]    && ${pkgs.go}/bin/go $2 "$TARGET" && OK=1
+            [[ $PROJECT == "make" ]]  && make $2 "$TARGET" && OK=1
+            [[ $PROJECT == "just" ]]  && ${pkgs.just}/bin/just -d "$TARGET" -f "$TARGET/justfile" $2 && OK=1
+          fi
+
+          if [[ $OK == 0 ]]
+          then
+            echo
+            echo "Press return to continue..."
+            read -r
+          fi
+
+          [ ! -z "$ACTIVE_WIN" ] && niri msg action focus-window --id "$ACTIVE_WIN"
+      '';
+
       project-clean = pkgs.writeShellApplication {
         name = "project-clean";
         text = ''
           #!/bin/sh
-
-          #echo "project-clean: $*"
-
-          PROJECT_TARGET=$(${project-detect}/bin/project-detect "$1")
-
-          if [[ "$PROJECT_TARGET" == "unknown" ]]
-          then
-            >&2 echo "Unrecognized project"
-            exit 1
-          fi
-
-          PROJECT=$(echo "$PROJECT_TARGET" | awk "NR==1")
-          TARGET=$(echo "$PROJECT_TARGET" | awk "NR==2")
-
-          [[ $PROJECT == "cargo" ]] && cd "$TARGET" && exec ${pkgs.cargo}/bin/cargo clean
-          [[ $PROJECT == "go" ]]    && exec ${pkgs.go}/bin/go clean "$TARGET"
-          [[ $PROJECT == "make" ]]  && exec make clean "$TARGET"
-          [[ $PROJECT == "just" ]]  && exec ${pkgs.just}/bin/just -d "$TARGET" -f "$TARGET/justfile" clean
-
-          exit 1
+          exec ${dispatch} "$1" clean
         '';
       };
 
@@ -77,26 +93,7 @@
         name = "project-build";
         text = ''
           #!/bin/sh
-
-          #echo "project-build: $*"
-
-          PROJECT_TARGET=$(${project-detect}/bin/project-detect "$1")
-
-          if [[ "$PROJECT_TARGET" == "unknown" ]]
-          then
-            >&2 echo "Unrecognized project"
-            exit 1
-          fi
-
-          PROJECT=$(echo "$PROJECT_TARGET" | awk "NR==1")
-          TARGET=$(echo "$PROJECT_TARGET" | awk "NR==2")
-
-          [[ $PROJECT == "cargo" ]] && cd "$TARGET" && exec ${pkgs.cargo}/bin/cargo build
-          [[ $PROJECT == "go" ]]    && exec ${pkgs.go}/bin/go build "$TARGET"
-          [[ $PROJECT == "make" ]]  && exec make build "$TARGET"
-          [[ $PROJECT == "just" ]]  && exec ${pkgs.just}/bin/just -d "$TARGET" -f "$TARGET/justfile" build
-
-          exit 1
+          exec ${dispatch} "$1" build
         '';
       };
 
@@ -104,30 +101,7 @@
         name = "project-run";
         text = ''
           #!/bin/sh
-
-          #echo "project-run: $*"
-
-          PROJECT_TARGET=$(${project-detect}/bin/project-detect "$1")
-          echo "project-path: $PROJECT_TARGET"
-
-          if [[ "$PROJECT_TARGET" == "unknown" ]]
-          then
-            echo "Unrecognized project"
-            exit 1
-          fi
-
-          PROJECT=$(echo "$PROJECT_TARGET" | awk "NR==1")
-          echo "project: $PROJECT"
-
-          TARGET=$(echo "$PROJECT_TARGET" | awk "NR==2")
-          echo "path: $TARGET"
-
-          [[ $PROJECT == "cargo" ]] && cd "$TARGET" && exec ${pkgs.cargo}/bin/cargo run
-          [[ $PROJECT == "go" ]]    && exec ${pkgs.go}/bin/go run "$TARGET"
-          [[ $PROJECT == "make" ]]  && exec make run "$TARGET"
-          [[ $PROJECT == "just" ]]  && exec ${pkgs.just}/bin/just -d "$TARGET" -f "$TARGET/justfile" run
-
-          exit 1
+          exec ${dispatch} "$1" run
         '';
       };
 
@@ -135,26 +109,7 @@
         name = "project-test";
         text = ''
           #!/bin/sh
-
-          #echo "project-test: $*"
-
-          PROJECT_TARGET=$(${project-detect}/bin/project-detect "$1")
-
-          if [[ "$PROJECT_TARGET" == "unknown" ]]
-          then
-            >&2 echo "Unrecognized project"
-            exit 1
-          fi
-
-          PROJECT=$(echo "$PROJECT_TARGET" | awk "NR==1")
-          TARGET=$(echo "$PROJECT_TARGET" | awk "NR==2")
-
-          [[ $PROJECT == "cargo" ]] && cd "$TARGET" && exec ${pkgs.cargo}/bin/cargo test
-          [[ $PROJECT == "go" ]]    && exec ${pkgs.go}/bin/go test "$TARGET"
-          [[ $PROJECT == "make" ]]  && exec make test "$TARGET"
-          [[ $PROJECT == "just" ]]  && exec ${pkgs.just}/bin/just -d "$TARGET" -f "$TARGET/justfile" test
-
-          exit 1
+          exec ${dispatch} "$1" test
         '';
       };
 
