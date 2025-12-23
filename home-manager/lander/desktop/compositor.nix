@@ -411,6 +411,12 @@ in
         open-fullscreen = true;
         open-focused = true;
       }
+      # Application-specific
+      {
+        matches = [ { app-id = "love"; } ];
+        open-on-workspace = "ws-1-main-editor";
+        open-focused = true;
+      }
     ];
 
     cursor = {
