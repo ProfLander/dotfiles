@@ -1,8 +1,5 @@
 {
   home.sessionVariables = {
-    # Emacsclient as text editor
-    EDITOR = "emacsclient -nw";
-
     # C/++ compilers
     CC = "gcc";
     CXX = "g++";

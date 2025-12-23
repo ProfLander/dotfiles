@@ -49,7 +49,8 @@
   ];
 
   home.sessionVariables = {
-    VISUAL = "${pkgs.run-neovide}/bin/run-neovide";
+    EDITOR = "/home/lander/.nix-profile/bin/nvim";
+    VISUAL = "$EDITOR";
   };
 
   systemd.user.services.neovide = pkgs.graphical-program {
