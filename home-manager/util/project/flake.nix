@@ -51,7 +51,7 @@
         text = ''
           #!/bin/sh
 
-          echo "project-clean: $*"
+          #echo "project-clean: $*"
 
           PROJECT_TARGET=$(${project-detect}/bin/project-detect "$1")
 
@@ -78,7 +78,7 @@
         text = ''
           #!/bin/sh
 
-          echo "project-build: $*"
+          #echo "project-build: $*"
 
           PROJECT_TARGET=$(${project-detect}/bin/project-detect "$1")
 
@@ -105,7 +105,7 @@
         text = ''
           #!/bin/sh
 
-          echo "project-run: $*"
+          #echo "project-run: $*"
 
           PROJECT_TARGET=$(${project-detect}/bin/project-detect "$1")
           echo "project-path: $PROJECT_TARGET"
@@ -136,7 +136,7 @@
         text = ''
           #!/bin/sh
 
-          echo "project-test: $*"
+          #echo "project-test: $*"
 
           PROJECT_TARGET=$(${project-detect}/bin/project-detect "$1")
 

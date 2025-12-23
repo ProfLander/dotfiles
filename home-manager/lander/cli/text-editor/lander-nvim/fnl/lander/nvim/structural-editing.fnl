@@ -553,14 +553,6 @@
      (vim.api.nvim_buf_set_text 0 ler lec er ec [""]) 
      (vim.api.nvim_buf_set_text 0 sr sc fsr fsc [""])))
 
-(print 1 2 3 4 5 [])
-
-(print [1 
-        2 
-        3 
-        4 
-        5])
-
 (λ slurp [?backward]
   (local backward (or ?backward false))
   (λ [?node]

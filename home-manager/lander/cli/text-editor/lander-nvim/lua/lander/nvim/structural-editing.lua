@@ -553,14 +553,6 @@
  vim.api.nvim_buf_set_text(0, ler, lec, er, ec, {""})
  return vim.api.nvim_buf_set_text(0, sr, sc, fsr, fsc, {""}) else return nil end end
 
- print(1, 2, 3, 4, 5, {})
-
- print({1, 2, 3, 4, 5})
-
-
-
-
-
  local function slurp(_3fbackward)
  local backward = (_3fbackward or false)
  local function _151_(_3fnode)
@@ -631,7 +623,7 @@
  local barf_prev = barf(true)
  local barf_next = barf(false)
 
- local function otherwise(...) local fs = {...} _G.assert((nil ~= fs), "Missing argument fs on fnl/lander/nvim/structural-editing.fnl:634")
+ local function otherwise(...) local fs = {...} _G.assert((nil ~= fs), "Missing argument fs on fnl/lander/nvim/structural-editing.fnl:626")
  local function _192_(...)
  local out = nil for _, f in ipairs(fs) do
 
