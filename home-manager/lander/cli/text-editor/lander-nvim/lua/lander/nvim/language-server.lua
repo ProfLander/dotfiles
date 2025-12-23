@@ -38,7 +38,8 @@
  return on_dir((vim.iter(vim.fs.parents(fname)):find(has_fls_project_cfg) or vim.fs.root(0, ".git"))) end
 
 
- vim.lsp.config("fennel-ls", {cmd = {"fennel-ls"}, capabilities = {offsetEncoding = {"utf-8", "utf-16"}}, filetypes = {"fennel"}, root_dir = fennel_root_dir, settings = {}})
+ vim.lsp.config("fennel-ls", {cmd = {"fennel-ls"}, capabilities = {offsetEncoding = {"utf-8", "utf-16"}}, filetypes = {"fennel"}, root_dir = fennel_root_dir, root_markers = {"flsproject.fnl", ".git"}, settings = {}})
+
 
 
 
@@ -50,7 +51,7 @@
 
 
 
- local function _1_(_, filetype) _G.assert((nil ~= filetype), "Missing argument filetype on fnl/lander/nvim/language-server.fnl:53")
+ local function _1_(_, filetype) _G.assert((nil ~= filetype), "Missing argument filetype on fnl/lander/nvim/language-server.fnl:54")
  return (language_id_mapping[filetype] or filetype) end vim.lsp.config("ltex", {cmd = {"ltex-ls"}, filetypes = text_filetypes, get_language_id = _1_, root_markers = {".git"}, settings = {ltex = {enabled = text_filetypes}}})
 
 
@@ -91,7 +92,7 @@
 
  vim.lsp.enable("rust-analyzer")
 
- local function yaml_on_init(client) _G.assert((nil ~= client), "Missing argument client on fnl/lander/nvim/language-server.fnl:94") client.server_capabilities.documentFormattingProvider = true
+ local function yaml_on_init(client) _G.assert((nil ~= client), "Missing argument client on fnl/lander/nvim/language-server.fnl:95") client.server_capabilities.documentFormattingProvider = true
  return nil end
 
  vim.lsp.config("tombi", {cmd = {"tombi", "lsp"}, filetypes = {"toml"}, root_markers = {"tombi.toml", "pyproject.toml", ".git"}})
