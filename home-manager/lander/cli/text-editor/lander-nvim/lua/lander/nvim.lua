@@ -3,6 +3,7 @@
  require("lander.nvim.neovide")
  require("lander.nvim.indentation")
  require("lander.nvim.text-indicators")
+ require("lander.nvim.filetypes")
 
  require("lander.nvim.keymaps")
 
