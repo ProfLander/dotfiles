@@ -11,6 +11,7 @@
     ./python.nix
     ./rust.nix
     ./text.nix
+    ./tiled.nix
     ./toml.nix
     ./xorg.nix
     ./yaml.nix
