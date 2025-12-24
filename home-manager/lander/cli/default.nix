@@ -12,6 +12,7 @@
     ./shell-pipes.nix
     ./system-monitoring.nix
     ./search.nix
+    ./terminal-capture.nix
     ./version-control.nix
   ];
 }

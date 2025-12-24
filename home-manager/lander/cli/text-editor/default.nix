@@ -85,4 +85,43 @@
       WantedBy = [ "default.target" ];
     };
   };
+
+  # Disabled due to incompatibility with neovide
+  systemd.user.services.nvim-recorder = let
+    record-nvim = pkgs.writeShellScript "record-nvim.sh" ''
+      #!/bin/sh
+
+      TIMESTAMP="$(date "+%Y-%m-%d")"
+
+      while [[ ! $(nvim --clean --headless --server localhost:9034 --remote-expr "execute('pwd')") ]]
+      do
+        sleep 0.5
+      done
+
+      exec ${pkgs.asciinema}/bin/asciinema \
+        rec \
+        --append \
+        --cols=100 \
+        --rows=70 \
+        -y \
+        "casts/neovim-$TIMESTAMP.cast" \
+        -c "~/.nix-profile/bin/nvim --clean --server localhost:9034 --remote-ui"
+    '';
+  in {
+    Unit = {
+      Description = "Record the neovim server via asciinema.";
+      #PartOf = "nvim.service";
+      #After = "nvim.service";
+      #Requisite = "nvim.service";
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${record-nvim}";
+      Restart = "on-failure";
+      WorkingDirectory = "%h";
+    };
+    Install = {
+      #WantedBy = [ "default.target" ];
+    };
+  };
 }
