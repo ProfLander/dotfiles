@@ -24,6 +24,9 @@
 ;; Save extended session options
 (set vim.o.sessionoptions "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions")
 
+;; Don't use built-in indentation
+(set vim.o.smartindent false)
+
 ;; Highlight cursor line and column
 ;(set vim.o.cursorline true)
 ;(set vim.o.cursorcolumn true)

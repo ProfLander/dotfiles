@@ -3,6 +3,16 @@
 {
   programs.neovim =
     let
+      fennel-indent = pkgs.vimUtils.buildVimPlugin {
+        name = "fennel-indent.nvim";
+        src = pkgs.fetchFromGitHub {
+          owner = "curist";
+          repo = "fennel-indent.nvim";
+          rev = "072a31cb99a05434f8b75100cae6b8ef01f32501";
+          sha256 = "sha256-jXy6uumEIcuMk8siphNP0mKakvaPlQxewjhJH0LaOiU=";
+        };
+      };
+
       lander-nvim =
         with pkgs.vimPlugins;
         pkgs.vimUtils.buildVimPlugin {
@@ -26,6 +36,7 @@
             dracula-nvim
             conform-nvim
             auto-session
+            fennel-indent
           ];
         };
     in
