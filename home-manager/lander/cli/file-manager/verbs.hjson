@@ -89,11 +89,23 @@ verbs: [
     # (on exit you'll be back in broot)
     {
         invocation: terminal
+        shortcut: tm
         key: ctrl-t
         execution: "$SHELL"
         set_working_dir: true
         leave_broot: false
     }
+
+    # Spawn a freestanding terminal window
+    {
+        invocation: spawn-terminal
+        shortcut: stm
+        key: ctrl-r
+        external: "systemd-run --user --slice=app.slice --collect -- alacritty"
+        set_working_dir: true
+        leave_broot: false
+    }
+
 
     # Here's an example of a verb needing the shell capabilities.
     # It copies all children of the currently selected directory
