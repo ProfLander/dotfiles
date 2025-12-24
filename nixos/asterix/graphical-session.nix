@@ -27,7 +27,4 @@ in {
   nixpkgs.overlays = [ niri-flake.overlays.niri ];
   programs.niri.enable = true;
   programs.niri.package = niri;
-
-  # Enable Ozone Wayland support in Chrome and Electron
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }

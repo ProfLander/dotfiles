@@ -61,6 +61,9 @@ in
 
     ## Don't draw window decorations
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+
+    # Enable Ozone Wayland support in Chrome and Electron
+    NIXOS_OZONE_WL = "1";
   };
 
   imports = [ niri-flake.homeModules.config ];
