@@ -7,6 +7,7 @@
     ./gaming.nix
     ./gpg.nix
     ./graphical-session.nix
+    ./garbage-collection.nix
     ./kernel.nix
     ./locale.nix
     ./network.nix
