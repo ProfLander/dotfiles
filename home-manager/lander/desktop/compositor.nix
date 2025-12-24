@@ -291,7 +291,7 @@ in
         ];
 
         open-on-workspace = "ws-2-main-editor";
-        open-maximized = true;
+        open-maximized = false;
         open-focused = true;
 
         default-column-width = {
@@ -305,7 +305,7 @@ in
           }
         ];
         open-on-workspace = "ws-2-main-editor";
-        open-maximized = true;
+        open-maximized = false;
         open-focused = false;
 
         default-column-width = {
