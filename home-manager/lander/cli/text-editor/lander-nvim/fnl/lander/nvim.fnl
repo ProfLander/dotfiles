@@ -7,6 +7,7 @@
 
 (require :lander.nvim.keymaps)
 
+(require :lander.nvim.hotpot)
 (require :lander.nvim.tree-sitter)
 (require :lander.nvim.language-server)
 
