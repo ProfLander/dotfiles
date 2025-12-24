@@ -42,7 +42,6 @@
                             :capabilities {:offsetEncoding [:utf-8 :utf-16]}
                             :filetypes [:fennel]
                             :root_dir fennel-root-dir
-                            :root_markers [:flsproject.fnl :.git]
                             :settings {}})
 
 (vim.lsp.enable :fennel-ls)
