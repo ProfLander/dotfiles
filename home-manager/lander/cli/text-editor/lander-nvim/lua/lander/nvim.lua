@@ -1,4 +1,3 @@
- require("lander.nvim.theme")
  require("lander.nvim.options")
  require("lander.nvim.neovide")
  require("lander.nvim.indentation")
@@ -24,4 +23,6 @@
  require("lander.nvim.80char-highlight")
  require("lander.nvim.auto-window-sizing")
  require("lander.nvim.rainbow-delimiters")
- return require("lander.nvim.auto-session")
+ require("lander.nvim.auto-session")
+
+ return require("lander.nvim.theme")

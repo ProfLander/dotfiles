@@ -1,4 +1,3 @@
-(require :lander.nvim.theme)
 (require :lander.nvim.options)
 (require :lander.nvim.neovide)
 (require :lander.nvim.indentation)
@@ -25,3 +24,5 @@
 (require :lander.nvim.auto-window-sizing)
 (require :lander.nvim.rainbow-delimiters)
 (require :lander.nvim.auto-session)
+
+(require :lander.nvim.theme)

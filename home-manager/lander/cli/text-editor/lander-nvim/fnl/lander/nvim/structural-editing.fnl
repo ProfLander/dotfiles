@@ -439,12 +439,10 @@
                                      :hl_group :CurrentNode})
       false)))
 
-(λ setup []
+(λ register-highlight []
   (local ns (vim.api.nvim_create_namespace :structural-highlight))
-  (vim.api.nvim_set_hl ns :CurrentNode {:link :CursorLine})
   (vim.api.nvim_buf_clear_namespace 0 ns 0 -1)
-  (pcall vim.api.nvim_clear_autocmds {:group :structural-highlight})
-  (vim.api.nvim_create_augroup :structural-highlight {})
+  (vim.api.nvim_set_hl ns :CurrentNode {:link :CursorLine})
   (vim.api.nvim_create_autocmd :CursorMoved
                                {:group :structural-highlight
                                 :callback (update-highlight ns)})
@@ -457,6 +455,13 @@
   (vim.api.nvim_create_autocmd :TextChangedI
                                {:group :structural-highlight
                                 :callback (update-highlight ns)}))
+
+(λ setup []
+  (vim.api.nvim_create_augroup :structural-highlight {})
+  (pcall vim.api.nvim_clear_autocmds {:group :structural-highlight})
+  (vim.api.nvim_create_autocmd :ColorScheme
+                               {:group :structural-highlight
+                                :callback register-highlight}))
 
 (λ const [& args]
   (λ []

@@ -439,12 +439,10 @@
 
 
 
- local function setup()
+ local function register_highlight()
  local ns = vim.api.nvim_create_namespace("structural-highlight")
- vim.api.nvim_set_hl(ns, "CurrentNode", {link = "CursorLine"})
  vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
- pcall(vim.api.nvim_clear_autocmds, {group = "structural-highlight"})
- vim.api.nvim_create_augroup("structural-highlight", {})
+ vim.api.nvim_set_hl(ns, "CurrentNode", {link = "CursorLine"})
  vim.api.nvim_create_autocmd("CursorMoved", {group = "structural-highlight", callback = update_highlight(ns)})
 
 
@@ -458,23 +456,30 @@
 
 
 
- local function const(...) local args = {...} _G.assert((nil ~= args), "Missing argument args on fnl/lander/nvim/structural-editing.fnl:461")
+ local function setup()
+ vim.api.nvim_create_augroup("structural-highlight", {})
+ pcall(vim.api.nvim_clear_autocmds, {group = "structural-highlight"})
+ return vim.api.nvim_create_autocmd("ColorScheme", {group = "structural-highlight", callback = register_highlight}) end
+
+
+
+ local function const(...) local args = {...} _G.assert((nil ~= args), "Missing argument args on fnl/lander/nvim/structural-editing.fnl:466")
  local function _115_()
  return unpack(args) end return _115_ end
 
- local function command(cmd) _G.assert((nil ~= cmd), "Missing argument cmd on fnl/lander/nvim/structural-editing.fnl:465")
+ local function command(cmd) _G.assert((nil ~= cmd), "Missing argument cmd on fnl/lander/nvim/structural-editing.fnl:470")
  local function _116_()
  return vim.cmd(cmd) end return _116_ end
 
- local function input(cmd) _G.assert((nil ~= cmd), "Missing argument cmd on fnl/lander/nvim/structural-editing.fnl:469")
+ local function input(cmd) _G.assert((nil ~= cmd), "Missing argument cmd on fnl/lander/nvim/structural-editing.fnl:474")
  local function _117_()
  return vim.api.nvim_input(cmd) end return _117_ end
 
- local function push_text(text) _G.assert((nil ~= text), "Missing argument text on fnl/lander/nvim/structural-editing.fnl:473")
+ local function push_text(text) _G.assert((nil ~= text), "Missing argument text on fnl/lander/nvim/structural-editing.fnl:478")
  local function _118_()
  return vim.cmd(("normal i" .. text)) end return _118_ end
 
- local function insert_text(text) _G.assert((nil ~= text), "Missing argument text on fnl/lander/nvim/structural-editing.fnl:477")
+ local function insert_text(text) _G.assert((nil ~= text), "Missing argument text on fnl/lander/nvim/structural-editing.fnl:482")
  local function _119_()
  return vim.cmd(("i" .. text)) end return _119_ end
 
@@ -623,7 +628,7 @@
  local barf_prev = barf(true)
  local barf_next = barf(false)
 
- local function otherwise(...) local fs = {...} _G.assert((nil ~= fs), "Missing argument fs on fnl/lander/nvim/structural-editing.fnl:626")
+ local function otherwise(...) local fs = {...} _G.assert((nil ~= fs), "Missing argument fs on fnl/lander/nvim/structural-editing.fnl:631")
  local function _192_(...)
  local out = nil for _, f in ipairs(fs) do
 
