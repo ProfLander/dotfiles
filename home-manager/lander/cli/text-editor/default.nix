@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.neovim =
@@ -67,15 +67,52 @@
     pkgs.vim-set-root
   ];
 
-  systemd.user.services.nvim = {
+  systemd.user.services.nvim = let
+    start-nvim = pkgs.writeShellScript "start-nvim.sh" ''
+      #!/bin/sh
+      PATH=$PATH:${lib.makeBinPath (with pkgs; [
+        # Basics
+        coreutils
+        diffutils
+        git
+        curl
+        ripgrep
+        fd
+
+        # Toolchain
+        gcc
+        python3
+
+        # Formatters
+        fnlfmt
+        nixfmt
+        rustfmt
+
+        # Language servers
+        bash-language-server
+        fennel-ls
+        ltex-ls
+        lua-language-server
+        nixd
+        rust-analyzer
+        tombi
+        yaml-language-server
+      ])}
+      /home/lander/.nix-profile/bin/nvim --headless --listen ${pkgs.nvim-server} -c "AutoSession restore default"
+    '';
+
+    stop-nvim = pkgs.writeShellScript "stop-nvim.sh" ''
+      #!bin/sh
+      /home/lander/.nix-profile/bin/nvim --headless --server ${pkgs.nvim-server} --remote-expr "execute(\"AutoSession save default\")"
+    '';
+  in {
     Unit = {
       Description = "Run neovim as a headless server.";
       After = [ "network.target" ];
     };
     Service = {
-      Type = "simple";
-      ExecStart = ''%h/.nix-profile/bin/nvim --headless --listen ${pkgs.nvim-server} -c "AutoSession restore default"'';
-      ExecStop = ''%h/.nix-profile/bin/nvim --headless --server ${pkgs.nvim-server} --remote-expr "execute(\"AutoSession save default\")"'';
+      ExecStart = "${start-nvim}";
+      ExecStop = "${stop-nvim}";
       SuccessExitStatus = 1;
       Restart = "always";
       RestartSec = 5;
