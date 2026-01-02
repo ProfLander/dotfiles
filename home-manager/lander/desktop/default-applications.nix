@@ -25,6 +25,7 @@
       "text/markdown" = "neovide.desktop";
       "text/rust" = "neovide.desktop";
       "application/toml" = "neovide.desktop";
+      "application/x-shellscript" = "neovide.desktop";
       "text/html" = "neovide.desktop";
       "text/css" = "neovide.desktop";
       "text/org" = "neovide.desktop";
