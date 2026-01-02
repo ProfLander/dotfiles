@@ -350,15 +350,18 @@
   (λ bind-fennel []
     ;; Evaluation
     (vim.keymap.set [:n] :<Leader>e "vaf:Fnl<cr>"
-                    {:desc :eval-form :silent true :remap true :buffer true})
+      {:desc :eval-form :silent true :remap true :buffer true})
     (vim.keymap.set [:n] :<Leader>E ":%Fnl<cr>"
-                    {:desc :eval-file :silent true :noremap true :buffer true})
+      {:desc :eval-file :silent true :noremap true :buffer true})
     (vim.keymap.set [:v] :<Leader>e ":Fnl<cr>"
-                    {:desc :eval-range :silent true :noremap true :buffer true})
+      {:desc :eval-range :silent true :noremap true :buffer true})
     ;; Typeable lambda symbols
     (vim.keymap.set [:n] :<C-z> ":normal iλ<cr>" {:silent true :noremap true})
     (vim.keymap.set [:i] :<C-z> "λ" {:silent true :noremap true})
-    (vim.keymap.set [:n] :<C-Z> ":normal iΛ<cr>" {:silent true :noremap true}))
+    (vim.keymap.set [:n] :<C-S-z> ":normal iΛ<cr>" {:silent true :noremap true})
+    (vim.keymap.set [:i] :<C-S-z> "Λ" {:silent true :noremap true})
+    (vim.keymap.set [:n] :<C-a> ":normal i∀<cr>" {:silent true :noremap true})
+    (vim.keymap.set [:i] :<C-a> "∀" {:silent true :noremap true}))
   (vim.schedule bind-fennel))
 
 (vim.api.nvim_create_autocmd :FileType

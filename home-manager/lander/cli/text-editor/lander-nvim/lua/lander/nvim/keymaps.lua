@@ -358,7 +358,10 @@
 
  vim.keymap.set({"n"}, "<C-z>", ":normal i\206\187<cr>", {silent = true, noremap = true})
  vim.keymap.set({"i"}, "<C-z>", "\206\187", {silent = true, noremap = true})
- return vim.keymap.set({"n"}, "<C-Z>", ":normal i\206\155<cr>", {silent = true, noremap = true}) end
+ vim.keymap.set({"n"}, "<C-S-z>", ":normal i\206\155<cr>", {silent = true, noremap = true})
+ vim.keymap.set({"i"}, "<C-S-z>", "\206\155", {silent = true, noremap = true})
+ vim.keymap.set({"n"}, "<C-a>", ":normal i\226\136\128<cr>", {silent = true, noremap = true})
+ return vim.keymap.set({"i"}, "<C-a>", "\226\136\128", {silent = true, noremap = true}) end
  return vim.schedule(bind_fennel) end
 
  vim.api.nvim_create_autocmd("FileType", {pattern = {"fennel"}, callback = on_file_type_fennel, group = "lander-nvim"})
