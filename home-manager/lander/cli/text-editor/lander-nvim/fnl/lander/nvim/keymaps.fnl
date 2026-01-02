@@ -355,9 +355,10 @@
                     {:desc :eval-file :silent true :noremap true :buffer true})
     (vim.keymap.set [:v] :<Leader>e ":Fnl<cr>"
                     {:desc :eval-range :silent true :noremap true :buffer true})
-    ;; Typeable lambda symboλl
+    ;; Typeable lambda symbols
     (vim.keymap.set [:n] :<C-z> ":normal iλ<cr>" {:silent true :noremap true})
-    (vim.keymap.set [:i] :<C-z> "λ" {:silent true :noremap true}))
+    (vim.keymap.set [:i] :<C-z> "λ" {:silent true :noremap true})
+    (vim.keymap.set [:n] :<C-Z> ":normal iΛ<cr>" {:silent true :noremap true}))
   (vim.schedule bind-fennel))
 
 (vim.api.nvim_create_autocmd :FileType
