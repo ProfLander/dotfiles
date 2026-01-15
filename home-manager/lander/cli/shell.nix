@@ -1,9 +1,6 @@
-{ pkgs, lib, ... }:
+{ lib, ... }:
 
 {
-  home.packages = [
-    pkgs.scsh
-  ];
   programs.zsh = {
     enable = true;
     enableCompletion = true;
