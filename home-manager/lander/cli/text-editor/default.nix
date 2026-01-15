@@ -13,6 +13,22 @@
         };
       };
 
+      conjure-libre =
+        with pkgs.vimPlugins;
+        pkgs.vimUtils.buildVimPlugin {
+          name = "conjure-libre";
+          src = pkgs.fetchFromGitHub {
+            owner = "ProfLander";
+            repo = "conjure-libre";
+            rev = "83a96ca75859f94b1482c2beff21b294d6616a37";
+            sha256 = "sha256-rKYwhAK9CBggqGOys1g5z4z1bMS1zpiDwpqQeVT9hbc=";
+          };
+          dependencies = [
+            plenary-nvim
+          ];
+          doCheck = false;
+        };
+
       lander-nvim =
         with pkgs.vimPlugins;
         pkgs.vimUtils.buildVimPlugin {
@@ -20,7 +36,7 @@
           src = ./lander-nvim;
           dependencies = [
             plenary-nvim
-            nvim-treesitter
+            nvim-treesitter-legacy
             nvim-lspconfig
             nvim-surround
             nvim-autopairs
@@ -37,6 +53,8 @@
             conform-nvim
             auto-session
             fennel-indent
+            conjure-libre
+            nfnl
           ];
         };
     in
@@ -50,7 +68,7 @@
       plugins = [
         lander-nvim
 
-        (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+        (pkgs.vimPlugins.nvim-treesitter-legacy.withPlugins (p: [
           p.bash
 
           p.nix
@@ -93,6 +111,8 @@
         # Toolchain
         gcc
         python3
+        luajitPackages.fennel
+        luajitPackages.readline
 
         # Formatters
         fnlfmt

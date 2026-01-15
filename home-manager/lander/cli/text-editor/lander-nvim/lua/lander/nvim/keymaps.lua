@@ -1,3 +1,4 @@
+-- [nfnl] fnl/lander/nvim/keymaps.fnl
  local telescope = require("telescope.builtin")
 
  local se = require("lander.nvim.structural-editing")
@@ -296,18 +297,18 @@
 
 
 
- local function niri_focus(target) _G.assert((nil ~= target), "Missing argument target on fnl/lander/nvim/keymaps.fnl:299")
+ local function niri_focus(target) if (nil == target) then _G.error("Missing argument target on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:299", 2) else end
  return vim.cmd(("silent !niri msg action focus-window --id " .. target)) end
 
- local function broot_send(target, cmd) _G.assert((nil ~= cmd), "Missing argument cmd on fnl/lander/nvim/keymaps.fnl:302") _G.assert((nil ~= target), "Missing argument target on fnl/lander/nvim/keymaps.fnl:302")
- local function _6_()
+ local function broot_send(target, cmd) if (nil == cmd) then _G.error("Missing argument cmd on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:302", 2) else end if (nil == target) then _G.error("Missing argument target on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:302", 2) else end
+ local function _9_()
  local cmd0 = cmd()
  cmd0 = ("silent !broot --send " .. target .. " --cmd \"" .. cmd0 .. "\"")
  vim.cmd(cmd0)
  local target0 = vim.api.nvim_exec(("silent !app-id-to-niri-id " .. target), true)
 
  target0 = tonumber(string.match(target0, "[0-9]+"))
- return niri_focus(target0) end return _6_ end
+ return niri_focus(target0) end return _9_ end
 
  local function current_buffer_name(_3fbufnr)
  local bufnr = (_3fbufnr or 0)
@@ -315,22 +316,22 @@
 
 
 
- local function _7_() return (":clean " .. current_buffer_name()) end vim.keymap.set({"n"}, "<F2>", broot_send("main-panel-right", _7_), {silent = true})
+ local function _10_() return (":clean " .. current_buffer_name()) end vim.keymap.set({"n"}, "<F2>", broot_send("main-panel-right", _10_), {silent = true})
 
 
 
 
- local function _8_() return (":build " .. current_buffer_name()) end vim.keymap.set({"n"}, "<F3>", broot_send("main-panel-right", _8_), {silent = true})
+ local function _11_() return (":build " .. current_buffer_name()) end vim.keymap.set({"n"}, "<F3>", broot_send("main-panel-right", _11_), {silent = true})
 
 
 
 
- local function _9_() return (":run " .. current_buffer_name()) end vim.keymap.set({"n"}, "<F4>", broot_send("main-panel-right", _9_), {silent = true})
+ local function _12_() return (":run " .. current_buffer_name()) end vim.keymap.set({"n"}, "<F4>", broot_send("main-panel-right", _12_), {silent = true})
 
 
 
 
- local function _10_() return (":test " .. current_buffer_name()) end vim.keymap.set({"n"}, "<F5>", broot_send("main-panel-right", _10_), {silent = true})
+ local function _13_() return (":test " .. current_buffer_name()) end vim.keymap.set({"n"}, "<F5>", broot_send("main-panel-right", _13_), {silent = true})
 
 
 
@@ -349,13 +350,6 @@
  local function on_file_type_fennel()
  local function bind_fennel()
 
- vim.keymap.set({"n"}, "<Leader>e", "vaf:Fnl<cr>", {desc = "eval-form", silent = true, remap = true, buffer = true})
-
- vim.keymap.set({"n"}, "<Leader>E", ":%Fnl<cr>", {desc = "eval-file", silent = true, noremap = true, buffer = true})
-
- vim.keymap.set({"v"}, "<Leader>e", ":Fnl<cr>", {desc = "eval-range", silent = true, noremap = true, buffer = true})
-
-
  vim.keymap.set({"n"}, "<C-z>", ":normal i\206\187<cr>", {silent = true, noremap = true})
  vim.keymap.set({"i"}, "<C-z>", "\206\187", {silent = true, noremap = true})
  vim.keymap.set({"n"}, "<C-S-z>", ":normal i\206\155<cr>", {silent = true, noremap = true})
@@ -364,20 +358,4 @@
  return vim.keymap.set({"i"}, "<C-a>", "\226\136\128", {silent = true, noremap = true}) end
  return vim.schedule(bind_fennel) end
 
- vim.api.nvim_create_autocmd("FileType", {pattern = {"fennel"}, callback = on_file_type_fennel, group = "lander-nvim"})
-
-
-
-
-
- local function on_file_type_lua()
- local function bind_lua()
- vim.keymap.set({"n"}, "<Leader>e", "vaf:lua<cr>", {desc = "eval-form", silent = true, remap = true, buffer = true})
-
- vim.keymap.set({"n"}, "<Leader>E", ":%lua<cr>", {desc = "eval-file", silent = true, noremap = true, buffer = true})
-
- return vim.keymap.set({"v"}, "<Leader>e", ":lua<cr>", {desc = "eval-range", silent = true, noremap = true, buffer = true}) end
-
- return vim.schedule(bind_lua) end
-
- return vim.api.nvim_create_autocmd("FileType", {pattern = {"lua"}, callback = on_file_type_lua, group = "lander-nvim"})
+ return vim.api.nvim_create_autocmd("FileType", {pattern = {"fennel"}, callback = on_file_type_fennel, group = "lander-nvim"})

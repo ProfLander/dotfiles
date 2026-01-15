@@ -1,3 +1,4 @@
+-- [nfnl] fnl/lander/nvim/broot.fnl
  local function sync_broot()
  local path = vim.api.nvim_buf_get_name(0)
  if (path ~= "") then

@@ -1,3 +1,4 @@
+-- [nfnl] fnl/lander/nvim/language-server.fnl
  vim.lsp.config("bashls", {cmd = {"bash-language-server"}, filetypes = {"bash", "sh"}, root_markers = {".git"}})
 
 
@@ -33,7 +34,7 @@
  local fnlpath = vim.fs.joinpath(_3fpath, "flsproject.fnl")
  return ((vim.uv.fs_stat(fnlpath) or {}).type == "file") end
 
- local function fennel_root_dir(bufnr, on_dir) _G.assert((nil ~= on_dir), "Missing argument on-dir on fnl/lander/nvim/language-server.fnl:36") _G.assert((nil ~= bufnr), "Missing argument bufnr on fnl/lander/nvim/language-server.fnl:36")
+ local function fennel_root_dir(bufnr, on_dir) if (nil == on_dir) then _G.error("Missing argument on-dir on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/language-server.fnl:36", 2) else end if (nil == bufnr) then _G.error("Missing argument bufnr on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/language-server.fnl:36", 2) else end
  local fname = vim.api.nvim_buf_get_name(bufnr)
  return on_dir((vim.iter(vim.fs.parents(fname)):find(has_fls_project_cfg) or vim.fs.root(0, ".git"))) end
 
@@ -50,8 +51,8 @@
 
 
 
- local function _1_(_, filetype) _G.assert((nil ~= filetype), "Missing argument filetype on fnl/lander/nvim/language-server.fnl:53")
- return (language_id_mapping[filetype] or filetype) end vim.lsp.config("ltex", {cmd = {"ltex-ls"}, filetypes = text_filetypes, get_language_id = _1_, root_markers = {".git"}, settings = {ltex = {enabled = text_filetypes}}})
+ local function _3_(_, filetype) if (nil == filetype) then _G.error("Missing argument filetype on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/language-server.fnl:53", 2) else end
+ return (language_id_mapping[filetype] or filetype) end vim.lsp.config("ltex", {cmd = {"ltex-ls"}, filetypes = text_filetypes, get_language_id = _3_, root_markers = {".git"}, settings = {ltex = {enabled = text_filetypes}}})
 
 
 
@@ -91,7 +92,7 @@
 
  vim.lsp.enable("rust-analyzer")
 
- local function yaml_on_init(client) _G.assert((nil ~= client), "Missing argument client on fnl/lander/nvim/language-server.fnl:94") client.server_capabilities.documentFormattingProvider = true
+ local function yaml_on_init(client) if (nil == client) then _G.error("Missing argument client on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/language-server.fnl:94", 2) else end client.server_capabilities.documentFormattingProvider = true
  return nil end
 
  vim.lsp.config("tombi", {cmd = {"tombi", "lsp"}, filetypes = {"toml"}, root_markers = {"tombi.toml", "pyproject.toml", ".git"}})

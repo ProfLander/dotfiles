@@ -1,3 +1,4 @@
+-- [nfnl] fnl/lander/nvim/text-indicators.fnl
  local dracula = require("dracula.palette")
 
  vim.api.nvim_set_hl(0, "Whitespace", {fg = dracula.comment})

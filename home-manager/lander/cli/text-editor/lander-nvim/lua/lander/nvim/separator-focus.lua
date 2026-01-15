@@ -1,3 +1,4 @@
+-- [nfnl] fnl/lander/nvim/separator-focus.fnl
 
  local dracula = require("dracula.palette")
 

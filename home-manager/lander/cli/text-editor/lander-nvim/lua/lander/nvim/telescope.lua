@@ -1,3 +1,4 @@
+-- [nfnl] fnl/lander/nvim/telescope.fnl
  local telescope = require("telescope")
  local actions = require("telescope.actions")
 

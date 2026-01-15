@@ -1,3 +1,4 @@
+-- [nfnl] fnl/lander/nvim/autopairs.fnl
  local autopairs = require("nvim-autopairs")
 
  return autopairs.setup({enable_check_bracket_line = false})

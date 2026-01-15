@@ -348,13 +348,6 @@
 ;; Fennel
 (λ on-file-type-fennel []
   (λ bind-fennel []
-    ;; Evaluation
-    (vim.keymap.set [:n] :<Leader>e "vaf:Fnl<cr>"
-      {:desc :eval-form :silent true :remap true :buffer true})
-    (vim.keymap.set [:n] :<Leader>E ":%Fnl<cr>"
-      {:desc :eval-file :silent true :noremap true :buffer true})
-    (vim.keymap.set [:v] :<Leader>e ":Fnl<cr>"
-      {:desc :eval-range :silent true :noremap true :buffer true})
     ;; Typeable lambda symbols
     (vim.keymap.set [:n] :<C-z> ":normal iλ<cr>" {:silent true :noremap true})
     (vim.keymap.set [:i] :<C-z> "λ" {:silent true :noremap true})
@@ -369,18 +362,3 @@
                               :callback on-file-type-fennel
                               :group :lander-nvim})
 
-;; Lua
-(λ on-file-type-lua []
-  (λ bind-lua []
-    (vim.keymap.set [:n] :<Leader>e "vaf:lua<cr>"
-                    {:desc :eval-form :silent true :remap true :buffer true})
-    (vim.keymap.set [:n] :<Leader>E ":%lua<cr>"
-                    {:desc :eval-file :silent true :noremap true :buffer true})
-    (vim.keymap.set [:v] :<Leader>e ":lua<cr>"
-                    {:desc :eval-range :silent true :noremap true :buffer true}))
-  (vim.schedule bind-lua))
-
-(vim.api.nvim_create_autocmd :FileType
-                             {:pattern [:lua]
-                              :callback on-file-type-lua
-                              :group :lander-nvim})

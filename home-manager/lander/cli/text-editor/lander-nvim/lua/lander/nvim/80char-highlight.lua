@@ -1,3 +1,4 @@
+-- [nfnl] fnl/lander/nvim/80char-highlight.fnl
 
  pcall(vim.api.nvim_clear_autocmds, {group = "80char-highlight"})
 

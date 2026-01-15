@@ -1,3 +1,4 @@
+-- [nfnl] fnl/lander/nvim/rainbow-delimiters.fnl
  local dracula = require("dracula.palette")
 
  vim.api.nvim_set_hl(0, "RainbowDelimiterRed", {fg = dracula.red})
