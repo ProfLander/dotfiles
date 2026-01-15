@@ -10,4 +10,5 @@
   ];
 
   programs.steam.platformOptimizations.enable = true;
+  services.input-remapper.enable = true;
 }
