@@ -298,7 +298,7 @@ in
         open-focused = true;
 
         default-column-width = {
-          proportion = 0.4;
+          proportion = 0.8;
         };
       }
       {
