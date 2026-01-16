@@ -32,7 +32,7 @@
 
  local function has_fls_project_cfg(_3fpath)
  local fnlpath = vim.fs.joinpath(_3fpath, "flsproject.fnl")
- return ((vim.uv.fs_stat(fnlpath) or {}).type == "file") end
+ return ((vim.uv.fs_stat(fnlpath, nil) or {}).type == "file") end
 
  local function fennel_root_dir(bufnr, on_dir) if (nil == on_dir) then _G.error("Missing argument on-dir on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/language-server.fnl:36", 2) else end if (nil == bufnr) then _G.error("Missing argument bufnr on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/language-server.fnl:36", 2) else end
  local fname = vim.api.nvim_buf_get_name(bufnr)

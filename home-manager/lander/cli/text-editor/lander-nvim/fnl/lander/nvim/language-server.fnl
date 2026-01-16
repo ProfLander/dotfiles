@@ -31,7 +31,7 @@
 
 (λ has-fls-project-cfg [?path]
   (local fnlpath (vim.fs.joinpath ?path :flsproject.fnl))
-  (= (. (or (vim.uv.fs_stat fnlpath) {}) :type) :file))
+  (= (. (or (vim.uv.fs_stat fnlpath nil) {}) :type) :file))
 
 (λ fennel-root-dir [bufnr on-dir]
   (local fname (vim.api.nvim_buf_get_name bufnr))
