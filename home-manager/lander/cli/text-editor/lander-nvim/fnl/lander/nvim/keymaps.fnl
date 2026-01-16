@@ -234,9 +234,6 @@
 (vim.keymap.set [:n] :<C-S-k> (se.compose se.node-at-cursor se.barf-next)
                 {:desc :barf-forward :silent true :noremap true})
 
-;; Test binding
-(vim.keymap.set [:n] :fm se.test {:silent true})
-
 ;; Dismiss search highlight and multicursor with escape
 (vim.keymap.set [:n] :<esc> (λ []
                               (vim.cmd :noh)

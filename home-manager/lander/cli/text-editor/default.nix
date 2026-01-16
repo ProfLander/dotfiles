@@ -45,7 +45,6 @@
             multicursor-nvim
             winshift-nvim
             undotree
-            hotpot-nvim
             rainbow-delimiters-nvim
             telescope-nvim
             telescope-fzf-native-nvim

@@ -236,9 +236,6 @@
 
 
 
- vim.keymap.set({"n"}, "fm", se.test, {silent = true})
-
-
  local function _3_()
  vim.cmd("noh")
  return mc.clearCursors() end vim.keymap.set({"n"}, "<esc>", _3_, {desc = "dismiss-search-highlight", silent = true, noremap = true})
@@ -297,10 +294,10 @@
 
 
 
- local function niri_focus(target) if (nil == target) then _G.error("Missing argument target on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:299", 2) else end
+ local function niri_focus(target) if (nil == target) then _G.error("Missing argument target on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:296", 2) else end
  return vim.cmd(("silent !niri msg action focus-window --id " .. target)) end
 
- local function broot_send(target, cmd) if (nil == cmd) then _G.error("Missing argument cmd on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:302", 2) else end if (nil == target) then _G.error("Missing argument target on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:302", 2) else end
+ local function broot_send(target, cmd) if (nil == cmd) then _G.error("Missing argument cmd on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:299", 2) else end if (nil == target) then _G.error("Missing argument target on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:299", 2) else end
  local function _9_()
  local cmd0 = cmd()
  cmd0 = ("silent !broot --send " .. target .. " --cmd \"" .. cmd0 .. "\"")

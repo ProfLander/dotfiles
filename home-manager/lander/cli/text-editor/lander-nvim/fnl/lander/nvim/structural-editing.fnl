@@ -1,5 +1,3 @@
-(require :hotpot)
-(local fennel (require :fennel))
 (local ts-parsers (require :nvim-treesitter.parsers))
 
 (λ has-parser []
@@ -483,15 +481,10 @@
   (λ []
     (vim.cmd (.. :i text))))
 
-(λ test []
-  (print (fennel.view (node->first-non-whitespace (node-at-cursor)))))
-
 (λ node-split-forward [?node]
   (when ?node
     (local ?prev (node->prev-named-sibling ?node))
     (when ?prev
-      (local [_ psc _ _] (node->range ?prev))
-      (local [sr sc _ _] (node->range ?node))
       (vim.api.nvim_input "fsi<CR><Right><Esc>"))))
 
 (λ node-join-backward [?node]
