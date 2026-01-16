@@ -112,7 +112,6 @@
         gcc
         python3
         luajitPackages.fennel
-        luajitPackages.readline
 
         # Formatters
         fnlfmt

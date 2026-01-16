@@ -3,7 +3,6 @@
 {
   home.packages = [
     pkgs.luajitPackages.fennel
-    pkgs.luajitPackages.readline
     pkgs.fennel-ls
     pkgs.fnlfmt
   ];
