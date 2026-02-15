@@ -597,8 +597,7 @@ in
         "${window-action}"
         "wincmd v"
         ""
-        "alacritty
-      -e broot"
+        "alacritty -e broot"
       ];
       "Mod+Ctrl+Space".action = spawn [
         "${window-action}"
@@ -612,8 +611,7 @@ in
         "${window-action}"
         "wincmd c"
         ""
-        "niri
-      msg action close-window"
+        "niri msg action close-window"
       ];
 
       # Maximize
