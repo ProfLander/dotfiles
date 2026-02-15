@@ -19,6 +19,7 @@ in
   home.packages = [
     pkgs.app-id-to-niri-id
     pkgs.desktop-run
+    pkgs.swayidle
   ];
 
   systemd.user.services.arrange-layout = {
