@@ -350,8 +350,8 @@
     (vim.keymap.set [:i] :<C-z> "λ" {:silent true :noremap true})
     (vim.keymap.set [:n] :<C-S-z> ":normal iΛ<cr>" {:silent true :noremap true})
     (vim.keymap.set [:i] :<C-S-z> "Λ" {:silent true :noremap true})
-    (vim.keymap.set [:n] :<C-a> ":normal i∀<cr>" {:silent true :noremap true})
-    (vim.keymap.set [:i] :<C-a> "∀" {:silent true :noremap true}))
+    (vim.keymap.set [:n] :<C-a> ":normal iΠ<cr>" {:silent true :noremap true})
+    (vim.keymap.set [:i] :<C-a> "Π" {:silent true :noremap true}))
   (vim.schedule bind-fennel))
 
 (vim.api.nvim_create_autocmd :FileType
