@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
-{
+let
+  gitu = pkgs.gitu.overrideAttrs { doCheck = false; };
+in {
   programs.git = {
     enable = true;
     settings = {
@@ -15,6 +17,6 @@
   };
 
   home.packages = [
-    pkgs.gitu
+    gitu
   ];
 }
