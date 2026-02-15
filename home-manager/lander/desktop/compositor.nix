@@ -39,6 +39,23 @@ in
     };
   };
 
+  systemd.user.services.idle = {
+    Unit = {
+      Description = "Idle timeout";
+      Requisite = "graphical-session.target";
+      PartOf = "graphical-session.target";
+      After = "graphical-session.target";
+    };
+
+    Service = {
+      ExecStart = ''${pkgs.swayidle}/bin/swayidle timeout 60 "niri msg action power-off-monitors"'';
+    };
+
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
+
   home.sessionVariables = {
     # Session info
     XDG_SESSION_TYPE = "wayland";
