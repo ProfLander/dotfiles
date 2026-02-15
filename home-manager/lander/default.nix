@@ -10,6 +10,7 @@
     ./toolchains/default.nix
 
     ./dconf.nix
+    ./garbage-collection.nix
     ./rgb.nix
     ./session-variables.nix
   ];
