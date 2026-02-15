@@ -111,6 +111,7 @@
         gcc
         python3
         luajitPackages.fennel
+        duck-repl
 
         # Formatters
         fnlfmt

@@ -24,6 +24,7 @@
     util-obs.url = ./util/obs;
     util-nvim.url = ./util/nvim;
     util-desktop.url = ./util/desktop;
+    util-toolchain.url = ./util/toolchain;
   };
 
   outputs =
@@ -38,6 +39,7 @@
       util-obs,
       util-nvim,
       util-desktop,
+      util-toolchain,
       ...
     }:
     let
@@ -64,6 +66,9 @@
             (final: prev: util-obs.packages.${system})
             (final: prev: util-nvim.packages.${system})
             (final: prev: util-desktop.packages.${system})
+            (final: prev: {
+              duck-repl = util-toolchain.packages.${system}.default;
+            })
           ];
         };
         extraSpecialArgs = { inherit inputs; };
