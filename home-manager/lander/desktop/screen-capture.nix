@@ -27,9 +27,9 @@ let
     };
     cargoHash = "sha256-1tcRC9+NZULCB2GzqYIoTCpqeXrKPDJx4JEJNTysiTk=";
     buildInputs = [
-      pkgs.xorg.libX11.dev
-      pkgs.xorg.libXi
-      pkgs.xorg.libXtst
+      pkgs.libx11.dev
+      pkgs.libxi
+      pkgs.libxtst
       pkgs.libxkbcommon
     ];
     nativeBuildInputs = [
