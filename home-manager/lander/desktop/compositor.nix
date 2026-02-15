@@ -312,7 +312,7 @@ in
         open-focused = false;
 
         default-column-width = {
-          proportion = 0.4;
+          proportion = 0.8;
         };
 
         default-column-display = "tabbed";
