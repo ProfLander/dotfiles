@@ -12,6 +12,7 @@
     ./locale.nix
     ./network.nix
     ./packages.nix
+    ./power.nix
     ./shell.nix
     ./user.nix
     ./wine.nix
