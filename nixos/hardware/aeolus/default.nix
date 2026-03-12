@@ -5,6 +5,7 @@
     ./disks.nix
     ./firmware.nix
     ./network.nix
+    ./ssh.nix
     ../../asterix/common/default.nix
     ../../asterix/users/lander.nix
   ];
