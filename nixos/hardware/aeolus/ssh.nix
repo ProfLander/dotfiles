@@ -1,7 +1,7 @@
 {
   services.openssh = {
     enable = true;
-    ports = [ 22 ];
+    ports = [ 554 ];
     settings = {
       PasswordAuthentication = true;
       AllowUsers = [ "lander" ];
