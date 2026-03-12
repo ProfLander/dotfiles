@@ -4,13 +4,10 @@
     ./cpu.nix
     ./disks.nix
     ./firmware.nix
-    ./gpu.nix
-    ./monitors.nix
     ./network.nix
     ../../asterix/common/default.nix
-    ../../asterix/desktop/default.nix
     ../../asterix/users/lander.nix
   ];
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }

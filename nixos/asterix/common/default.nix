@@ -1,20 +1,13 @@
 {
   imports = [
-    ./audio.nix
     ./boot-loader.nix
-    ./desktop.nix
-    ./fonts.nix
-    ./gaming.nix
-    ./gpg.nix
-    ./graphical-session.nix
     ./garbage-collection.nix
-    ./kernel.nix
+    ./gpg.nix
     ./locale.nix
     ./network.nix
+    ./nix.nix
     ./packages.nix
     ./power.nix
     ./shell.nix
-    ./user.nix
-    ./wine.nix
   ];
 }

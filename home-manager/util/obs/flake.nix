@@ -19,7 +19,7 @@
 
             [ -d ~/.config/obs-studio/.sentinel ] && /run/current-system/sw/bin/rm -rf ~/.config/obs-studio/.sentinel
             [ -f ~/.config/obs-studio/safe_mode ] && /run/current-system/sw/bin/rm ~/.config/obs-studio/safe_mode
-            exec ~/.nix-profile/bin/obs --startreplaybuffer
+            exec ~/.nix-profile/bin/obs
           '';
         };
 
@@ -28,6 +28,7 @@
           text = ''
             #!/bin/sh
 
+            gobs-cli record stop
             gobs-cli replaybuffer stop
           '';
         };
@@ -42,7 +43,12 @@
         obs-save-replay = pkgs.writeShellApplication {
           name = "obs-save-replay";
           text = ''
-            gobs-cli replaybuffer save
+            gobs-cli replaybuffer status | grep "Replay buffer is active."
+            if [ $? = 1 ]; then
+              gobs-cli replaybuffer start
+            else
+              gobs-cli replaybuffer save
+            fi
             niri msg action focus-window --id "$(${app-id-to-niri-id-bin} "com.obsproject.Studio")"
           '';
         };

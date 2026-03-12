@@ -48,7 +48,7 @@ in
     };
 
     Service = {
-      ExecStart = ''${pkgs.swayidle}/bin/swayidle timeout 60 "niri msg action power-off-monitors"'';
+      ExecStart = ''${pkgs.swayidle}/bin/swayidle -w timeout 60 "${pkgs.niri}/bin/niri msg action power-off-monitors"'';
     };
 
     Install = {

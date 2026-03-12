@@ -3,7 +3,7 @@
     ./bottles.nix
     ./mangohud.nix
     ./gamescope.nix
-    ./retroarch.nix
+    ./emulation.nix
     ./quake.nix
   ];
 }
