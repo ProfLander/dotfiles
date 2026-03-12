@@ -2,6 +2,7 @@
   imports = [
     ./boot.nix
     ./cpu.nix
+    ./cron/default.nix
     ./disks.nix
     ./firmware.nix
     ./network.nix
