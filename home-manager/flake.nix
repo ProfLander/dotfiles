@@ -10,8 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri-flake.url = "git+file:///home/lander/src/niri-flake";
-    niri.url = "git+file:///home/lander/src/niri";
+    niri-flake.url = "github:ProfLander/niri-flake";
+    niri.url = "github:ProfLander/niri";
 
     astal.url = "github:aylur/astal";
 
