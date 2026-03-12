@@ -2,8 +2,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nix-gaming.url = "github:fufexan/nix-gaming";
-    niri-flake.url = "git+file:///home/lander/src/niri-flake";
-    niri.url = "git+file:///home/lander/src/niri";
+    niri-flake.url = "github:ProfLander/niri-flake";
+    niri.url = "github:ProfLander/niri";
     #niri.url = "github:YaLTeR/niri";
   };
   outputs =
