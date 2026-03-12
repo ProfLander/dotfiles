@@ -6,16 +6,9 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "gamemode"
-      "render"
-      "input"
-      "video"
     ];
     shell = pkgs.zsh;
   };
-
-  # Automatic TTY login
-  services.getty.autologinUser = "lander";
 
   security.sudo.extraRules = [
     {
