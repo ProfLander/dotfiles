@@ -2,8 +2,12 @@
 
 let
   niri-flake = inputs.niri-flake;
-  niri = inputs.niri.packages.${pkgs.system}.default;
-in {
+  niri = inputs.niri.packages.${pkgs.system}.default.overrideAttrs (oa: {
+    doCheck = false;
+    doInstallCheck = false;
+  });
+in
+{
   # Use uswm to wrap wayland compositors into systemd units
   programs.uwsm = {
     enable = true;
