@@ -8,7 +8,7 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "*/5 * * * * /etc/duck.sh > /dev/null 2>&1"
+      "*/5 * * * *  root  /etc/duck.sh > /dev/null 2>&1"
     ];
   };
 }
