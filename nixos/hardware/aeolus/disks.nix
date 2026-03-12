@@ -14,4 +14,9 @@
       "dmask=0077"
     ];
   };
+
+  fileSystems."/mnt/scratch" = {
+    device = "/dev/disk/by-uuid/bef2b4b6-e809-4b26-9464-fb93f8687b67";
+    fsType = "btrfs";
+  };
 }
