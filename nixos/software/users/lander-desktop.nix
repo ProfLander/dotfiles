@@ -1,4 +1,8 @@
 {
+  imports = [
+    ./lander.nix
+  ];
+
   users.users.lander = {
     extraGroups = [
       "gamemode"

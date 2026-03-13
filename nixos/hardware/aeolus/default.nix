@@ -1,15 +1,16 @@
 {
   imports = [
     ./boot.nix
-    ./cpu.nix
     ./cron/default.nix
     ./disks.nix
-    ./firmware.nix
     ./network.nix
     ./security.nix
     ./ssh.nix
-    ../../asterix/common/default.nix
-    ../../asterix/users/lander.nix
+    ../common/firmware.nix
+    ../common/x86_64.nix
+    ../common/cpu-intel.nix
+    ../../software/common/default.nix
+    ../../software/users/lander.nix
   ];
 
   system.stateVersion = "25.11";

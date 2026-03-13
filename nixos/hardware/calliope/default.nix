@@ -2,7 +2,6 @@
   imports = [
     ./boot.nix
     ./disks.nix
-    ./monitors.nix
     ./network.nix
     ../common/firmware.nix
     ../common/x86_64.nix
@@ -13,5 +12,5 @@
     ../../software/users/lander-desktop.nix
   ];
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }

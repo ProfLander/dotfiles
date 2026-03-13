@@ -1,10 +1,11 @@
 {
   boot.initrd.availableKernelModules = [
-    "nvme"
     "xhci_pci"
     "ahci"
-    "usb_storage"
+    "ehci_pci"
+    "nvme"
     "usbhid"
+    "usb_storage"
     "sd_mod"
   ];
   boot.initrd.kernelModules = [];
