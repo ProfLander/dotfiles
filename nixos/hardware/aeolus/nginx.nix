@@ -2,7 +2,7 @@
   services.nginx = {
     enable = true;
     virtualHosts."prof-lander.duckdns.org" = {
-      addSSL = true;
+      forceSSL = true;
       enableACME = true;
 
       locations."/" = {
