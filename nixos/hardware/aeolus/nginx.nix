@@ -2,6 +2,9 @@
   services.nginx = {
     enable = true;
     virtualHosts."prof-lander.duckdns.org" = {
+      addSSL = true;
+      enableACME = true;
+
       locations."/" = {
         return = "200 '<html><body>It works</body></html>'";
         extraConfig = ''
