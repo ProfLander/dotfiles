@@ -4,6 +4,7 @@
     ./cron/default.nix
     ./disks.nix
     ./network.nix
+    ./nginx.nix
     ./security.nix
     ./ssh.nix
     ../common/firmware.nix
