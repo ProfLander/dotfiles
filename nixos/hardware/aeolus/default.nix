@@ -7,6 +7,7 @@
     ./nginx.nix
     ./security.nix
     ./ssh.nix
+    ./transmission.nix
     ../common/firmware.nix
     ../common/x86_64.nix
     ../common/cpu-intel.nix
