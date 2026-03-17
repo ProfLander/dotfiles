@@ -8,7 +8,7 @@
     nameservers = [ "8.8.8.8" ];
 
     interfaces = {
-      enp2s0 = {
+      eno1 = {
         ipv4.addresses = [
           {
             address = "192.168.1.4";
