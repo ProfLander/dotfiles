@@ -79,6 +79,26 @@
         "type": "github"
       }
     },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1773934603,
+        "narHash": "sha256-toZnN4kAvHCZcmskXM0Gt6RU4d2IewyyWsEJwwVbsZ0=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "f72ed9c97d434daab5d359d469c43a5d5c7a4dec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "niri": {
       "inputs": {
         "nixpkgs": "nixpkgs",
@@ -271,6 +291,7 @@
     },
     "root": {
       "inputs": {
+        "home-manager": "home-manager",
         "niri": "niri",
         "niri-flake": "niri-flake",
         "nix-gaming": "nix-gaming",
