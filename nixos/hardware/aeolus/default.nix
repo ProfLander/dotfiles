@@ -12,7 +12,6 @@
     ../common/x86_64.nix
     ../common/cpu-intel.nix
     ../../software/common/default.nix
-    ../../software/users/lander.nix
   ];
 
   system.stateVersion = "25.11";

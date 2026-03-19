@@ -10,7 +10,6 @@
     ../common/gpu-amd.nix
     ../../software/common/default.nix
     ../../software/desktop/default.nix
-    ../../software/users/lander-desktop.nix
   ];
 
   system.stateVersion = "25.05";

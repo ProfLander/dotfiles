@@ -10,12 +10,15 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    secrets.url = "github:ProfLander/secrets";
   };
 
   outputs =
     inputs@{
       nixpkgs,
       home-manager,
+      secrets,
       ...
     }:
     {
@@ -26,6 +29,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hardware/calliope/default.nix
+            secrets.users.lander-desktop
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -38,14 +42,20 @@
         artemis = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
-          modules = [ ./hardware/artemis/default.nix ];
+          modules = [
+            ./hardware/artemis/default.nix
+            secrets.users.lander-desktop
+          ];
         };
 
         # Server
         aeolus = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
-          modules = [ ./hardware/aeolus/default.nix ];
+          modules = [
+            ./hardware/aeolus/default.nix
+            secrets.users.lander
+          ];
         };
       };
     };
