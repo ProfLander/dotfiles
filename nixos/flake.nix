@@ -28,16 +28,39 @@
       nixpkgs,
       home-manager,
       secrets,
+      niri,
+      util-niri,
+      util-obs,
+      util-nvim,
+      util-desktop,
+      util-toolchain,
+      util-getafix,
+      util-project,
+      util-input-history,
       ...
     }:
-    {
+    let
+      specialArgs = {
+        inherit inputs;
+        inherit niri;
+        inherit util-niri;
+        inherit util-obs;
+        inherit util-nvim;
+        inherit util-desktop;
+        inherit util-toolchain;
+        inherit util-getafix;
+        inherit util-project;
+        inherit util-input-history;
+      };
+    in {
       nixosConfigurations = {
         # Mini PC
         calliope = nixpkgs.lib.nixosSystem {
+          specialArgs = specialArgs // { system = "x86_64-linux"; };
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
           modules = [
             ./hardware/calliope/default.nix
+            ./overlays.nix
             secrets.users.lander-desktop
             home-manager.nixosModules.home-manager
             {
@@ -50,10 +73,11 @@
 
         # Desktop
         artemis = nixpkgs.lib.nixosSystem {
+          specialArgs = specialArgs // { system = "x86_64-linux"; };
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
           modules = [
             ./hardware/artemis/default.nix
+            ./overlays.nix
             secrets.users.lander-desktop
             #{
             #  home-manager.useGlobalPkgs = true;
