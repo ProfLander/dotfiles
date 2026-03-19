@@ -12,6 +12,15 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     secrets.url = "github:ProfLander/secrets";
+
+    util-getafix.url = ../home-manager/util/getafix;
+    util-project.url = ../home-manager/util/project;
+    util-input-history.url = ../home-manager/util/input-history;
+    util-niri.url = ../home-manager/util/niri;
+    util-obs.url = ../home-manager/util/obs;
+    util-nvim.url = ../home-manager/util/nvim;
+    util-desktop.url = ../home-manager/util/desktop;
+    util-toolchain.url = ../home-manager/util/toolchain;
   };
 
   outputs =
