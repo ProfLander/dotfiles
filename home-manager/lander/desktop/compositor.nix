@@ -19,7 +19,7 @@ in
   home.packages = [
     pkgs.app-id-to-niri-id
     pkgs.desktop-run
-    pkgs.swayidle
+    #pkgs.swayidle
   ];
 
   systemd.user.services.arrange-layout = {
@@ -39,22 +39,22 @@ in
     };
   };
 
-  systemd.user.services.idle = {
-    Unit = {
-      Description = "Idle timeout";
-      Requisite = "graphical-session.target";
-      PartOf = "graphical-session.target";
-      After = "graphical-session.target";
-    };
+  #systemd.user.services.idle = {
+  #  Unit = {
+  #    Description = "Idle timeout";
+  #    Requisite = "graphical-session.target";
+  #    PartOf = "graphical-session.target";
+  #    After = "graphical-session.target";
+  #  };
 
-    Service = {
-      ExecStart = ''${pkgs.swayidle}/bin/swayidle -w timeout 60 "${pkgs.niri}/bin/niri msg action power-off-monitors"'';
-    };
+  #  Service = {
+  #    ExecStart = ''${pkgs.swayidle}/bin/swayidle -w timeout 60 "${pkgs.niri}/bin/niri msg action power-off-monitors"'';
+  #  };
 
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-  };
+  #  Install = {
+  #    WantedBy = [ "graphical-session.target" ];
+  #  };
+  #};
 
   home.sessionVariables = {
     # Session info
