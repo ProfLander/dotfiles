@@ -13,4 +13,6 @@
   #  ./garbage-collection.nix
   #  ./session-variables.nix
   #];
+
+  home.stateVersion = "25.05";
 }
