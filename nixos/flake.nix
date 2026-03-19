@@ -56,8 +56,8 @@
       nixosConfigurations = {
         # Mini PC
         calliope = nixpkgs.lib.nixosSystem {
-          specialArgs = specialArgs // { system = "x86_64-linux"; };
-          system = "x86_64-linux";
+          inherit specialArgs;
+
           modules = [
             ./hardware/calliope/default.nix
             ./overlays.nix
@@ -73,8 +73,8 @@
 
         # Desktop
         artemis = nixpkgs.lib.nixosSystem {
-          specialArgs = specialArgs // { system = "x86_64-linux"; };
-          system = "x86_64-linux";
+          inherit specialArgs;
+
           modules = [
             ./hardware/artemis/default.nix
             ./overlays.nix
@@ -90,8 +90,8 @@
 
         # Server
         aeolus = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
           specialArgs = { inherit inputs; };
+
           modules = [
             ./hardware/aeolus/default.nix
             secrets.users.lander

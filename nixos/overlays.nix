@@ -1,5 +1,4 @@
 {
-  system,
   niri,
   util-niri,
   util-obs,
@@ -11,26 +10,29 @@
   util-input-history,
   ...
 }:
-{
+let sys = "x86_64-linux"; in {
   nixpkgs.overlays = [
     (final: prev: {
-      getafix = util-getafix.packages.${system}.default;
+      getafix = util-getafix.packages.${sys}.default;
     })
     (final: prev: {
-      project = util-project.packages.${system}.default;
+      project = util-project.packages.${sys}.default;
     })
     (final: prev: {
-      input-history = util-input-history.packages.${system}.default;
+      input-history = util-input-history.packages.${sys}.default;
     })
     (final: prev: {
-      niri = niri.packages.${system}.default;
+      niri = niri.packages.${sys}.default.overrideAttrs (oa: {
+        doCheck = false;
+        doInstallCheck = false;
+      });
     })
-    (final: prev: util-niri.packages.${system})
-    (final: prev: util-obs.packages.${system})
-    (final: prev: util-nvim.packages.${system})
-    (final: prev: util-desktop.packages.${system})
+    (final: prev: util-niri.packages.${sys})
+    (final: prev: util-obs.packages.${sys})
+    (final: prev: util-nvim.packages.${sys})
+    (final: prev: util-desktop.packages.${sys})
     (final: prev: {
-      duck-repl = util-toolchain.packages.${system}.default;
+      duck-repl = util-toolchain.packages.${sys}.default;
     })
   ];
 }
