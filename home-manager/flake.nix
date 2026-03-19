@@ -13,10 +13,6 @@
     niri-flake.url = "github:ProfLander/niri-flake";
     niri.url = "github:ProfLander/niri";
 
-    astal.url = "github:aylur/astal";
-
-    ags.url = "github:aylur/ags"; 
-
     util-getafix.url = ./util/getafix;
     util-project.url = ./util/project;
     util-input-history.url = ./util/input-history;
