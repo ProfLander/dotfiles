@@ -8,7 +8,7 @@
 
   programs.wine = {
     enable = true;
-    package = inputs.nix-gaming.packages.${pkgs.system}.wine-tkg;
+    package = inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.wine-tkg;
     ntsync = true;
   };
 }

@@ -2,7 +2,7 @@
 
 let
   niri-flake = inputs.niri-flake;
-  niri = inputs.niri.packages.${pkgs.system}.default.overrideAttrs (oa: {
+  niri = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (oa: {
     doCheck = false;
     doInstallCheck = false;
   });
