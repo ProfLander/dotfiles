@@ -2,7 +2,7 @@
 
 {
   # Use GTK3 for color / emoji / file pickers
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     pkgs.gtk3
   ];
 
