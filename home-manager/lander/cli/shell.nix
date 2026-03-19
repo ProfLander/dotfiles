@@ -54,8 +54,6 @@
     in lib.mkMerge [ zshOptions zshFunctions zshBindings ];
 
     shellAliases = {
-      nixos-rebuild = "sudo nixos-rebuild --flake ~/dotfiles/nixos#artemis";
-      home-manager = "home-manager --flake ~/dotfiles/home-manager";
       ls = "ls -1 --color=always";
     };
 
