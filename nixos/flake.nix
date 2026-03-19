@@ -2,14 +2,14 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     niri-flake.url = "github:ProfLander/niri-flake";
     niri.url = "github:ProfLander/niri";
     #niri.url = "github:YaLTeR/niri";
-
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     secrets.url = "github:ProfLander/secrets";
 
