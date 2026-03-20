@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages = [
@@ -7,4 +7,6 @@
     pkgs.fastfetch
     (pkgs.btop.override { rocmSupport = true; })
   ];
+
+  home.file."${config.xdg.configHome}/btop/btop.conf".source = ./btop.conf;
 }
