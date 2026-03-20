@@ -2,14 +2,8 @@
 
 ## High Priority
 
-- [ ] Rebase niri, finish trackball sensitivity PR
-
-- [ ] Configure neovim for terminal transparency
-
-- [ ] Consider dropping neovide
-  - Implement some sort of smart option-select
-  - Run both neovim + neovide on main display, control via order
-    - i.e. Navigate to bottom-most / top-most of the two, allow swapping position
+- [ ] Merge home-manager modules into nixos module
+- [ ] Separate artemis / calliope home modules
 
 - [-] Convert in-place configs to Home Manager
   - [-] .configs
@@ -17,16 +11,18 @@
     - [X] Btop
     - [X] Git
     - [X] Hyprland
+    - [X] Vesktop
     - [ ] OpenRGB
     - [ ] Transmission
     - [ ] Retroarch
     - [ ] PCSX2
-    - [X] Vesktop
   - [ ] ~
     - [ ] .gitconfig
     - [ ] .profile
     - [ ] .Xauthority
     - [ ] .xinitrc
+  - [-] Other
+    - [ ] Pipewire
 
 - [ ] Setup Matrix via NixOS modules
   - [ ] Homeserver
@@ -35,6 +31,15 @@
   - [ ] Investigate other relevant bridges
 
 - [ ] Test-drive noctalia
+
+- [ ] Rebase niri, finish trackball sensitivity PR
+
+- [ ] Configure neovim for terminal transparency
+
+- [ ] Consider dropping neovide
+  - Implement some sort of smart option-select
+  - Run both neovim + neovide on main display, control via order
+    - i.e. Navigate to bottom-most / top-most of the two, allow swapping position
 
 ## Medium Priority
 
