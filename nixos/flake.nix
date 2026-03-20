@@ -42,6 +42,7 @@
     let
       specialArgs = {
         inherit inputs;
+        inherit secrets;
         inherit niri;
         inherit util-niri;
         inherit util-obs;
@@ -67,6 +68,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.lander = ./home/default.nix;
+              home-manager.extraSpecialArgs = specialArgs;
             }
           ];
         };
@@ -83,7 +85,7 @@
             #  home-manager.useGlobalPkgs = true;
             #  home-manager.useUserPackages = true;
             #  home-manager.users.lander = ./home/default.nix;
-            #  home.stateVersion = "25.05";
+            #  home-manager.extraSpecialArgs = specialArgs;
             #}
           ];
         };

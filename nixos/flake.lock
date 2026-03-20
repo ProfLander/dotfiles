@@ -488,11 +488,11 @@
     },
     "secrets": {
       "locked": {
-        "lastModified": 1773941426,
-        "narHash": "sha256-p7f9ipgy5tQYXYAX4suy9nU45qqjT0Pp9CR/rMdUcjY=",
+        "lastModified": 1774033602,
+        "narHash": "sha256-CtdKAXUucFyYZ3BBvPNuCO09hDc6/PwpbebogmQFZPc=",
         "owner": "ProfLander",
         "repo": "secrets",
-        "rev": "59a2bf8b542c4d2e57b2999facb61fbeac41a61a",
+        "rev": "c6cfbeaa78392769ca32f8ba67e781741d8f096f",
         "type": "github"
       },
       "original": {
