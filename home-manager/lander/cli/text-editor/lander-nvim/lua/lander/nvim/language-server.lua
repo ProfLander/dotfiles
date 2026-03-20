@@ -82,7 +82,7 @@
 
  vim.lsp.enable("lua_ls")
 
- vim.lsp.config("rust-analyzer", {cmd = {"rust-analyzer"}, filetypes = {"rust"}, root_markers = {"Cargo.toml", "rust-project.json", ".git"}, cargo = {buildScripts = {enable = true}}, procMacro = {enable = true, server = "~/.nix-profile/bin/rust-analyzer-proc-macro-srv"}})
+ vim.lsp.config("rust-analyzer", {cmd = {"rust-analyzer"}, filetypes = {"rust"}, root_markers = {"Cargo.toml", "rust-project.json", ".git"}, cargo = {buildScripts = {enable = true}}, procMacro = {enable = true, server = "rust-analyzer-proc-macro-srv"}})
 
 
 

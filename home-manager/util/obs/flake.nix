@@ -17,9 +17,9 @@
           text = ''
             #!/bin/sh
 
-            [ -d ~/.config/obs-studio/.sentinel ] && /run/current-system/sw/bin/rm -rf ~/.config/obs-studio/.sentinel
-            [ -f ~/.config/obs-studio/safe_mode ] && /run/current-system/sw/bin/rm ~/.config/obs-studio/safe_mode
-            exec ~/.nix-profile/bin/obs
+            [ -d ~/.config/obs-studio/.sentinel ] && rm -rf ~/.config/obs-studio/.sentinel
+            [ -f ~/.config/obs-studio/safe_mode ] && rm ~/.config/obs-studio/safe_mode
+            exec obs
           '';
         };
 

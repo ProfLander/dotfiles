@@ -128,12 +128,12 @@
         tombi
         yaml-language-server
       ])}
-      /home/lander/.nix-profile/bin/nvim --headless --listen ${pkgs.nvim-server} -c "AutoSession restore default"
+      nvim --headless --listen ${pkgs.nvim-server} -c "AutoSession restore default"
     '';
 
     stop-nvim = pkgs.writeShellScript "stop-nvim.sh" ''
       #!bin/sh
-      /home/lander/.nix-profile/bin/nvim --headless --server ${pkgs.nvim-server} --remote-expr "execute(\"AutoSession save default\")"
+      nvim --headless --server ${pkgs.nvim-server} --remote-expr "execute(\"AutoSession save default\")"
     '';
   in {
     Unit = {
@@ -172,7 +172,7 @@
         --rows=70 \
         -y \
         "casts/neovim-$TIMESTAMP.cast" \
-        -c "~/.nix-profile/bin/nvim --clean --server localhost:9034 --remote-ui"
+        -c "nvim --clean --server localhost:9034 --remote-ui"
     '';
   in {
     Unit = {
