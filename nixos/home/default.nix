@@ -4,7 +4,7 @@
 
   imports = [
      ../../home-manager/lander/cli/default.nix
-  #  ../../home-manager/lander/desktop/default.nix
+     ../../home-manager/lander/desktop/default.nix
      ../../home-manager/lander/gaming/default.nix
      ../../home-manager/lander/media/default.nix
      ../../home-manager/lander/toolchains/default.nix

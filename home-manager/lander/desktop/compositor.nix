@@ -1,12 +1,9 @@
 {
   config,
   pkgs,
-  inputs,
   ...
 }:
 let
-  niri-flake = inputs.niri-flake;
-
   focus-app-id-bin = "${pkgs.focus-app-id}/bin/focus-app-id";
   window-action = "${pkgs.window-action}/bin/window-action";
   arrange-layout-bin = "${pkgs.arrange-layout}/bin/arrange-layout";
@@ -84,8 +81,6 @@ in
     NIXOS_OZONE_WL = "1";
   };
 
-  imports = [ niri-flake.homeModules.config ];
-  programs.niri.package = pkgs.niri;
   programs.niri.settings = {
     outputs = {
       DP-1 = {
