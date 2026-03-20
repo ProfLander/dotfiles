@@ -49,7 +49,6 @@
   ];
 
   home.sessionVariables = {
-    EDITOR = "/home/lander/.nix-profile/bin/nvim";
     VISUAL = "$EDITOR";
   };
 
