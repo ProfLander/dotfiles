@@ -12,6 +12,8 @@
      ../../home-manager/lander/dconf.nix
      ../../home-manager/lander/garbage-collection.nix
      ../../home-manager/lander/session-variables.nix
+
+     ../hardware/calliope/home.nix
   ];
 
   home.stateVersion = "25.05";

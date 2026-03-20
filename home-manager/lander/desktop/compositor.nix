@@ -82,62 +82,6 @@ in
   };
 
   programs.niri.settings = {
-    outputs = {
-      DP-1 = {
-        enable = true;
-        mode = {
-          width = 3840;
-          height = 2160;
-          refresh = 143.999;
-        };
-        variable-refresh-rate = true;
-        scale = 1.5;
-        focus-at-startup = true;
-        position = {
-          x = 0;
-          y = 0;
-        };
-      };
-      DP-2 = {
-        enable = true;
-        mode = {
-          width = 2560;
-          height = 1440;
-          refresh = 143.998;
-        };
-        variable-refresh-rate = false;
-        position = {
-          x = -2560;
-          y = builtins.floor (((2160 / 1.5) - 1440) / 2);
-        };
-      };
-      DP-3 = {
-        enable = true;
-        name = "DP-3";
-        mode = {
-          width = 1920;
-          height = 1200;
-          refresh = 59.95;
-        };
-        position = {
-          x = builtins.ceil (3840 / 1.5);
-          y = builtins.floor (((2160 / 1.5) - 1200) / 2);
-        };
-      };
-      HDMI-A-1 = {
-        enable = true;
-        mode = {
-          width = 1920;
-          height = 1080;
-          refresh = 60.0;
-        };
-        position = {
-          x = 0 - 2560 - 1920;
-          y = builtins.floor (((2160 / 1.5) - 1080) / 2);
-        };
-      };
-    };
-
     input = {
       mod-key = "Alt";
       focus-follows-mouse = {
