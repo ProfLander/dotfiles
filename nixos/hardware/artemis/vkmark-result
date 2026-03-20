@@ -1,0 +1,25 @@
+=======================================================
+    vkmark 2025.01
+=======================================================
+    Vendor ID:      0x1002
+    Device ID:      0x73BF
+    Device Name:    AMD Radeon RX 6900 XT (RADV NAVI21)
+    Driver Version: 104865798
+    Device UUID:    44fcb7bb579b80f9fbcb9a4521649964
+=======================================================
+[vertex] device-local=true: FPS: 25480 FrameTime: 0.039 ms
+[vertex] device-local=false: FPS: 22583 FrameTime: 0.044 ms
+[texture] anisotropy=0: FPS: 24897 FrameTime: 0.040 ms
+[texture] anisotropy=16: FPS: 25232 FrameTime: 0.040 ms
+[shading] shading=gouraud: FPS: 26160 FrameTime: 0.038 ms
+[shading] shading=blinn-phong-inf: FPS: 25963 FrameTime: 0.039 ms
+[shading] shading=phong: FPS: 25993 FrameTime: 0.038 ms
+[shading] shading=cel: FPS: 25418 FrameTime: 0.039 ms
+[effect2d] kernel=edge: FPS: 25831 FrameTime: 0.039 ms
+[effect2d] kernel=blur: FPS: 25665 FrameTime: 0.039 ms
+[desktop] <default>: FPS: 21496 FrameTime: 0.047 ms
+[cube] <default>: FPS: 26186 FrameTime: 0.038 ms
+[clear] <default>: FPS: 9350 FrameTime: 0.107 ms
+=======================================================
+                                   vkmark Score: 23865
+=======================================================
