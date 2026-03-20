@@ -36,7 +36,7 @@
           src = ./lander-nvim;
           dependencies = [
             plenary-nvim
-            nvim-treesitter-legacy
+            nvim-treesitter
             nvim-lspconfig
             nvim-surround
             nvim-autopairs
@@ -67,7 +67,7 @@
       plugins = [
         lander-nvim
 
-        (pkgs.vimPlugins.nvim-treesitter-legacy.withPlugins (p: [
+        (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
           p.bash
 
           p.nix
