@@ -1,0 +1,25 @@
+=======================================================
+    vkmark 2025.01
+=======================================================
+    Vendor ID:      0x1002
+    Device ID:      0x15DD
+    Device Name:    AMD Radeon Vega 11 Graphics (RADV RAVEN)
+    Driver Version: 104865798
+    Device UUID:    44fcb7bb579b80f9fbcb9a4521649964
+=======================================================
+[vertex] device-local=true: FPS: 10164 FrameTime: 0.098 ms
+[vertex] device-local=false: FPS: 9886 FrameTime: 0.101 ms
+[texture] anisotropy=0: FPS: 7891 FrameTime: 0.127 ms
+[texture] anisotropy=16: FPS: 7838 FrameTime: 0.128 ms
+[shading] shading=gouraud: FPS: 7019 FrameTime: 0.142 ms
+[shading] shading=blinn-phong-inf: FPS: 6952 FrameTime: 0.144 ms
+[shading] shading=phong: FPS: 6995 FrameTime: 0.143 ms
+[shading] shading=cel: FPS: 6822 FrameTime: 0.147 ms
+[effect2d] kernel=edge: FPS: 9987 FrameTime: 0.100 ms
+[effect2d] kernel=blur: FPS: 4818 FrameTime: 0.208 ms
+[desktop] <default>: FPS: 4280 FrameTime: 0.234 ms
+[cube] <default>: FPS: 13139 FrameTime: 0.076 ms
+[clear] <default>: FPS: 7988 FrameTime: 0.125 ms
+=======================================================
+                                   vkmark Score: 7983
+=======================================================
