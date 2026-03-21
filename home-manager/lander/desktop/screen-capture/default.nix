@@ -81,6 +81,13 @@ in
     ];
   };
 
+  home.file.".config/obs-studio/global.ini".source = ./global.ini;
+  home.file.".config/obs-studio/user.ini".source = ./user.ini;
+  home.file.".config/obs-studio/basic" = {
+    source = ./basic;
+    recursive = true;
+  };
+
   systemd.user.services.obs = {
     Unit = {
       Description = "Open Broadcasting Software";
@@ -110,15 +117,15 @@ in
     exec-start = (
       alacritty-program {
         class = "obs-input-monitor";
-        exec =
-        '' ${input-history} \
-            /home/lander/dotfiles/home-manager/util/input-history/config/keyboard/default.toml \
-            /home/lander/dotfiles/home-manager/util/input-history/config/keyboard/niri.toml \
-            /home/lander/dotfiles/home-manager/util/input-history/config/keyboard/neovim.toml \
-            /home/lander/dotfiles/home-manager/util/input-history/config/trackball/default.toml \
-            /home/lander/dotfiles/home-manager/util/input-history/config/gamepad/default.toml \
-            /home/lander/dotfiles/home-manager/util/input-history/config/gamepad/streets-of-rage-remake/default.toml \
-            /home/lander/dotfiles/home-manager/util/input-history/config/gamepad/streets-of-rage-remake/adam-hunter.toml
+        exec = ''
+          ${input-history} \
+                     /home/lander/dotfiles/home-manager/util/input-history/config/keyboard/default.toml \
+                     /home/lander/dotfiles/home-manager/util/input-history/config/keyboard/niri.toml \
+                     /home/lander/dotfiles/home-manager/util/input-history/config/keyboard/neovim.toml \
+                     /home/lander/dotfiles/home-manager/util/input-history/config/trackball/default.toml \
+                     /home/lander/dotfiles/home-manager/util/input-history/config/gamepad/default.toml \
+                     /home/lander/dotfiles/home-manager/util/input-history/config/gamepad/streets-of-rage-remake/default.toml \
+                     /home/lander/dotfiles/home-manager/util/input-history/config/gamepad/streets-of-rage-remake/adam-hunter.toml
         '';
       }
     );
