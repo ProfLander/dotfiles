@@ -30,6 +30,8 @@ pub struct App {
     running: bool,
 }
 
+type Devices = OrderMap<PathBuf, (Device, EvdevDevice)>;
+
 impl App {
     pub fn new() -> Result<Self, Box<dyn std::error::Error>> {
         let args = Args::parse();
@@ -113,29 +115,35 @@ impl App {
     pub fn run(&mut self) -> Result<(), Box<dyn std::error::Error>> {
         let mut stdout = std::io::stdout();
 
-        let epoll = Epoll::new(EpollCreateFlags::EPOLL_CLOEXEC)?;
+        let mut epoll = Epoll::new(EpollCreateFlags::EPOLL_CLOEXEC)?;
         let mut events = [EpollEvent::empty(); 2];
 
-        let mut devices: OrderMap<PathBuf, (Device, EvdevDevice)> = Default::default();
+        let arg_devices = self.args.devices.clone();
 
-        for device in self.args.devices.iter() {
-            println!("Loading {}...", device.display());
-            let device: Device = toml::from_str(&std::fs::read_to_string(device)?)?;
+        let mut reload_devices = || -> Result<(Epoll, Devices), Box<dyn std::error::Error>> {
+            let epoll = Epoll::new(EpollCreateFlags::EPOLL_CLOEXEC)?;
+            let mut devices: Devices = Default::default();
 
-            if let Some((dev, handle)) = devices.remove(&device.path) {
-                println!("Config exists, concatenating...");
-                devices.insert(device.path.clone(), (dev.concat(device), handle));
+            for device in arg_devices.iter() {
+                println!("Loading {}...", device.display());
+                let device: Device = toml::from_str(&std::fs::read_to_string(device)?)?;
+
+                if let Some((dev, handle)) = devices.remove(&device.path) {
+                    println!("Config exists, concatenating...");
+                    devices.insert(device.path.clone(), (dev.concat(device), handle));
+                } else {
+                    println!("No config, initializing...");
+                    let handle = EvdevDevice::open(&device.path())?;
+                    handle.set_nonblocking(true)?;
+                    let event = EpollEvent::new(EpollFlags::EPOLLIN, handle.as_raw_fd() as u64);
+                    epoll.add(&handle, event)?;
+
+                    devices.insert(device.path.clone(), (device, handle));
+                }
             }
-            else {
-                println!("No config, initializing...");
-                let handle = EvdevDevice::open(&device.path())?;
-                handle.set_nonblocking(true)?;
-                let event = EpollEvent::new(EpollFlags::EPOLLIN, handle.as_raw_fd() as u64);
-                epoll.add(&handle, event)?;
 
-                devices.insert(device.path.clone(), (device, handle));
-            }
-        }
+            Ok((epoll, devices))
+        };
 
         // Setup exit hook
         stdout.execute(crossterm::terminal::EnterAlternateScreen)?;
@@ -155,10 +163,13 @@ impl App {
             println!("{info:}");
         }));
 
+        let (mut epoll, mut devices) = reload_devices()?;
+        let mut wants_reset = false;
+
         // Enter event loop
         while self.running {
             // Draw the first device with an active update flag
-            for (_, (device, _)) in devices.iter_mut() {
+            for (_, (device, _)) in devices.iter() {
                 if !device.wants_update() {
                     continue;
                 }
@@ -194,10 +205,17 @@ impl App {
                     }
                     Err(e) if e.kind() == std::io::ErrorKind::WouldBlock => (),
                     Err(e) => {
-                        eprintln!("{e}");
+                        eprintln!("{:?}: {e}\n", e.kind());
+                        wants_reset = true;
                         break;
                     }
                 }
+            }
+
+            // Reset if necessary
+            if wants_reset {
+                (epoll, devices) = reload_devices()?;
+                wants_reset = false;
             }
         }
 
