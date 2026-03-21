@@ -9,6 +9,7 @@
     ./qt.nix
     ./text-editor.nix
     ./terminal-emulator.nix
+    ./user-dirs.nix
     ./wallpaper/default.nix
     ./web-browser.nix
     ./chat-client/default.nix
