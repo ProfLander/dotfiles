@@ -3,6 +3,7 @@
     ./boot.nix
     ./disks.nix
     ./network.nix
+    ./monitors.nix
     ../common/firmware.nix
     ../common/x86_64.nix
     ../common/cpu-amd.nix
