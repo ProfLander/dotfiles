@@ -1,103 +1,60 @@
 { pkgs, ... }:
 
+### MANUAL FIREFOX CONFIGURATION:
+## UI
+# Right click next to title bar, enable vertical tabs
+# Dismiss vertical tab info segment
+# Collapse vertical tabs
+#
+## about:config
+# WaveFox.Linux.Transparency.Enabled = true
+# WaveFox.WebPage.Transparency = 2;
+# WaveFox.WebPage.Background.Saturation = 3;
+# WaveFox.Toolbar.Roundings = 2;
+#
+## Tridactyl
+# :set newtab about:blank
+# Open new tab, select Keep Changes in popup
+
 let
   firefox-wavefox-theme = builtins.fetchGit {
     url = "https://github.com/QNetITQ/WaveFox.git";
     rev = "57fa6edfe6112dddf21633e63b9b80847428b7a5";
   };
 
-  lock-false = {
-    Value = false;
-    Status = "locked";
-  };
+  wavefox-chrome = ''
+    @import "../../wavefox/chrome/userChrome.css";
 
-  lock-true = {
-    Value = true;
-    Status = "locked";
-  };
+    #urlbar-background,#urlbar {
+        border-radius: 32px !important;
+    }
+  '';
 
-  firefox-run =
-    { name, profile }:
-    ''
-      ${pkgs.firefox}/bin/firefox --name ${name} --no-remote -P ${profile}
-    '';
+  wavefox-content = ''
+    @import "../../wavefox/chrome/userContent.css";
+  '';
 
-  graphical-program = pkgs.graphical-program;
-in
-{
-  programs.firefox = {
-    enable = true;
-
-    profiles = {
-      default = {
-        name = "Default";
-        isDefault = true;
-        id = 0;
-        userChrome = ''
-          @import "../../wavefox/chrome/userChrome.css";
-
-          #urlbar-background,#urlbar {
-              border-radius: 32px !important;
-          }
-        '';
-
-        userContent = ''
-          @import "../../wavefox/chrome/userContent.css";
-        '';
-      };
-
-      work = {
-        name = "Work";
-        id = 1;
-        userChrome = ''
-          @import "../../wavefox/chrome/userChrome.css";
-
-          #urlbar-background,#urlbar {
-              border-radius: 32px !important;
-          }
-        '';
-
-        userContent = ''
-          @import "../../wavefox/chrome/userContent.css";
-        '';
-      };
-
-      media = {
-        name = "Media";
-        id = 2;
-        userChrome = ''
-          @import "../../wavefox/chrome/userChrome.css";
-
-          #urlbar-background,#urlbar {
-              border-radius: 32px !important;
-          }
-        '';
-
-        userContent = ''
-          @import "../../wavefox/chrome/userContent.css";
-        '';
-      };
-
-      chat = {
-        name = "Chat";
-        id = 3;
-        userChrome = ''
-          @import "../../wavefox/chrome/userChrome.css";
-
-          #urlbar-background,#urlbar {
-              border-radius: 32px !important;
-          }
-        '';
-
-        userContent = ''
-          @import "../../wavefox/chrome/userContent.css";
-        '';
-      };
+  mkProfile =
+    input:
+    input
+    // {
+      userChrome = wavefox-chrome;
+      userContent = wavefox-content;
     };
 
-    # ---- POLICIES ----
-    # Check about:policies#documentation for options.
-    policies = {
+  mkLocked = value: {
+    Value = value;
+    Status = "locked";
+  };
+
+  lock-false = mkLocked false;
+  lock-true = mkLocked true;
+  lock-1 = mkLocked 1;
+  lock-2 = mkLocked 2;
+  lock-3 = mkLocked 3;
+
+  firefox = pkgs.wrapFirefox pkgs.firefox-unwrapped {
+    extraPolicies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
       EnableTrackingProtection = {
@@ -151,12 +108,14 @@ in
           Value = "strict";
           Status = "locked";
         };
-        "extensions.pocket.enabled" = lock-false;
-        "extensions.screenshots.disabled" = lock-true;
+        "browser.tabs.inTitlebar" = lock-1;
+        "browser.tabs.allow_transparent_browser" = lock-true;
         "browser.topsites.contile.enabled" = lock-false;
         "browser.formfill.enable" = lock-false;
         "browser.search.suggest.enabled" = lock-false;
         "browser.search.suggest.enabled.private" = lock-false;
+        "browser.startup.page" = lock-3;
+        "browser.startup.homepage" = mkLocked "about:blank";
         "browser.urlbar.suggest.searches" = lock-false;
         "browser.urlbar.showSearchSuggestionsFirst" = lock-false;
         "browser.newtabpage.activity-stream.feeds.section.topstories" = lock-false;
@@ -169,40 +128,62 @@ in
         "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
 
+        "extensions.pocket.enabled" = lock-false;
+        "extensions.screenshots.disabled" = lock-true;
+
         # Enable user chrome
         "toolkit.legacyUserProfileCustomizations.stylesheets" = lock-true;
-
-        # WaveFox transparency
-        "WaveFox.Linux.Transparency.Enabled" = lock-true;
-        "WaveFox.WebPage.Transparency" = {
-            Value = 2;
-            Status = "locked";
-        };
-        "WaveFox.WebPage.Background.Saturation" = {
-            Value = 3;
-            Status = "locked";
-        };
-        "browser.tabs.inTitlebar" = {
-            Value = 1;
-            Status = "locked";
-        };
-        "browser.tabs.allow_transparent_browser" = lock-true;
-
-        # WaveFox toolbar
-        "WaveFox.Toolbar.Roundings" = {
-            Value = 2;
-            Status = "locked";
-        };
       };
     };
   };
 
+  firefox-run =
+    { name, profile }:
+    ''
+      ${firefox}/bin/firefox --name ${name} --no-remote -P ${profile}
+    '';
+
+  graphical-program = pkgs.graphical-program;
+in
+{
+  # Environment setup
   home.file.".mozilla/firefox/wavefox".source = firefox-wavefox-theme;
 
   home.sessionVariables = {
-    BROWSER = "firefox --new-window";
+    BROWSER = "${firefox}/bin/firefox --new-window";
   };
 
+  # Firefox configuration
+  programs.firefox = {
+    enable = true;
+
+    package = firefox;
+
+      profiles = {
+        default = mkProfile {
+          name = "Default";
+          isDefault = true;
+          id = 0;
+        };
+
+        work = mkProfile {
+          name = "Work";
+          id = 1;
+        };
+
+        media = mkProfile {
+          name = "Media";
+          id = 2;
+        };
+
+        chat = mkProfile {
+          name = "Chat";
+          id = 3;
+        };
+      };
+  };
+
+  # Services
   systemd.user.services.chat-browser = graphical-program {
     desc = "Chat browser";
     exec-start = firefox-run {

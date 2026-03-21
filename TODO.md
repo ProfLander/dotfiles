@@ -2,7 +2,7 @@
 
 ## High Priority
 
-- [ ] Merge home-manager modules into nixos module
+- [X] Merge home-manager modules into nixos module
 - [ ] Separate artemis / calliope home modules
 
 - [-] Convert in-place configs to Home Manager
@@ -12,8 +12,17 @@
     - [X] Git
     - [X] Hyprland
     - [X] Vesktop
-    - [ ] OpenRGB
-    - [ ] Transmission
+    - [-] OBS
+      - [X] Scenes
+      - [ ] Capture target
+        - Seems to be resetting on reboot
+      - [ ] Recording settings
+        - Should these be per-system?
+    - [X] Firefox
+      - [X] Transparency setting
+      - [X] Theme
+      - [X] Profiles
+      - [X] Extensions
     - [ ] Retroarch
     - [ ] PCSX2
   - [ ] ~
@@ -22,7 +31,11 @@
     - [ ] .Xauthority
     - [ ] .xinitrc
   - [-] Other
-    - [ ] Pipewire
+    - [ ] GTK theme
+    - [ ] Pipewire configuration
+      - Module for disabling everything
+      - Module for enabling Arctis 7 + setting as default
+    - [ ] ZSH Powerline
 
 - [ ] Setup Matrix via NixOS modules
   - [ ] Homeserver
@@ -43,13 +56,13 @@
 
 ## Medium Priority
 
-- [ ] Reconfigure BIOS
+- [ ] Reconfigure artemis BIOS
   - Be mindful of power management
 
 - [ ] Setup cron backups
   - [ ] Copy important files to dedicated backup drive periodically
 
-- [ ] Configure OC / UV
+- [ ] Configure artemis OC / UV
   - [ ] CPU
   - [ ] GPU
 
