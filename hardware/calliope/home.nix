@@ -24,7 +24,7 @@
           height = 1440;
           refresh = 59.951;
         };
-        variable-refresh-rate = false;
+        variable-refresh-rate = true;
         position = {
           x = -2560;
           y = builtins.floor (((2160 / 1.5) - 1440) / 2);
