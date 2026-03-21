@@ -17,26 +17,6 @@ let
     doCheck = false;
   };
 
-  oskd = pkgs.rustPlatform.buildRustPackage {
-    name = "oskd";
-    src = pkgs.fetchFromGitHub {
-      owner = "Phosphorus-M";
-      repo = "input-overlay-wayland";
-      rev = "5bdbc64ec7498bc287b674fd1bc1205cda6beb69";
-      sha256 = "sha256-u3t3+u+R8H/YJi+5fa8mieJmg56VzFWs4w1QyFgvveM=";
-    };
-    cargoHash = "sha256-1tcRC9+NZULCB2GzqYIoTCpqeXrKPDJx4JEJNTysiTk=";
-    buildInputs = [
-      pkgs.libx11.dev
-      pkgs.libxi
-      pkgs.libxtst
-      pkgs.libxkbcommon
-    ];
-    nativeBuildInputs = [
-      pkgs.pkg-config
-    ];
-  };
-
   start-obs = "${pkgs.start-obs}/bin/start-obs";
   stop-obs = "${pkgs.stop-obs}/bin/stop-obs";
 
@@ -55,7 +35,6 @@ in
 {
   home.packages = [
     gobs-cli
-    oskd
     pkgs.input-history
   ];
 
