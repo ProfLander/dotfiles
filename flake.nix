@@ -7,6 +7,8 @@
 
     nix-gaming.url = "github:fufexan/nix-gaming";
 
+    nixcord.url = "github:FlameFlag/nixcord";
+
     niri-flake.url = "github:ProfLander/niri-flake";
     niri.url = "github:ProfLander/niri";
     #niri.url = "github:YaLTeR/niri";
