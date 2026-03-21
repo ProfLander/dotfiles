@@ -1,4 +1,10 @@
 { inputs, pkgs, ... }:
+
+### MANUAL VESKTOP CONFIG
+## UI
+# Settings -> Vesktop Settings -> Turn off Enable Splash Screen, Splash Theming
+# Settings -> Streamer Mode -> Turn off Enable Streamer Mode, Automatically enable...
+
 {
   imports = [ inputs.nixcord.homeModules.nixcord ];
 
