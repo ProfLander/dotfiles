@@ -98,13 +98,13 @@ in
         class = "obs-input-monitor";
         exec = ''
           ${input-history} \
-                     /home/lander/dotfiles/home-manager/util/input-history/config/keyboard/default.toml \
-                     /home/lander/dotfiles/home-manager/util/input-history/config/keyboard/niri.toml \
-                     /home/lander/dotfiles/home-manager/util/input-history/config/keyboard/neovim.toml \
-                     /home/lander/dotfiles/home-manager/util/input-history/config/trackball/default.toml \
-                     /home/lander/dotfiles/home-manager/util/input-history/config/gamepad/default.toml \
-                     /home/lander/dotfiles/home-manager/util/input-history/config/gamepad/streets-of-rage-remake/default.toml \
-                     /home/lander/dotfiles/home-manager/util/input-history/config/gamepad/streets-of-rage-remake/adam-hunter.toml
+            /home/lander/dotfiles/home-manager/util/input-history/config/keyboard/default.toml \
+            /home/lander/dotfiles/home-manager/util/input-history/config/keyboard/niri.toml \
+            /home/lander/dotfiles/home-manager/util/input-history/config/keyboard/neovim.toml \
+            /home/lander/dotfiles/home-manager/util/input-history/config/trackball/default.toml \
+            /home/lander/dotfiles/home-manager/util/input-history/config/gamepad/default.toml \
+            /home/lander/dotfiles/home-manager/util/input-history/config/gamepad/streets-of-rage-remake/default.toml \
+            /home/lander/dotfiles/home-manager/util/input-history/config/gamepad/streets-of-rage-remake/adam-hunter.toml
         '';
       }
     );
