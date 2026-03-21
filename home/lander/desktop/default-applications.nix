@@ -19,16 +19,9 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "text/plain" = "neovide.desktop";
-      "text/x-lua" = "neovide.desktop";
-      "text/x-qml" = "neovide.desktop";
-      "text/markdown" = "neovide.desktop";
-      "text/rust" = "neovide.desktop";
+      "text/*" = "neovide.desktop";
       "application/toml" = "neovide.desktop";
       "application/x-shellscript" = "neovide.desktop";
-      "text/html" = "neovide.desktop";
-      "text/css" = "neovide.desktop";
-      "text/org" = "neovide.desktop";
 
       "x-scheme-handler/http" = "firefox.desktop";
       "x-scheme-handler/https" = "firefox.desktop";
