@@ -325,9 +325,10 @@ in
       {
         matches = [ { app-id = "com.obsproject.Studio"; } ];
         open-on-workspace = "ws-5-media-recording";
-        open-maximized = true;
         open-floating = true;
         open-focused = false;
+        default-column-width = { fixed = 2560 - 28; };
+        default-window-height = { fixed = 1440 - 28; };
       }
       {
         matches = [ { app-id = "obs-input-monitor"; } ];
