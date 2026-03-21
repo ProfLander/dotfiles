@@ -8,7 +8,7 @@
           height = 2160;
           refresh = 119.910;
         };
-        variable-refresh-rate = false;
+        variable-refresh-rate = true;
         scale = 1.5;
         focus-at-startup = true;
         position = {
