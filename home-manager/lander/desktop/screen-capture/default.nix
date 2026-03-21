@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   gobs-cli = pkgs.buildGoModule {
@@ -60,11 +60,20 @@ in
     ];
   };
 
-  home.file.".config/obs-studio/global.ini".source = ./global.ini;
-  home.file.".config/obs-studio/user.ini".source = ./user.ini;
-  home.file.".config/obs-studio/basic" = {
+  home.file."${config.xdg.configHome}/obs-studio/global.ini" = {
+    source = ./global.ini;
+    force = true;
+  };
+
+  home.file."${config.xdg.configHome}/obs-studio/user.ini" = {
+    source = ./user.ini;
+    force = true;
+  };
+
+  home.file."${config.xdg.configHome}/obs-studio/basic" = {
     source = ./basic;
     recursive = true;
+    force = true;
   };
 
   systemd.user.services.obs = {
