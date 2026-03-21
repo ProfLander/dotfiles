@@ -6,7 +6,7 @@
         mode = {
           width = 3840;
           height = 2160;
-          refresh = 119.910;
+          refresh = 59.997;
         };
         variable-refresh-rate = true;
         scale = 1.5;
