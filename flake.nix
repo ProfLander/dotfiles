@@ -13,14 +13,14 @@
 
     secrets.url = "github:ProfLander/secrets";
 
-    util-getafix.url = ../home-manager/util/getafix;
-    util-project.url = ../home-manager/util/project;
-    util-input-history.url = ../home-manager/util/input-history;
-    util-niri.url = ../home-manager/util/niri;
-    util-obs.url = ../home-manager/util/obs;
-    util-nvim.url = ../home-manager/util/nvim;
-    util-desktop.url = ../home-manager/util/desktop;
-    util-toolchain.url = ../home-manager/util/toolchain;
+    util-getafix.url = ./home/util/getafix;
+    util-project.url = ./home/util/project;
+    util-input-history.url = ./home/util/input-history;
+    util-niri.url = ./home/util/niri;
+    util-obs.url = ./home/util/obs;
+    util-nvim.url = ./home/util/nvim;
+    util-desktop.url = ./home/util/desktop;
+    util-toolchain.url = ./home/util/toolchain;
   };
 
   outputs =

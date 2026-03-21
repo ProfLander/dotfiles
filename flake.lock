@@ -506,11 +506,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "path": "../home-manager/util/desktop",
+        "path": "home/util/desktop",
         "type": "path"
       },
       "original": {
-        "path": "../home-manager/util/desktop",
+        "path": "home/util/desktop",
         "type": "path"
       },
       "parent": []
@@ -521,11 +521,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "path": "../home-manager/util/getafix",
+        "path": "home/util/getafix",
         "type": "path"
       },
       "original": {
-        "path": "../home-manager/util/getafix",
+        "path": "home/util/getafix",
         "type": "path"
       },
       "parent": []
@@ -535,11 +535,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "path": "../home-manager/util/input-history",
+        "path": "home/util/input-history",
         "type": "path"
       },
       "original": {
-        "path": "../home-manager/util/input-history",
+        "path": "home/util/input-history",
         "type": "path"
       },
       "parent": []
@@ -549,11 +549,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "path": "../home-manager/util/niri",
+        "path": "home/util/niri",
         "type": "path"
       },
       "original": {
-        "path": "../home-manager/util/niri",
+        "path": "home/util/niri",
         "type": "path"
       },
       "parent": []
@@ -579,11 +579,11 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "path": "../home-manager/util/nvim",
+        "path": "home/util/nvim",
         "type": "path"
       },
       "original": {
-        "path": "../home-manager/util/nvim",
+        "path": "home/util/nvim",
         "type": "path"
       },
       "parent": []
@@ -594,11 +594,11 @@
         "util-niri": "util-niri_2"
       },
       "locked": {
-        "path": "../home-manager/util/obs",
+        "path": "home/util/obs",
         "type": "path"
       },
       "original": {
-        "path": "../home-manager/util/obs",
+        "path": "home/util/obs",
         "type": "path"
       },
       "parent": []
@@ -608,11 +608,11 @@
         "nixpkgs": "nixpkgs_12"
       },
       "locked": {
-        "path": "../home-manager/util/project",
+        "path": "home/util/project",
         "type": "path"
       },
       "original": {
-        "path": "../home-manager/util/project",
+        "path": "home/util/project",
         "type": "path"
       },
       "parent": []
@@ -622,11 +622,11 @@
         "nixpkgs": "nixpkgs_13"
       },
       "locked": {
-        "path": "../home-manager/util/toolchain",
+        "path": "home/util/toolchain",
         "type": "path"
       },
       "original": {
-        "path": "../home-manager/util/toolchain",
+        "path": "home/util/toolchain",
         "type": "path"
       },
       "parent": []
