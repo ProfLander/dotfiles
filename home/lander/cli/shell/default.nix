@@ -32,9 +32,8 @@
         unsetopt extended_history
       '';
       zshFunctions = lib.mkOrder 975 ''
-        # Set shell keybinds
         precmd () {
-          echo $(oh-my-posh --config $HOME/.config/oh-my-posh/return-code.json --status $? --shell universal print primary)
+          echo $(oh-my-posh --config ${./return-code.json} --status $? --shell universal print primary)
 
           print -Pn "\e]0;zsh %(1j,%j job%(2j|s|); ,)%~\a"
         }

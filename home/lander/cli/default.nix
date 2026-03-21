@@ -5,9 +5,9 @@
     ./network.nix
     ./password-management.nix
     ./project-management.nix
-    ./shell.nix
-    ./shell-prompt.nix
-    ./shell-pipes.nix
+    ./shell/default.nix
+    ./shell/prompt.nix
+    ./shell/pipes.nix
     ./search.nix
     ./terminal-capture.nix
     ./version-control.nix

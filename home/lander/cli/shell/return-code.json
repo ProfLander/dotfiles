@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "Background": "#282A36",
+    "Black": "#21222C",
+    "BrightGreen": "#69FF94",
+    "BrightPink": "#FF92DF",
+    "BrightPurple": "#D6ACFF",
+    "BrightRed": "#FF6E6E",
+    "BrightYellow": "#FFFFA5",
+    "Cyan": "#8BE9FD",
+    "Foreground": "#F8F8F2",
+    "Green": "#50FA7B",
+    "Highlight": "#6272A4",
+    "Orange": "#FFB86C",
+    "Pink": "#FF79C6",
+    "Purple": "#BD93F9",
+    "Red": "#FF5555",
+    "Selection": "#44475A",
+    "White": "#FFFFFF",
+    "Yellow": "#F1FA8C"
+  },
+  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "template": "<p:Highlight>╶╴</>",
+          "type": "text"
+        },
+        {
+          "properties": {
+            "always_enabled": true
+          },
+          "template": "{{ if gt .Code 0 }}<p:Red>{{ else }}<p:Green>{{ end }}󰧂 ​{{.String}}</>",
+          "type": "status"
+        }
+      ]
+    }
+  ],
+  "version": 3
+}
