@@ -190,6 +190,8 @@ in
       };
     };
 
+    screenshot-path = "${config.home.homeDirectory}/xdg/pictures/screenshots";
+
     window-rules = [
       # General
       {
