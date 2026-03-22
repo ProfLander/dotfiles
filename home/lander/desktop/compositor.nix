@@ -198,11 +198,19 @@ in
         open-maximized = true;
         clip-to-geometry = true;
         draw-border-with-background = false;
+
         geometry-corner-radius = {
           top-left = 28.0;
           top-right = 28.0;
           bottom-left = 28.0;
           bottom-right = 28.0;
+        };
+
+        background-effect = {
+            xray = true;
+            blur = true;
+            noise = 0.05;
+            saturation = 1;
         };
       }
       # Screencast target
