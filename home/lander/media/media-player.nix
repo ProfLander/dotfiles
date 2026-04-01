@@ -40,5 +40,4 @@ in
     desc = "TV media player";
     exec-start = mpv-run "tv-player";
   };
-
 }
