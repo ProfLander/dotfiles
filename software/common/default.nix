@@ -9,5 +9,6 @@
     ./packages.nix
     ./power.nix
     ./shell.nix
+    ./ssh.nix
   ];
 }

@@ -3,4 +3,8 @@
     "nix-command"
     "flakes"
   ];
+
+  nix.settings.trusted-users = [
+    "lander"
+  ];
 }
