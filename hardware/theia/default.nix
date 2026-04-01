@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   imports = [
     ./boot.nix
@@ -13,6 +12,8 @@
     ../../software/common/power.nix
     ../../software/common/shell.nix
     ../../software/common/ssh.nix
+    ../../software/common/boot/initrd.nix
+    ../../software/common/boot/tmp.nix
   ];
 
   system.stateVersion = "25.11";

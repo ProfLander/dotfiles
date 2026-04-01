@@ -6,6 +6,7 @@
 
   boot.initrd.availableKernelModules = [ "usbhid" ];
   boot.initrd.kernelModules = [ ];
+
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 }

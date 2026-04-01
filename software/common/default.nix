@@ -1,6 +1,5 @@
 {
   imports = [
-    ./boot-loader.nix
     ./garbage-collection.nix
     ./gpg.nix
     ./locale.nix
@@ -10,5 +9,6 @@
     ./power.nix
     ./shell.nix
     ./ssh.nix
+    ./boot/default.nix
   ];
 }
