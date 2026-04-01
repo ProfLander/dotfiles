@@ -1,8 +1,30 @@
-{ lib, ... }:
+{ config, lib, pkgs, ... }:
 
+let 
+  zsh = pkgs.zsh;
+in
 {
+  programs.zellij = {
+    enable = true;
+    enableZshIntegration = true;
+    exitShellOnExit = true;
+
+    settings = {
+      show_startup_tips = false;
+      theme = "dracula";
+
+      ui = {
+        pane_frames = {
+          rounded_corners = true;
+        };
+      };
+    };
+  };
+
   programs.zsh = {
     enable = true;
+    package = zsh;
+
     enableCompletion = true;
     enableVteIntegration = true;
 
