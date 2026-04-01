@@ -190,7 +190,7 @@ in
       };
     };
 
-    screenshot-path = "${config.home.homeDirectory}/xdg/pictures/screenshots";
+    screenshot-path = "${config.home.homeDirectory}/xdg/pictures/screenshots/%Y-%m-%d-%H-%M-%S.png";
 
     window-rules = [
       # General
