@@ -12,4 +12,7 @@
 
   boot.kernelModules = [];
   boot.extraModulePackages = [];
+
+  # Allow cross-compilation to AArch64
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 }
