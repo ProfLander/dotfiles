@@ -101,6 +101,16 @@
             secrets.users.lander
           ];
         };
+
+        # Raspberry Pi
+        theia = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+
+          modules = [
+            ./hardware/theia/default.nix
+            secrets.users.lander
+          ];
+        };
       };
     };
 }
