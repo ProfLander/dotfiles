@@ -8,7 +8,8 @@
     ../common/firmware.nix
     ../common/x86_64.nix
     ../common/cpu-amd.nix
-    ../common/gpu-amd.nix
+    ../common/gpu/default.nix
+    ../common/gpu/amd.nix
     ../../software/common/default.nix
     ../../software/desktop/default.nix
   ];

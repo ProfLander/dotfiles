@@ -5,6 +5,7 @@
     ./network.nix
     ./firmware.nix
     ../common/aarch64.nix
+    ../common/gpu/default.nix
     ../../software/common/dbus.nix
     ../../software/common/disks.nix
     ../../software/common/garbage-collection.nix
