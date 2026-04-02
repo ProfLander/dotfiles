@@ -5,7 +5,10 @@
     ./network.nix
     ./firmware.nix
     ../common/aarch64.nix
+    ../../software/common/dbus.nix
+    ../../software/common/disks.nix
     ../../software/common/garbage-collection.nix
+    ../../software/common/irq.nix
     ../../software/common/locale.nix
     ../../software/common/network.nix
     ../../software/common/nix.nix
