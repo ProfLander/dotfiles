@@ -12,6 +12,7 @@
     ../../software/common/power.nix
     ../../software/common/shell.nix
     ../../software/common/ssh.nix
+    ../../software/common/zram.nix
     ../../software/common/boot/initrd.nix
     ../../software/common/boot/tmp.nix
   ];

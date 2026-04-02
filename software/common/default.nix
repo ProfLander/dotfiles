@@ -9,6 +9,7 @@
     ./power.nix
     ./shell.nix
     ./ssh.nix
+    ./zram.nix
     ./boot/default.nix
   ];
 }

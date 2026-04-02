@@ -4,5 +4,10 @@
     fsType = "ext4";
   };
 
-  swapDevices = [ ];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 2048;
+    }
+  ];
 }
