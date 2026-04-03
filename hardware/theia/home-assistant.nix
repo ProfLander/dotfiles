@@ -13,6 +13,9 @@
       # Recommended for fast zlib compression
       # https://www.home-assistant.io/integrations/isal
       "isal"
+      # TP-Link Tapo
+      "tplink"
+      "tplink_tapo"
     ];
     config = {
       # Includes dependencies for a basic setup
