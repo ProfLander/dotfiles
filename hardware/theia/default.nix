@@ -6,6 +6,7 @@
     ./disks.nix
     ./network.nix
     ./firmware.nix
+    ./home-assistant.nix
     ../common/aarch64.nix
     ../common/gpu/default.nix
     ../../software/common/dbus.nix
