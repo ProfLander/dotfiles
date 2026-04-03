@@ -159,10 +159,7 @@ in
                                   args = [
                                     "--flake"
                                     "${config.home.homeDirectory}/src/dotfiles#calliope"
-                                    "--target-host"
-                                    "calliope"
                                     "--sudo"
-                                    "--ask-sudo-password"
                                     "switch"
                                   ];
                                   start_suspended = true;
