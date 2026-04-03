@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ./boot.nix
@@ -19,6 +21,10 @@
     ../../software/common/zram.nix
     ../../software/common/boot/initrd.nix
     ../../software/common/boot/tmp.nix
+  ];
+
+  system.packages = with pkgs; [
+    libraspberrypi
   ];
 
   system.stateVersion = "25.11";
