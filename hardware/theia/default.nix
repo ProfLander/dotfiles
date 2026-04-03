@@ -23,7 +23,7 @@
     ../../software/common/boot/tmp.nix
   ];
 
-  system.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     libraspberrypi
   ];
 
