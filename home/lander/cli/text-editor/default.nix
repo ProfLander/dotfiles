@@ -74,6 +74,7 @@
 
           p.lua
           p.fennel
+          p.scheme
 
           p.markdown
 
