@@ -7,6 +7,7 @@
     ./network.nix
     ./firmware.nix
     ./home-assistant.nix
+    ./pi-hole.nix
     ../common/aarch64.nix
     ../common/gpu/default.nix
     ../../software/common/dbus.nix
