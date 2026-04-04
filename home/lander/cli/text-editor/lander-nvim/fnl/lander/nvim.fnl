@@ -25,3 +25,4 @@
 (require :lander.nvim.auto-session)
 
 (require :lander.nvim.theme)
+(require :lander.nvim.transparent-background)

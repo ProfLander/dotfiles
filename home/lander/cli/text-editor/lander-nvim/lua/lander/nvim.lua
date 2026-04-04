@@ -25,4 +25,5 @@
  require("lander.nvim.rainbow-delimiters")
  require("lander.nvim.auto-session")
 
- return require("lander.nvim.theme")
+ require("lander.nvim.theme")
+ return require("lander.nvim.transparent-background")
