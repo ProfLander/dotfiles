@@ -1,7 +1,7 @@
 { secrets, ... }:
 
 {
-  home.file.".ssh/id_ed25519".source = secrets.users.lander.calliope.private;
+  home.file.".ssh/id_ed25519".text = secrets.users.lander.calliope.private;
 
   programs.niri.settings = {
     outputs = {
