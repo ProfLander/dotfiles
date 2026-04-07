@@ -1,6 +1,12 @@
 { config, ... }:
 
 {
+  services.wyoming.piper.servers.tts = {
+    enable = true;
+    uri = "tcp://0.0.0.0:10200";
+    voice = "en-gb-semaine-medium";
+  };
+
   services.home-assistant = {
     enable = true;
     extraComponents = [
@@ -16,11 +22,19 @@
       # TP-Link Tapo
       "tplink"
       "tplink_tapo"
+      # Text to Speech
+      "tts"
+      "wyoming"
     ];
     config = {
       # Includes dependencies for a basic setup
       # https://www.home-assistant.io/integrations/default_config/
       default_config = {};
+
+      # Text to Speech
+      tts = [{
+        platform = "piper";
+      }];
     };
   };
 
