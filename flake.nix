@@ -100,6 +100,13 @@
           modules = [
             ./hardware/aeolus/default.nix
             secrets.users.lander.default
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.lander = ./home/minimal.nix;
+              home-manager.extraSpecialArgs = specialArgs;
+            }
           ];
         };
 
@@ -110,7 +117,13 @@
           modules = [
             ./hardware/theia/default.nix
             secrets.users.lander.default
-            #home-manager.nixosModules.home-manager
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.lander = ./home/minimal.nix;
+              home-manager.extraSpecialArgs = specialArgs;
+            }
           ];
         };
       };
