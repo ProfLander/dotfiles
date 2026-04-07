@@ -1,4 +1,8 @@
+{ secrets, ... }:
+
 {
+  home.file.".ssh/id_ed25519".source = secrets.users.lander.calliope.private;
+
   programs.niri.settings = {
     outputs = {
       "GIGA-BYTE TECHNOLOGY CO., LTD. Gigabyte M32U 22131B002818" = {
