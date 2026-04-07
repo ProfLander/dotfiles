@@ -64,7 +64,7 @@
           modules = [
             ./hardware/calliope/default.nix
             ./overlays.nix
-            secrets.users.lander-desktop
+            secrets.users.lander.desktop
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -82,13 +82,14 @@
           modules = [
             ./hardware/artemis/default.nix
             ./overlays.nix
-            secrets.users.lander-desktop
-            #{
-            #  home-manager.useGlobalPkgs = true;
-            #  home-manager.useUserPackages = true;
-            #  home-manager.users.lander = ./home/default.nix;
-            #  home-manager.extraSpecialArgs = specialArgs;
-            #}
+            secrets.users.lander.desktop
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.lander = ./home/default.nix;
+              home-manager.extraSpecialArgs = specialArgs;
+            }
           ];
         };
 
@@ -98,7 +99,7 @@
 
           modules = [
             ./hardware/aeolus/default.nix
-            secrets.users.lander
+            secrets.users.lander.default
           ];
         };
 
@@ -108,7 +109,8 @@
 
           modules = [
             ./hardware/theia/default.nix
-            secrets.users.lander
+            secrets.users.lander.default
+            #home-manager.nixosModules.home-manager
           ];
         };
       };
