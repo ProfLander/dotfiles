@@ -10,6 +10,7 @@
     ../common/cpu-amd.nix
     ../common/gpu/default.nix
     ../common/gpu/amd.nix
+    ../../software/allow-unfree.nix
     ../../software/common/default.nix
     ../../software/desktop/default.nix
   ];

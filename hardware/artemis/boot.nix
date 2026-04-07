@@ -1,4 +1,8 @@
 {
+  imports = [
+    ../../software/common/boot/default.nix
+  ];
+
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
