@@ -52,11 +52,10 @@
     VISUAL = "$EDITOR";
   };
 
-  systemd.user.services.neovide = pkgs.graphical-program {
+  systemd.user.services.main-text-editor = pkgs.graphical-program {
     desc = "Text editor";
     exec-start = ''
-      ${pkgs.neovide}/bin/neovide \
-        --server localhost:9034 \
-        --wayland_app_id main-text-editor'';
+      ${pkgs.alacritty}/bin/alacritty --class main-text-editor
+    '';
   };
 }
