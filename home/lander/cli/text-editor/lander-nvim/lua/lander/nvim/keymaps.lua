@@ -294,10 +294,10 @@
 
 
 
- local function niri_focus(target) if (nil == target) then _G.error("Missing argument target on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:296", 2) else end
+ local function niri_focus(target) if (nil == target) then _G.error("Missing argument target on /home/lander/src/dotfiles/home/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:296", 2) else end
  return vim.cmd(("silent !niri msg action focus-window --id " .. target)) end
 
- local function broot_send(target, cmd) if (nil == cmd) then _G.error("Missing argument cmd on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:299", 2) else end if (nil == target) then _G.error("Missing argument target on /home/lander/dotfiles/home-manager/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:299", 2) else end
+ local function broot_send(target, cmd) if (nil == cmd) then _G.error("Missing argument cmd on /home/lander/src/dotfiles/home/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:299", 2) else end if (nil == target) then _G.error("Missing argument target on /home/lander/src/dotfiles/home/lander/cli/text-editor/lander-nvim/fnl/lander/nvim/keymaps.fnl:299", 2) else end
  local function _9_()
  local cmd0 = cmd()
  cmd0 = ("silent !broot --send " .. target .. " --cmd \"" .. cmd0 .. "\"")
@@ -344,15 +344,9 @@
  vim.api.nvim_create_augroup("lander-nvim", {})
 
 
- local function on_file_type_fennel()
- local function bind_fennel()
-
  vim.keymap.set({"n"}, "<C-z>", ":normal i\206\187<cr>", {silent = true, noremap = true})
  vim.keymap.set({"i"}, "<C-z>", "\206\187", {silent = true, noremap = true})
  vim.keymap.set({"n"}, "<C-S-z>", ":normal i\206\155<cr>", {silent = true, noremap = true})
  vim.keymap.set({"i"}, "<C-S-z>", "\206\155", {silent = true, noremap = true})
  vim.keymap.set({"n"}, "<C-a>", ":normal i\206\160<cr>", {silent = true, noremap = true})
- return vim.keymap.set({"i"}, "<C-a>", "\206\160", {silent = true, noremap = true}) end
- return vim.schedule(bind_fennel) end
-
- return vim.api.nvim_create_autocmd("FileType", {pattern = {"fennel"}, callback = on_file_type_fennel, group = "lander-nvim"})
+ return vim.keymap.set({"i"}, "<C-a>", "\206\160", {silent = true, noremap = true})

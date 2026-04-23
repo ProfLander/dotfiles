@@ -342,20 +342,13 @@
 (pcall vim.api.clear_autocmds {:group :lander-nvim})
 (vim.api.nvim_create_augroup :lander-nvim {})
 
-;; Fennel
-(λ on-file-type-fennel []
-  (λ bind-fennel []
-    ;; Typeable lambda symbols
-    (vim.keymap.set [:n] :<C-z> ":normal iλ<cr>" {:silent true :noremap true})
-    (vim.keymap.set [:i] :<C-z> "λ" {:silent true :noremap true})
-    (vim.keymap.set [:n] :<C-S-z> ":normal iΛ<cr>" {:silent true :noremap true})
-    (vim.keymap.set [:i] :<C-S-z> "Λ" {:silent true :noremap true})
-    (vim.keymap.set [:n] :<C-a> ":normal iΠ<cr>" {:silent true :noremap true})
-    (vim.keymap.set [:i] :<C-a> "Π" {:silent true :noremap true}))
-  (vim.schedule bind-fennel))
+;; Lisp characters
+(vim.keymap.set [:n] :<C-z> ":normal iλ<cr>" {:silent true :noremap true})
+(vim.keymap.set [:i] :<C-z> "λ" {:silent true :noremap true})
+(vim.keymap.set [:n] :<C-S-z> ":normal iΛ<cr>" {:silent true :noremap true})
+(vim.keymap.set [:i] :<C-S-z> "Λ" {:silent true :noremap true})
+(vim.keymap.set [:n] :<C-a> ":normal iΠ<cr>" {:silent true :noremap true})
+(vim.keymap.set [:i] :<C-a> "Π" {:silent true :noremap true})
 
-(vim.api.nvim_create_autocmd :FileType
-                             {:pattern [:fennel]
-                              :callback on-file-type-fennel
-                              :group :lander-nvim})
+
 
