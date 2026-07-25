@@ -3,7 +3,8 @@
 ### MANUAL VESKTOP CONFIG
 ## UI
 # Settings -> Vesktop Settings -> Turn off Enable Splash Screen, Splash Theming
-# Settings -> Streamer Mode -> Turn off Enable Streamer Mode, Automatically enable...
+# Settings -> Streamer Mode -> Turn off all Streamer Mode sub-options,
+# dismiss streamer mode banner with close button
 
 {
   imports = [ inputs.nixcord.homeModules.nixcord ];
