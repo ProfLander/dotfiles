@@ -161,9 +161,11 @@ in
   programs.firefox = {
     enable = true;
 
-    package = firefox;
+    # Set config path to silence 26.05 migration message
+    # recommending a broken migration to $XDG_CONFIG_HOME
+    configPath = ".mozilla/firefox";
 
-    configPath = "${config.xdg.configHome}/mozilla/firefox";
+    package = firefox;
 
     profiles = {
       default = mkProfile {
