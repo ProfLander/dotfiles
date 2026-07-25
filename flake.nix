@@ -9,9 +9,7 @@
 
     nixcord.url = "github:FlameFlag/nixcord";
 
-    niri-flake.url = "github:ProfLander/niri-flake";
-    niri.url = "github:ProfLander/niri";
-    #niri.url = "github:YaLTeR/niri";
+    niri.url = "github:YaLTeR/niri";
 
     secrets.url = "github:ProfLander/secrets";
 

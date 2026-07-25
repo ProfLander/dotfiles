@@ -1,6 +1,5 @@
 {
   imports = [
-    ./compositor.nix
     ./audio-mixer.nix
     ./cursor.nix
     ./default-applications.nix
@@ -10,8 +9,9 @@
     ./text-editor.nix
     ./terminal-emulator.nix
     ./user-dirs.nix
-    ./wallpaper/default.nix
     ./web-browser.nix
+    ./compositor/default.nix
+    ./wallpaper/default.nix
     ./chat-client/default.nix
     ./screen-capture/default.nix
   ];

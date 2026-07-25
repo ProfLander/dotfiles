@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 
 ### MANUAL FIREFOX CONFIGURATION:
 ## UI
@@ -159,28 +163,30 @@ in
 
     package = firefox;
 
-      profiles = {
-        default = mkProfile {
-          name = "Default";
-          isDefault = true;
-          id = 0;
-        };
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
 
-        work = mkProfile {
-          name = "Work";
-          id = 1;
-        };
-
-        media = mkProfile {
-          name = "Media";
-          id = 2;
-        };
-
-        chat = mkProfile {
-          name = "Chat";
-          id = 3;
-        };
+    profiles = {
+      default = mkProfile {
+        name = "Default";
+        isDefault = true;
+        id = 0;
       };
+
+      work = mkProfile {
+        name = "Work";
+        id = 1;
+      };
+
+      media = mkProfile {
+        name = "Media";
+        id = 2;
+      };
+
+      chat = mkProfile {
+        name = "Chat";
+        id = 3;
+      };
+    };
   };
 
   # Services
