@@ -23,14 +23,14 @@
     fsType = "ext4";
   };
 
-  fileSystems."/mnt/scratch" = {
+  fileSystems."/mnt/games" = {
     device = "/dev/disk/by-uuid/9bec8d1d-a0d8-4f88-b2dc-566dbb479b7c";
     fsType = "btrfs";
   };
 
-  fileSystems."/mnt/projects" = {
-    device = "/dev/disk/by-uuid/9c0d33e7-4695-4a4a-a1d3-3724a76f8e91";
-    fsType = "ext4";
+  fileSystems."/mnt/retro" = {
+    device = "/dev/disk/by-uuid/86ff0ea1-54e1-4b8c-8fd0-e262cc2cc366";
+    fsType = "btrfs";
   };
 
   swapDevices = [
