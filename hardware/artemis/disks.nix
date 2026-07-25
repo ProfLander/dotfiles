@@ -24,8 +24,8 @@
   };
 
   fileSystems."/mnt/scratch" = {
-    device = "/dev/disk/by-uuid/9b77fd54-622e-4a81-9aea-bb0d4d29ed11";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/9bec8d1d-a0d8-4f88-b2dc-566dbb479b7c";
+    fsType = "btrfs";
   };
 
   fileSystems."/mnt/projects" = {
