@@ -18,6 +18,26 @@ in
           rounded_corners = true;
         };
       };
+      keybinds.normal = {
+        # Unbind Ctrl+h
+        "unbind \"Ctrl g\"" = { };
+        "unbind \"Ctrl p\"" = { };
+        "unbind \"Ctrl t\"" = { };
+        "unbind \"Ctrl n\"" = { };
+        "unbind \"Ctrl h\"" = { };
+        "unbind \"Ctrl s\"" = { };
+        "unbind \"Ctrl o\"" = { };
+        "unbind \"Ctrl q\"" = { };
+
+        # Bind Ctrl+m to Switch to Move mode
+        "bind \"Ctrl F1\"" = { "Quit" = []; };
+        "bind \"Ctrl F5\"" = { SwitchToMode = "Pane"; };
+        "bind \"Ctrl F6\"" = { SwitchToMode = "Tab"; };
+        "bind \"Ctrl F7\"" = { SwitchToMode = "Resize"; };
+        "bind \"Ctrl F8\"" = { SwitchToMode = "Move"; };
+        "bind \"Ctrl F9\"" = { SwitchToMode = "Search"; };
+        "bind \"Ctrl F10\"" = { SwitchToMode = "Session"; };
+      };
     };
 
     layouts = {
