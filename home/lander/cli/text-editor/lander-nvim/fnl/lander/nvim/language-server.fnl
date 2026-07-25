@@ -81,12 +81,12 @@
 
 (vim.lsp.enable :lua_ls)
 
-(vim.lsp.config :racket-language-server 
-                {:cmd [:racket :--lib :racket-language-server]
+(vim.lsp.config :racket-langserver
+                {:cmd [:racket :--lib :racket-langserver]
                  :filetypes [:racket :scheme]
                  :root_markers [:.git]})
 
-(vim.lsp.enable :racket-language-server)
+(vim.lsp.enable :racket-langserver)
 
 (vim.lsp.config :rust-analyzer
                 {:cmd [:rust-analyzer]
