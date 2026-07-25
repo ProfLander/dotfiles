@@ -13,6 +13,7 @@
     niri.url = "github:ProfLander/niri/scroll-factor";
 
     secrets.url = "github:ProfLander/secrets";
+    #secrets.url = "git+file:/home/lander/src/secrets";
 
     util-getafix.url = ./home/util/getafix;
     util-project.url = ./home/util/project;
