@@ -7,8 +7,3 @@
 
 (set vim.o.formatexpr "v:lua.require'conform'.formatexpr()")
 
-;; Language-specific
-
-;; Fennel
-(local fennel-indent (require :fennel-indent))
-(fennel-indent.setup {})

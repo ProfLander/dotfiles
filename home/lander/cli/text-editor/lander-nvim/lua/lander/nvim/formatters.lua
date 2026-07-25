@@ -6,10 +6,4 @@
 
 
 
-
-
-
-
-
- local fennel_indent = require("fennel-indent")
- return fennel_indent.setup({})
+ return nil
