@@ -14,8 +14,8 @@
   };
 
   fileSystems."/mnt/backup" = {
-    device = "/dev/disk/by-uuid/1d53e828-6d5b-4b97-8627-84e4adb31391";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/9ed884cc-c050-49ca-8d1c-62338eaa1725";
+    fsType = "btrfs";
     options = [ "nofail" ];
   };
 
