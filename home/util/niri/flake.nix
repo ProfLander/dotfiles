@@ -219,7 +219,7 @@
               warp-mouse-to-focus
               focus-follows-mouse max-scroll-amount="5%"
               mod-key "Alt"
-              //button-scroll-factor 0.250000
+              button-scroll-factor 0.250000
           }
 
         screenshot-path "${config.home.homeDirectory}/pictures/screenshots/%Y-%m-%d-%H-%M-%S.png"

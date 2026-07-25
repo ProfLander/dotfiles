@@ -117,15 +117,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1784570726,
-        "narHash": "sha256-9EMn69JBcFWFgUM7f0VBAX+jBby5b9H3M59U75+5yI4=",
-        "owner": "YaLTeR",
+        "lastModified": 1784953683,
+        "narHash": "sha256-fvmQBe2cdzJ96hW+kd6tW4QvP9HaNqoFfkB6eLeZRLI=",
+        "owner": "ProfLander",
         "repo": "niri",
-        "rev": "7f26c3ee804fb6ed458ef7fb0e3c794f14e0b3bc",
+        "rev": "03629ec67044602498b685d86ec9dc825e8101eb",
         "type": "github"
       },
       "original": {
-        "owner": "YaLTeR",
+        "owner": "ProfLander",
+        "ref": "scroll-factor",
         "repo": "niri",
         "type": "github"
       }
