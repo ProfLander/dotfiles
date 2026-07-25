@@ -350,5 +350,9 @@
 (vim.keymap.set [:n] :<C-a> ":normal iΠ<cr>" {:silent true :noremap true})
 (vim.keymap.set [:i] :<C-a> "Π" {:silent true :noremap true})
 
-
-
+;; Prevent useless RacketDoc binding override in racket buffers
+(vim.api.nvim_create_autocmd "FileType"
+  {:pattern "racket"
+   :callback (fn [ev]
+               (vim.keymap.del "n" "K"
+                               {:buffer ev.buf}))})
