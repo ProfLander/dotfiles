@@ -1,10 +1,8 @@
-(local ts-parsers (require :nvim-treesitter.parsers))
+(λ get-parser []
+  (vim.treesitter.get_parser 0))
 
 (λ has-parser []
-  (ts-parsers.has_parser))
-
-(λ get-parser []
-  (ts-parsers.get_parser))
+  (and (get-parser) #t))
 
 (λ language-for-range [parser [sr sc er ec]]
   (parser:language_for_range [sr sc er ec]))

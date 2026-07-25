@@ -1,5 +1,4 @@
-(local treesitter-configs (require :nvim-treesitter.configs))
+(local treesitter (require :nvim-treesitter))
 
-(treesitter-configs.setup {:highlight {:enable true
-                                       :additional_vim_regex_highlighting false}})
-
+(treesitter.setup {:highlight {:enable true
+                               :additional_vim_regex_highlighting false}})
