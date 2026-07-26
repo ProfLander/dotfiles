@@ -69,7 +69,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.lander = ./home/default.nix;
+              home-manager.users.lander = ./hardware/calliope/home.nix;
               home-manager.extraSpecialArgs = specialArgs;
             }
           ];
@@ -87,7 +87,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.lander = ./home/default.nix;
+              home-manager.users.lander = ./hardware/artemis/home.nix;
               home-manager.extraSpecialArgs = specialArgs;
             }
           ];

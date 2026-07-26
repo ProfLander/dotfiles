@@ -12,7 +12,5 @@
     ./lander/garbage-collection.nix
     ./lander/session-variables.nix
     ./lander/password-store.nix
-
-    ../hardware/calliope/home.nix
   ];
 }
