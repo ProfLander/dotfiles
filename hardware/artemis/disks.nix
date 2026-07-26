@@ -20,8 +20,8 @@
   };
 
   fileSystems."/mnt/media" = {
-    device = "/dev/disk/by-uuid/c4138465-5c7b-4164-9404-90a1ceef0d77";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/9af2451d-0950-424b-9111-e55ca476a039";
+    fsType = "btrfs";
     options = [ "nofail" ];
   };
 
