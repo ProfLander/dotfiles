@@ -1,9 +1,11 @@
-{ config, util-niri, ... }:
+{ config, secrets, util-niri, ... }:
 
 {
   imports = [
     ../../home/default.nix
   ];
+
+  home.file.".ssh/id_ed25519".text = secrets.users.lander.calliope.private;
 
   home.file.".config/niri/config.kdl" = {
     text = (util-niri.niri-config config) + ''
