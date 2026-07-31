@@ -4,6 +4,7 @@
     ./disks.nix
     ./monitors.nix
     ./network.nix
+    ./syncthing.nix
     ../common/firmware.nix
     ../common/x86_64.nix
     ../common/cpu-amd.nix
