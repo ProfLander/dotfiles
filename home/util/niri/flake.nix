@@ -481,6 +481,13 @@
             open-focused true
         }
 
+        window-rule {
+            match app-id="pico8_dyn"
+            open-on-workspace "ws-1-main-editor"
+            open-focused true
+            open-floating true
+        }
+
         gestures { hot-corners { off; }; }
       '';
     };
