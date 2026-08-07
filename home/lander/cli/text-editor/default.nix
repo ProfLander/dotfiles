@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.neovim =
@@ -10,8 +10,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "ProfLander";
             repo = "conjure-libre";
-            rev = "83a96ca75859f94b1482c2beff21b294d6616a37";
-            sha256 = "sha256-rKYwhAK9CBggqGOys1g5z4z1bMS1zpiDwpqQeVT9hbc=";
+            rev = "9b1b3d07083e455354bc96059b8a13e3e1075933";
+            sha256 = "sha256-J9C2jTB5WxP775BGT24C0eWWs8Uez0nZ+166tuRjyuE=";
           };
           dependencies = [
             plenary-nvim
