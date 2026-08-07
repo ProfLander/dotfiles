@@ -26,6 +26,22 @@
           ];
         };
 
+        "anbernic-rg-cubexx-bios" = {
+          label = "BIOS";
+          group = "Anbernic RG CubeXX";
+          path = "/mnt/retro/bios/retroarch/system";
+          ignorePatterns = [
+            "!/dc"
+            "!/saturn_bios.bin"
+            "!/scph*.bin"
+            "*"
+          ];
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
         "anbernic-rg-cubexx-saves" = {
           label = "Saves";
           group = "Anbernic RG CubeXX";
@@ -37,6 +53,16 @@
         };
 
         # Metadata
+
+        "anbernic-rg-cubexx-metadata/arcade" = {
+          label = "Arcade";
+          group = "Anbernic RG CubeXX / Metadata";
+          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/MUOS/info/catalogue/Arcade";
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
 
         "anbernic-rg-cubexx-metadata/nintendo-nes" = {
           label = "NES";
@@ -52,46 +78,6 @@
           label = "SNES";
           group = "Anbernic RG CubeXX / Metadata";
           path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/MUOS/info/catalogue/Nintendo SNES - SFC";
-          type = "sendonly";
-          devices = [
-            "anbernic-rg-cubexx"
-          ];
-        };
-
-        "anbernic-rg-cubexx-metadata/sega-master-system" = {
-          label = "Sega Master System";
-          group = "Anbernic RG CubeXX / Metadata";
-          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/MUOS/info/catalogue/Sega Master System";
-          type = "sendonly";
-          devices = [
-            "anbernic-rg-cubexx"
-          ];
-        };
-
-        "anbernic-rg-cubexx-metadata/sega-mega-drive" = {
-          label = "Sega Mega Drive";
-          group = "Anbernic RG CubeXX / Metadata";
-          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/MUOS/info/catalogue/Sega Mega Drive - Genesis";
-          type = "sendonly";
-          devices = [
-            "anbernic-rg-cubexx"
-          ];
-        };
-
-        "anbernic-rg-cubexx-metadata/sega-32x" = {
-          label = "Sega 32X";
-          group = "Anbernic RG CubeXX / Metadata";
-          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/MUOS/info/catalogue/Sega 32X";
-          type = "sendonly";
-          devices = [
-            "anbernic-rg-cubexx"
-          ];
-        };
-
-        "anbernic-rg-cubexx-metadata/sega-game-gear" = {
-          label = "Sega Game Gear";
-          group = "Anbernic RG CubeXX / Metadata";
-          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/MUOS/info/catalogue/Sega Game Gear";
           type = "sendonly";
           devices = [
             "anbernic-rg-cubexx"
@@ -148,6 +134,77 @@
           ];
         };
 
+
+        "anbernic-rg-cubexx-metadata/sega-master-system" = {
+          label = "Sega Master System";
+          group = "Anbernic RG CubeXX / Metadata";
+          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/MUOS/info/catalogue/Sega Master System";
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
+        "anbernic-rg-cubexx-metadata/sega-mega-drive" = {
+          label = "Sega Mega Drive";
+          group = "Anbernic RG CubeXX / Metadata";
+          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/MUOS/info/catalogue/Sega Mega Drive - Genesis";
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
+        "anbernic-rg-cubexx-metadata/sega-32x" = {
+          label = "Sega 32X";
+          group = "Anbernic RG CubeXX / Metadata";
+          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/MUOS/info/catalogue/Sega 32X";
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
+        "anbernic-rg-cubexx-metadata/sega-saturn" = {
+          label = "Sega Saturn";
+          group = "Anbernic RG CubeXX / Metadata";
+          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/MUOS/info/catalogue/Sega Saturn";
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
+        "anbernic-rg-cubexx-metadata/sega-dreamcast" = {
+          label = "Sega Dreamcast";
+          group = "Anbernic RG CubeXX / Metadata";
+          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/MUOS/info/catalogue/Sega Dreamcast";
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
+        "anbernic-rg-cubexx-metadata/sega-game-gear" = {
+          label = "Sega Game Gear";
+          group = "Anbernic RG CubeXX / Metadata";
+          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/MUOS/info/catalogue/Sega Game Gear";
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
+        "anbernic-rg-cubexx-metadata/sony-playstation" = {
+          label = "Sony PlayStation";
+          group = "Anbernic RG CubeXX / Metadata";
+          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/MUOS/info/catalogue/Sony PlayStation";
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
         "anbernic-rg-cubexx-metadata/pc-engine" = {
           label = "PC Engine";
           group = "Anbernic RG CubeXX / Metadata";
@@ -190,6 +247,16 @@
 
         # ROMs
 
+        "anbernic-rg-cubexx-roms/arcade" = {
+          label = "Arcade";
+          group = "Anbernic RG CubeXX / ROMs";
+          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/ROMS/Arcade";
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
         "anbernic-rg-cubexx-roms/nintendo-nes" = {
           label = "NES";
           group = "Anbernic RG CubeXX / ROMs";
@@ -204,46 +271,6 @@
           label = "SNES";
           group = "Anbernic RG CubeXX / ROMs";
           path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/ROMS/Nintendo SNES - SFC";
-          type = "sendonly";
-          devices = [
-            "anbernic-rg-cubexx"
-          ];
-        };
-
-        "anbernic-rg-cubexx-roms/sega-master-system" = {
-          label = "Sega Master System";
-          group = "Anbernic RG CubeXX / ROMs";
-          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/ROMS/Sega Master System";
-          type = "sendonly";
-          devices = [
-            "anbernic-rg-cubexx"
-          ];
-        };
-
-        "anbernic-rg-cubexx-roms/sega-mega-drive" = {
-          label = "Sega Mega Drive";
-          group = "Anbernic RG CubeXX / ROMs";
-          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/ROMS/Sega Mega Drive - Genesis";
-          type = "sendonly";
-          devices = [
-            "anbernic-rg-cubexx"
-          ];
-        };
-
-        "anbernic-rg-cubexx-roms/sega-32x" = {
-          label = "Sega 32X";
-          group = "Anbernic RG CubeXX / ROMs";
-          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/ROMS/Sega 32X";
-          type = "sendonly";
-          devices = [
-            "anbernic-rg-cubexx"
-          ];
-        };
-
-        "anbernic-rg-cubexx-roms/sega-game-gear" = {
-          label = "Sega Game Gear";
-          group = "Anbernic RG CubeXX / ROMs";
-          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/ROMS/Sega Game Gear";
           type = "sendonly";
           devices = [
             "anbernic-rg-cubexx"
@@ -300,6 +327,88 @@
           ];
         };
 
+        "anbernic-rg-cubexx-roms/sega-master-system" = {
+          label = "Sega Master System";
+          group = "Anbernic RG CubeXX / ROMs";
+          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/ROMS/Sega Master System";
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
+        "anbernic-rg-cubexx-roms/sega-mega-drive" = {
+          label = "Sega Mega Drive";
+          group = "Anbernic RG CubeXX / ROMs";
+          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/ROMS/Sega Mega Drive - Genesis";
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
+        "anbernic-rg-cubexx-roms/sega-32x" = {
+          label = "Sega 32X";
+          group = "Anbernic RG CubeXX / ROMs";
+          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/ROMS/Sega 32X";
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
+        "anbernic-rg-cubexx-roms/sega-saturn" = {
+          label = "Sega Saturn";
+          group = "Anbernic RG CubeXX / ROMs";
+          path = "/mnt/retro/roms/sega-saturn";
+          ignorePatterns = [
+            "!*.chd"
+            "*"
+          ];
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
+        "anbernic-rg-cubexx-roms/sega-dreamcast" = {
+          label = "Sega Dreamcast";
+          group = "Anbernic RG CubeXX / ROMs";
+          path = "/mnt/retro/roms/sega-dreamcast";
+          ignorePatterns = [
+            "!*.chd"
+            "*"
+          ];
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
+        "anbernic-rg-cubexx-roms/sega-game-gear" = {
+          label = "Sega Game Gear";
+          group = "Anbernic RG CubeXX / ROMs";
+          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/ROMS/Sega Game Gear";
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
+        "anbernic-rg-cubexx-roms/sony-playstation" = {
+          label = "Sony PlayStation";
+          group = "Anbernic RG CubeXX / ROMs";
+          path = "/mnt/retro/roms/sony-playstation";
+          ignorePatterns = [
+            "!*.chd"
+            "*"
+          ];
+          type = "sendonly";
+          devices = [
+            "anbernic-rg-cubexx"
+          ];
+        };
+
         "anbernic-rg-cubexx-roms/pc-engine" = {
           label = "PC Engine";
           group = "Anbernic RG CubeXX / ROMs";
@@ -343,7 +452,7 @@
         "anbernic-rg-cubexx-roms/pico-8" = {
           label = "Pico-8";
           group = "Anbernic RG CubeXX / ROMs";
-          path = "/mnt/retro/matey/device/anbernic-rg-cubexx/sd-card/ROMS/pico8";
+          path = "/mnt/retro/roms/pico-8";
           type = "sendreceive";
           devices = [
             "anbernic-rg-cubexx"
