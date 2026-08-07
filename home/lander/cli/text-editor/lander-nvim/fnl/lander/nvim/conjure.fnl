@@ -4,6 +4,10 @@
 ;; Don't override C-k with eval-current-form
 (set (. vim :g "conjure#mapping#doc_word") false)
 
+;; Override racket prompt parser to handle <pkgs> prefix
+(set (. vim :g "conjure#client#racket#stdio#prompt_pattern")
+     "\n?[<>\"%w%-./_]*> ")
+
 ;; Use Fennel stdio backend by default
 (set (. vim :g "conjure#filetype#fennel") "conjure.client.fennel.stdio")
 
